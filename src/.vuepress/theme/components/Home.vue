@@ -4,7 +4,7 @@
             <div class="mask"></div>
             <div class="slog">
                 少个分号的写作空间
-                <div class="focus"> 🎯 研发自测 | 软件架构 | 技术咨询</div>
+                <div class="focus"> 🎯 研发自测 | 软件架构 | 敏捷团队 | 技术咨询</div>
             </div>
         </div>
 
@@ -23,7 +23,7 @@
                     <p class="content">原创内容，这类内容为体系化写作，将博客或者工作中成体系的内容整理下来，会持续优化，可以当做小型电子书阅读。</p>
                 </div>
                 <div class="feature">
-                    <h2 class="title">知识库</h2>
+                    <h2 class="title">知识库（整理中）</h2>
                     <p class="content">半原创内容，将日常学习到的笔记、见闻、案例整理下来，比较粗糙，搜索引擎上都能找到的内容，为前面两类内容提供原料。</p>
                 </div>
             </div>
