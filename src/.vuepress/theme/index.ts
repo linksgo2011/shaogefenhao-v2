@@ -97,6 +97,12 @@ const blogTheme: Theme<DefaultThemeOptions> = {
         hotReload: true,
       },
     ],
+    [
+      '@vuepress/plugin-google-analytics',
+      {
+        id: 'G-VWHZ3KR6PD',
+      },
+    ],
   ],
 };
 

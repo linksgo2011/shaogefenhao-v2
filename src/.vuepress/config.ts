@@ -35,7 +35,7 @@ export default defineUserConfig<DefaultThemeOptions>({
             link: "/column/ddd",
           },
           {
-            text: "Java面试指南",
+            text: "Java 面试指南",
             link: "/column/interview/java-server-enginer-interview.html",
           },
           {
