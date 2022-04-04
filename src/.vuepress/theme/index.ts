@@ -103,6 +103,19 @@ const blogTheme: Theme<DefaultThemeOptions> = {
         id: 'G-VWHZ3KR6PD',
       },
     ],
+    [
+      '@vuepress/plugin-search',
+      {
+        locales: {
+          '/': {
+            placeholder: 'SEARCH',
+          },
+          '/zh/': {
+            placeholder: '搜索',
+          },
+        },
+      },
+    ],
   ],
 };
 

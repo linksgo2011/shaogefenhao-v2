@@ -7,7 +7,7 @@ const BASE = process.env.BASE as "/" | `/${string}/`;
 export default defineUserConfig<DefaultThemeOptions>({
   base: BASE || "/",
 
-  lang: "zh-CN",
+  lang: "zh",
   title: "少个分号",
   description: "少个分号,软件架构,高认知软件工程,DDD,领域驱动设计,敏捷,研发自测,敏捷团队",
 
