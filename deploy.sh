@@ -5,8 +5,8 @@ set -e
 
 initDist(){
   echo $1 > base.js
-  npm run build
-  cd docs/.vuepress/dist
+  npm run vite-build
+  cd src/.vuepress/dist
 }
 
 initDist "module.exports = '/'"
@@ -16,10 +16,10 @@ echo 'i.shaogefenhao.com' > CNAME
 # deploy to github
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
-  githubUrl=git@github.com:linksgo2011/shaogefenhao.git
+  githubUrl=git@github.com:linksgo2011/shaogefenhao-v2.git
 else
   msg='来自github actions的自动部署'
-  githubUrl=https://linksgo2011:${GITHUB_TOKEN}@github.com/linksgo2011/shaogefenhao.git
+  githubUrl=https://linksgo2011:${GITHUB_TOKEN}@github.com/linksgo2011/shaogefenhao-v2.git
   git config --global user.name "linksgo2011"
   git config --global user.email "120377843@qq.com"
 fi
@@ -31,7 +31,3 @@ initGit(){
 }
 initGit
 git push -f $githubUrl master:gh-pages # 推送到github
-#
-#cd -
-#rm -rf docs/.vuepress/dist
-#
