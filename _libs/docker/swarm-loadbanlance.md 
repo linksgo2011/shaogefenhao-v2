@@ -1,0 +1,10 @@
+---
+title: Swarm 中的负载均衡
+toc: true
+---
+
+## 参考资料
+
+- https://upcloud.com/community/tutorials/load-balancing-docker-swarm-mode/
+- 在线学习 swarm 的教程 https://www.katacoda.com/courses/docker-orchestration/load-balance-service-discovery-swarm-mode
+- docker 内部的 loadbalance 原理解析 https://www.jianshu.com/p/c83a9173459f
