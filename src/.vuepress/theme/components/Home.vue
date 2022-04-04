@@ -50,7 +50,7 @@
 
     .hero-image {
         position: relative;
-        background: url("./hero.jpg") center center;
+        background: url("/hero.jpg") center center;
         background-size: cover;
         width: 100%;
         height: 20rem;
