@@ -1,6 +1,7 @@
 ---
 title: 开发者如何快速熟悉一个新项目
 date: 2021-11-16 16:38:56
+sidebar: auto
 category: 
   - 自我提升
 head:

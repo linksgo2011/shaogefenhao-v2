@@ -1,6 +1,7 @@
 ---
 title: 使用白板帮助思考
 date: 2021-08-11 19:18:35
+sidebar: auto
 category: 
   - 编程思维
 head:

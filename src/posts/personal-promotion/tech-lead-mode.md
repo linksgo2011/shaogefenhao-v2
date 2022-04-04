@@ -1,6 +1,7 @@
 ---
 title: 作为 Tech Lead 应该操心什么？
 date: 2021-11-16 16:38:56
+sidebar: auto
 category: 
   - 自我提升
 head:

@@ -1,6 +1,7 @@
 ---
 title: 压缩学习法：如何做笔记？
 date: 2021-11-16 16:38:56
+sidebar: auto
 category: 
   - 自我提升
 head:

@@ -1,6 +1,7 @@
 ---
 title: 架构中的矛盾和权衡
 date: 2021-08-11 19:18:35
+sidebar: auto
 category: 
   - 软件架构
 head:

@@ -1,6 +1,7 @@
 ---
 title: 如何克服害怕失败的心理
 date: 2021-11-16 16:38:56
+sidebar: auto
 category: 
   - 自我提升
 head:

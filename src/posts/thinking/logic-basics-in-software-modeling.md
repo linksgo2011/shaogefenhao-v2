@@ -1,6 +1,7 @@
 ---
 title: 软件建模中的逻辑学基础
 date: 2021-08-11 19:18:35
+sidebar: auto
 category: 
   - 编程思维
 head:

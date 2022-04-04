@@ -1,6 +1,7 @@
 ---
 title: 解读《EDGE》：产品型公司的宏观业务规划
 date: 2021-08-11 19:18:36
+sidebar: auto
 category: 
   - 编程思维
 head:

@@ -1,6 +1,7 @@
 ---
 title: 使用 DDD 指导微服务拆分的逻辑
 date: 2020-08-11 19:18:35
+sidebar: auto
 category: 
   - 软件架构
 head:

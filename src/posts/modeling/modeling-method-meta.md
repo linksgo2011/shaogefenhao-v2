@@ -1,6 +1,7 @@
 ---
 title: 建模方法元模型：如何设计一个建模方法
 date: 2021-06-22 12:18:35
+sidebar: auto
 category: 
   - 软件建模
 head:

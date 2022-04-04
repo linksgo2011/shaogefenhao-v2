@@ -1,6 +1,7 @@
 ---
 title: 模型学习法
 date: 2021-11-16 16:38:56
+sidebar: auto
 category: 
   - 自我提升
 head:

@@ -1,6 +1,7 @@
 ---
 title: 系统思考的方法
 date: 2020-09-11 19:18:35
+sidebar: auto
 category: 
   - 编程思维
 head:

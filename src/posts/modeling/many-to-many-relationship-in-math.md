@@ -1,6 +1,7 @@
 ---
 title: 多对多关系解耦的数学原理
 date: 2021-08-11 19:18:35
+sidebar: auto
 category: 
   - 软件建模
 head:

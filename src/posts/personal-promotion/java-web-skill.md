@@ -1,6 +1,7 @@
 ---
 title: Java web 方向技术核心
 date: 2021-11-16 16:38:56
+sidebar: auto
 category: 
   - 自我提升
 head:

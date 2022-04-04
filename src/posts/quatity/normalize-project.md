@@ -1,6 +1,7 @@
 ---
 title: 软件规范化指南
 date: 2021-08-5 12:18:35
+sidebar: auto
 category: 
   - 软件质量
 head:

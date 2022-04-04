@@ -1,6 +1,7 @@
 ---
 title: 企业架构建模的挑战和机遇
 date: 2021-08-11 19:18:35
+sidebar: auto
 category: 
   - 软件架构
 head:

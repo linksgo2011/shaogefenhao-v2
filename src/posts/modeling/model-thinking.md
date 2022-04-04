@@ -1,7 +1,7 @@
 ---
 title: 理解 DDD：编程中的模型思维
-toc: true
 date: 2021-02-11 20:18:35
+sidebar: auto
 category: 
   - 软件建模
 head:

@@ -1,6 +1,7 @@
 ---
 title: 在一个困难项目中做 Tech Lead 的收获
 date: 2021-08-11 19:18:36
+sidebar: auto
 category: 
   - 自我提升
 head:

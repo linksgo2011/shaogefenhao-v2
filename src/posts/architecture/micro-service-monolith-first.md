@@ -2,9 +2,9 @@
 title: 【翻译】单体优先的架构策略
 sticky: true
 date: 2021-06-11 22:18:35
+sidebar: auto
 category: 
   - 软件架构
-sidebar: auto
 head:
   - - meta
     - name: keyword

@@ -1,6 +1,7 @@
 ---
 title: 离线应用设计
 date: 2021-12-25 13:53:59
+sidebar: auto
 category: 
   - 软件架构
 head:

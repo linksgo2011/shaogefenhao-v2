@@ -16,15 +16,15 @@
             <div class="features">
                 <div class="feature">
                     <h2 class="title">博客文章</h2>
-                    <p class="content">这类内容为非体系化写作，想到哪里写到哪里，具有主观色彩，发布后一般不再修改。</p>
+                    <p class="content">原创内容，这类内容为非体系化写作，想到哪里写到哪里，具有主观色彩，发布后一般不再修改。</p>
                 </div>
                 <div class="feature">
                     <h2 class="title">专题内容</h2>
-                    <p class="content">这类内容为体系化写作，将博客或者工作中成体系的内容整理下来，会持续优化，可以当做小型电子书阅读。</p>
+                    <p class="content">原创内容，这类内容为体系化写作，将博客或者工作中成体系的内容整理下来，会持续优化，可以当做小型电子书阅读。</p>
                 </div>
                 <div class="feature">
                     <h2 class="title">知识库</h2>
-                    <p class="content">将日常学习到的笔记、见闻、案例整理下来，比较粗糙，为前面两类内容提供原料。</p>
+                    <p class="content">半原创内容，将日常学习到的笔记、见闻、案例整理下来，比较粗糙，搜索引擎上都能找到的内容，为前面两类内容提供原料。</p>
                 </div>
             </div>
         </div>

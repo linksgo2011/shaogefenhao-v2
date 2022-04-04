@@ -1,6 +1,7 @@
 ---
 title: 面向对象中的主体客体思维
 date: 2021-08-11 19:18:35
+sidebar: auto
 category: 
   - 编程思维
 head:

@@ -1,11 +1,13 @@
 ---
 title: 专注编码，一次只做一件事
-categories: 
-  - 自我管理
-toc: true
-date: 2021-11-16 16:38:56
 sidebar: auto
-permalink: /others/one-time-one-thing/
+category: 
+  - 自我提升
+head:
+  - - meta
+    - name: keyword
+      content: 专注,自我管理
+description: 若同时追两只兔子,你一只也抓不到。——俄罗斯谚语
 ---
 
 在做了程序员 8 年以后，吃了编程上一个小小的亏。
