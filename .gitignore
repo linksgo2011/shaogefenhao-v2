@@ -16,3 +16,8 @@ urls.txt
 
 # mac
 .DS_Store
+
+**/.cache
+**/.temp
+**/dist
+.idea
