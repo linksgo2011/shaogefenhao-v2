@@ -1,6 +1,6 @@
 folder=_posts/architecture
 fileName=offline-application
-imageHost=https://github.com/shaogefenhao/wiki/raw/master/source/$folder/
+imageHost=imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/main/src/$folder/
 
 rm -rf build
 mkdir build

@@ -1,6 +1,6 @@
 folder=renzhi
 fileName=20220215-how-to-improve-renzhi
-imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao/main/docs/$folder/
+imageHost=imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/main/src/$folder/
 rm -rf build
 mkdir build
 
