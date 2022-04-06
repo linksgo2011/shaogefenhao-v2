@@ -1,10 +1,10 @@
-folder=renzhi
-fileName=20220215-how-to-improve-renzhi
+folder=posts/thinking
+fileName=right-and-wrong-in-the-software-industry
 imageHost=imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/main/src/$folder/
 rm -rf build
 mkdir build
 
-cat docs/${folder}/${fileName}.md > build/output.md
+cat src/${folder}/${fileName}.md > build/output.md
 sed -i "" "s@./$fileName@$imageHost/$fileName@g" build/output.md
 sed -i "" "s@src=$fileName\"@src=\"$imageHost/$fileName@g" build/output.md
 pandoc -s build/output.md -w html --template=template/wechat_template.html -o build/wechat.html  --title-prefix email --highlight-style pygments

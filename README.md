@@ -1,5 +1,7 @@
 # shaogefenhao
 
+[![Server Deployment](https://github.com/linksgo2011/shaogefenhao-v2/actions/workflows/deployment.yml/badge.svg)](https://github.com/linksgo2011/shaogefenhao-v2/actions/workflows/deployment.yml)
+
 @少个分号的博客仓库，集成博客、学习笔记等内容。 网站地址：http://shaogefenhao.com/
 
 ## 注意事项
