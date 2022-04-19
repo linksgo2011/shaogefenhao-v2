@@ -1,5 +1,5 @@
 ---
-title: 想法 | 人性的弱点核心观点
+title: 记录 | 人性的弱点核心观点
 toc: true
 categories: 
   - 高认知软件工程星球
