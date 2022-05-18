@@ -1,6 +1,6 @@
-folder=posts/thinking
-fileName=right-and-wrong-in-the-software-industry
-imageHost=imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/main/src/$folder/
+folder=posts/architecture
+fileName=permission-design-for-domain-service
+imageHost=imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
 
