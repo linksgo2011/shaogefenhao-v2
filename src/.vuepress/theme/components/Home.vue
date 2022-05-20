@@ -10,17 +10,31 @@
 
         <div class="center">
             <div class="guide">
-                主要有 3 类信息
+                内容导航和最近更新
             </div>
 
             <div class="features">
                 <div class="feature">
                     <h2 class="title">博客文章</h2>
                     <p class="content">原创内容，这类内容为非体系化写作，想到哪里写到哪里，具有主观色彩，发布后一般不再修改。</p>
+                    <ul>
+                        <li v-for="{ info,path } in latestArticles">
+                            <RouterLink :to="path">
+                                {{ info.title }}
+                            </RouterLink>
+                        </li>
+                    </ul>
                 </div>
                 <div class="feature">
                     <h2 class="title">专题内容</h2>
                     <p class="content">原创内容，这类内容为体系化写作，将博客或者工作中成体系的内容整理下来，会持续优化，可以当做小型电子书阅读。</p>
+                    <ul>
+                        <li><a href="/column/books/book-list">书单</a></li>
+                        <li><a href="/column/interview/java-server-enginer-interview.html">Java 面试指南</a></li>
+                        <li><a href="/column/performance/performance-overview.html">Java 性能优化</a></li>
+                        <li><a href="/column/source-analysis">Spring Boot 源码</a></li>
+                        <li><a href="/column/ddd">DDD（领域驱动设计）</a></li>
+                    </ul>
                 </div>
                 <div class="feature">
                     <h2 class="title">知识库（整理中）</h2>
@@ -29,6 +43,7 @@
             </div>
         </div>
 
+
         <div class="footer">
             Copyright © 2016-2022 少个分号 | <a href="https://beian.miit.gov.cn/">蜀ICP备15002811号-3</a> | 由 vuepress2 提供站点渲染
         </div>
@@ -36,7 +51,12 @@
 </template>
 
 <script lang="ts" setup>
+    import { useBlogType } from "vuepress-plugin-blog2/lib/client";
 
+    import ArticleList from "../components/ArticleList.vue";
+    import ParentLayout from "@vuepress/theme-default/lib/client/layouts/Layout.vue";
+
+    const latestArticles = useBlogType("article").value.items.slice(0,5);
 </script>
 
 

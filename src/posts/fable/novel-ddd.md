@@ -1,5 +1,6 @@
 ---
 title: 微小说：自己结账的订单
+date: 2022-02-11 19:18:35
 sidebar: auto
 category: 
   - 编程寓言

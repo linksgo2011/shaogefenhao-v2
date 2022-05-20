@@ -28,7 +28,7 @@ sidebar: false
 - [BY林子](https://www.bylinzi.com )
 - [于晓南](https://qualityfocus.club/yxn)
 
-## 咨询师伙伴
+## 咨询师伙伴们
 
 - [聂子云](http://www.niezitalk.com)
 - [张凯峰](http://www.kaifengzhang.com/)
