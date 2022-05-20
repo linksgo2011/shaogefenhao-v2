@@ -31,4 +31,5 @@ sidebar: false
 ## 咨询师伙伴
 
 - [聂子云](http://www.niezitalk.com)
+- [张凯峰](http://www.kaifengzhang.com/)
 
