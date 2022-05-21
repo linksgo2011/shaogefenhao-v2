@@ -1,5 +1,5 @@
-folder=posts/personal-promotion
-fileName=how-to-use-situation
+folder=column/ddd
+fileName=19.tactical-modeling-principles
 imageHost=imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
