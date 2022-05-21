@@ -12,7 +12,7 @@ description: 几乎每个人都有这种困惑，自己有一个完美的点子�
 
 ---
 
-![title](./how-to-use-situation/poster (6).png)
+![poster](./how-to-use-situation/poster.png)
 
 几乎每个人都有这种困惑，自己有一个完美的点子，想做一些自己以为有价值的事情，但是无论怎么样都无法推动，到头来都是自己一个人使劲儿。
 
