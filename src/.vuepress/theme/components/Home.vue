@@ -29,10 +29,10 @@
                     <h2 class="title">专题内容</h2>
                     <p class="content">原创内容，这类内容为体系化写作，将博客或者工作中成体系的内容整理下来，会持续优化，可以当做小型电子书阅读。</p>
                     <ul>
-                        <li><a href="/column/books/book-list">书单</a></li>
+                        <li><a href="/column/books/book-list.html">书单</a></li>
                         <li><a href="/column/interview/java-server-enginer-interview.html">Java 面试指南</a></li>
                         <li><a href="/column/performance/performance-overview.html">Java 性能优化</a></li>
-                        <li><a href="/column/source-analysis">Spring Boot 源码</a></li>
+                        <li><a href="/column/source-analysis/spring-boot-workflow.html">Spring Boot 源码</a></li>
                         <li><a href="/column/ddd">DDD（领域驱动设计）</a></li>
                     </ul>
                 </div>
