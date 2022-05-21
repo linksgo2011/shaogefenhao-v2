@@ -87,9 +87,6 @@ const blogTheme: Theme<DefaultThemeOptions> = {
               if (!pageB.frontmatter.date) return 1;
               if (!pageA.frontmatter.date) return -1;
 
-              console.log(pageB.frontmatter.title)
-              console.log(pageA.frontmatter.title)
-
               return (
                 new Date(pageB.frontmatter.date).getTime() -
                 new Date(pageA.frontmatter.date).getTime()
