@@ -1,5 +1,5 @@
-folder=posts/architecture
-fileName=permission-design-for-domain-service
+folder=posts/personal-promotion
+fileName=how-to-use-situation
 imageHost=imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
