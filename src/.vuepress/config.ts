@@ -70,7 +70,7 @@ export default defineUserConfig<DefaultThemeOptions>({
           },
           {
             text: "领域驱动设计基础",
-            link: "/speech/model-thinking.html"
+            link: "/speech/fundamental-of-ddd.html"
           },
           {
             text: "深入 DDD：主客体建模法",
