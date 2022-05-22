@@ -39,11 +39,10 @@
                 <div class="feature">
                     <h2 class="title">知识库（整理中）</h2>
                     <p class="content">半原创内容，将日常学习到的笔记、见闻、案例整理下来，比较粗糙，搜索引擎上都能找到的内容，为前面两类内容提供原料。</p>
+                    <ul>
+                        <li><a href="/libs/mini-notes/">一页纸笔记</a></li>
+                    </ul>
                 </div>
-                <ul>
-                    <li><a href="/libs/mini-notes/">一页纸笔记</a></li>
-                </ul>
-
             </div>
         </div>
 
