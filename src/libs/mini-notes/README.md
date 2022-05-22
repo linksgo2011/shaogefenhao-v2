@@ -8,3 +8,4 @@ sidebar: false
 极度压缩的笔记方法，构建知识的逻辑索引。
 
 - [英语语法的逻辑](./one-page-for-english-notes)
+- [离散数学](./discrete-mathematics)
