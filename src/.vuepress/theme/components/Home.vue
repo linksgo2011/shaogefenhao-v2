@@ -47,6 +47,29 @@
         </div>
 
 
+        <div class="center">
+            <div class="guide">
+                Side Project和其它资源
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                  <ul>
+                      <li><a href="http://todo.printf.cn/">极简任务管理工具</a></li>
+                  </ul>
+                </div>
+                <div class="feature">
+                    <ul>
+                        <li><a href="https://edu.51cto.com/topic/5211.html">51CTO DDD 系列课程</a></li>
+                    </ul>
+                </div>
+                <div class="feature">
+                    <ul>
+                        <li><a href="http://domain-driven-design.org/">DDD 参考指南</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="footer">
             Copyright © 2016-2022 少个分号 | <a href="https://beian.miit.gov.cn/">蜀ICP备15002811号-3</a> | 由 vuepress2 提供站点渲染
         </div>
