@@ -9,3 +9,4 @@ sidebar: false
 
 - [英语语法的逻辑](./one-page-for-english-notes)
 - [离散数学](./discrete-mathematics)
+- [《态度》读书笔记](./attitude-reading-notes)
