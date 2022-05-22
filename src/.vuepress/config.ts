@@ -60,18 +60,18 @@ export default defineUserConfig<DefaultThemeOptions>({
         text: "演讲",
         activeMatch: "/speech/*",
         children: [
-          // {
-          //   text: "单元测试基础",
-          //   link: "/speech/unit-testing.html"
-          // },
-          // {
-          //   text: "团队系统论（上）",
-          //   link: "/speech/team-system.html"
-          // },
-          // {
-          //   text: "深入 DDD：主客体建模法",
-          //   link: "/speech/subject-object-modeling.html"
-          // },
+          {
+            text: "单元测试基础",
+            link: "/speech/unit-testing.html"
+          },
+          {
+            text: "团队系统论（上）",
+            link: "/speech/team-system.html"
+          },
+          {
+            text: "深入 DDD：主客体建模法",
+            link: "/speech/subject-object-modeling.html"
+          },
           {
             text: " DDD 建模工作坊（快剪版）",
             link: "/speech/ddd-workshop.html"
@@ -80,7 +80,13 @@ export default defineUserConfig<DefaultThemeOptions>({
       },
       {
         text: "知识库",
-        link: "/libs/",
+        activeMatch: "/libs/*",
+        children: [
+          {
+            text: "一页纸笔记",
+            link: "/libs/mini-notes/"
+          }
+        ]
       },
       {
         text: "找到我",
@@ -149,6 +155,7 @@ export default defineUserConfig<DefaultThemeOptions>({
             '/column/ddd/16.ddd-clinic-layer-architecture.md',
             '/column/ddd/17.ddd-limitation.md',
             '/column/ddd/18.QA-for-DDD.md',
+            '/column/ddd/19.tactical-modeling-principles.md',
           ],
         },
       ],
