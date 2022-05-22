@@ -12,4 +12,4 @@ description: 领域驱动设计基础
 
 # 领域驱动设计基础
 
-<iframe style='width: 600px;height: 338px' frameborder='no' allowfullscreen mozallowfullscreen webkitallowfullscreen src='http://go.plvideo.cn/front/video/preview?vid=36353145dabbec1056902a754c1dee13_3'></iframe>
+<iframe style='width: 600px;height: 338px' frameborder='no' allowfullscreen mozallowfullscreen webkitallowfullscreen src='http://go.plvideo.cn/front/video/preview?vid=36353145da8397363d7fe33cb2f55428_3'></iframe>
