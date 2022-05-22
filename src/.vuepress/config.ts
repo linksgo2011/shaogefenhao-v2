@@ -60,13 +60,17 @@ export default defineUserConfig<DefaultThemeOptions>({
         text: "演讲",
         activeMatch: "/speech/*",
         children: [
+          // {
+          //   text: "单元测试基础",
+          //   link: "/speech/unit-testing.html"
+          // },
           {
-            text: "单元测试基础",
-            link: "/speech/unit-testing.html"
+            text: "计算机中的模型思维",
+            link: "/speech/model-thinking.html"
           },
           {
-            text: "团队系统论（上）",
-            link: "/speech/team-system.html"
+            text: "领域驱动设计基础",
+            link: "/speech/model-thinking.html"
           },
           {
             text: "深入 DDD：主客体建模法",
@@ -75,7 +79,11 @@ export default defineUserConfig<DefaultThemeOptions>({
           {
             text: " DDD 建模工作坊（快剪版）",
             link: "/speech/ddd-workshop.html"
-          }
+          },
+          {
+            text: "团队系统论（上）",
+            link: "/speech/team-system.html"
+          },
         ]
       },
       {
