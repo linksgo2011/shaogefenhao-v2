@@ -12,5 +12,4 @@ description: 计算机中的模型思维
 
 # 计算机中的模型思维
 
-<iframe style='width: 600px;height: 338px' frameborder='no' allowfullscreen mozallowfullscreen webkitallowfullscreen src='http://go.plvideo.cn/front/video/preview?vid=36353145da7492b6309269137b2c8872_3'></iframe>
-
+<iframe style='width: 600px;height: 338px' frameborder='no' allowfullscreen mozallowfullscreen webkitallowfullscreen src='http://go.plvideo.cn/front/video/preview?vid=36353145da5c6782e7e3ca7081bbd449_3'></iframe>
