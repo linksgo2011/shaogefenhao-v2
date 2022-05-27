@@ -11,4 +11,4 @@ description: 将团队看做一个系统管理。
 
 # 团队系统论（上）
 
-<iframe style='width: 600px;height: 338px' frameborder='no' allowfullscreen mozallowfullscreen webkitallowfullscreen src='http://go.plvideo.cn/front/video/preview?vid=36353145da6954cf508f208c7be41f98_3'></iframe>
+<iframe style='width: 600px;height: 338px' frameborder='no' allowfullscreen mozallowfullscreen webkitallowfullscreen src='https://go.plvideo.cn/front/video/preview?vid=36353145da6954cf508f208c7be41f98_3'></iframe>

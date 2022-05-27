@@ -11,4 +11,4 @@ description: 单元测试基础
 
 # 单元测试基础
 
-<iframe style='width: 600px;height: 338px' frameborder='no' allowfullscreen mozallowfullscreen webkitallowfullscreen src='http://go.plvideo.cn/front/video/preview?vid=36353145da0242c9e8c9f25d7ef1dec0_3'></iframe>
+<iframe style='width: 600px;height: 338px' frameborder='no' allowfullscreen mozallowfullscreen webkitallowfullscreen src='https://go.plvideo.cn/front/video/preview?vid=36353145da0242c9e8c9f25d7ef1dec0_3'></iframe>
