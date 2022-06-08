@@ -20,3 +20,6 @@ urls.txt
 **/.temp
 .idea
 **/.$multiple-team-modeling.drawio.bkp
+
+**/dist
+
