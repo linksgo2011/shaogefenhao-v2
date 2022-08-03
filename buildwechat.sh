@@ -1,5 +1,5 @@
-folder=column/ddd
-fileName=19.tactical-modeling-principles
+folder=posts/personal-promotion
+fileName=why-hasn-it-been-updated-recently
 imageHost=imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
