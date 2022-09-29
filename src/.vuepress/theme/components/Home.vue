@@ -65,6 +65,7 @@
                 </div>
                 <div class="feature">
                     <ul>
+                        <li><a href="https://github.com/linksgo2011/a-programmer-s-cognitive-experience">电子书：《程序员的认知心得》</a></li>
                         <li><a href="http://domain-driven-design.org/">DDD 参考指南</a></li>
                     </ul>
                 </div>
