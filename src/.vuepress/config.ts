@@ -93,6 +93,10 @@ export default defineUserConfig<DefaultThemeOptions>({
           {
             text: "一页纸笔记",
             link: "/libs/mini-notes/"
+          },
+          {
+            text: "Thoughtworks Inception 笔记",
+            link: "/libs/mini-notes/inception.html"
           }
         ]
       },
