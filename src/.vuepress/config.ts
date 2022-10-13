@@ -19,11 +19,11 @@ export default defineUserConfig<DefaultThemeOptions>({
     navbar: [
       "/",
       {
-        text: "博客文章",
+        text: "博客",
         link: "/posts",
       },
       {
-        text: "专题文章",
+        text: "专题",
         activeMatch: "/column/*",
         children:[
           {
