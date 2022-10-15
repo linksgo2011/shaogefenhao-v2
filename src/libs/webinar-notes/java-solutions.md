@@ -121,3 +121,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 1. 对话题进行分类
 2. 将这些整理出来放到一个共享的地方。暂时先放到博客上增加评论功能，后续整理下发布到单独的仓库
 3. 后续的活动的安排
+4. 将业务单号生成实现为 library，用于后续项目使用
+
+## 录屏和文件分享
+
+链接: https://pan.baidu.com/s/19yp9cUGVrVNz24YkG8OcdQ 提取码: a199 
