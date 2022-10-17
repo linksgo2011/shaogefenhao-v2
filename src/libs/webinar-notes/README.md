@@ -68,4 +68,4 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 [技术方案 Webinar - 业务单号生成](./java-solution-webinar-1.html)
 
-[技术方案 Webinar - 技术方案 Webinar: ID 类型的选择和生成](./java-solution-webinar-2.html)
+[技术方案 Webinar - ID 类型的选择和生成](./java-solution-webinar-2.html)
