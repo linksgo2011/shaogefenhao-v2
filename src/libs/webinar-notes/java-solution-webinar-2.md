@@ -1,5 +1,5 @@
 ---
-title: 技术方案 Webinar: ID 类型的选择和生成
+title: 技术方案 Webinar - ID 类型的选择和生成
 date: 2022-10-15 18:27:46
 sidebar: true
 head:
