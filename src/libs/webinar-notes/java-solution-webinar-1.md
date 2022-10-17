@@ -1,5 +1,5 @@
 ---
-title: Java 常见技术方案讨论 1
+title: 技术方案 Webinar: 业务单号生成
 date: 2022-10-15 18:27:46
 sidebar: true
 head:
