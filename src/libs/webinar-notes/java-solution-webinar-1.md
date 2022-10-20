@@ -70,3 +70,7 @@ head:
 ## 录屏和文件分享
 
 链接: https://pan.baidu.com/s/19yp9cUGVrVNz24YkG8OcdQ 提取码: a199 
+
+## 参考资料
+
+- 分布式ID生成服务的技术原理和项目实战 https://mp.weixin.qq.com/s/u4UkyAnUY3_2o2PYukXwWA
