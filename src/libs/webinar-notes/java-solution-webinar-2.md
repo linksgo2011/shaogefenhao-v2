@@ -68,3 +68,7 @@ head:
 - 17 | 为什么不建议你使用自增主键？  https://time.geekbang.org/column/article/285819?utm_identify=geektime&utm_source=geektime-web&utm_medium=adzone&utm_campaign=qconp&gk_source=qconpgeektime-web&utm_term=0222&screen=full
 
 ![极客时间关于数据库 ID 选择的资料](./java-solution-webinar-2/img.png)
+
+## 录屏和文件分享
+
+链接: https://pan.baidu.com/s/1dHstUkwo9tUlHFGr06h3fA 提取码: hftw 
