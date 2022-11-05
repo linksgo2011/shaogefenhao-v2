@@ -64,6 +64,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 24. 分库分表的最佳实践
 25. 幂等方案和防重方案解决
 26. 私有化部署
+27. API 版本设计
+28. 服务治理 @刘彦龙 ESB 上怎么做的
 
 ## 讨论记录
 
@@ -72,3 +74,7 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 [技术方案 Webinar - ID 类型的选择和生成](./java-solution-webinar-2.html)
 
 [技术方案 Webinar - 微服务的结构](./java-solution-webinar-3.html)
+
+[技术方案 Webinar - 当我们在说模型的时候说的是什么](./java-solution-webinar-4.html)
+
+[技术方案 Webinar - 微服务中的鉴权（Auth）怎么做？](./java-solution-webinar-5.html)
