@@ -9,6 +9,10 @@ head:
   description: Java 常见技术方案讨论
 ---
 
+## 背景
+
+作为开发人员会接触一些技术方案，在的设计方案时，我们更多的地想听取业界各种做法，避免闭门造车。 所以举行了一个会议，用来每周和大家交流技术话题，并做了一些记录，这些话题聚焦可落地的技术方案。
+
 ## 会议信息
 
 会议主题：Webinar for Java Common Solutions
@@ -69,12 +73,13 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 ## 讨论记录
 
-[技术方案 Webinar - 业务单号生成](./java-solution-webinar-1.html)
+1. [技术方案 Webinar - 业务单号生成](./java-solution-webinar-1.html)
 
-[技术方案 Webinar - ID 类型的选择和生成](./java-solution-webinar-2.html)
+2. [技术方案 Webinar - ID 类型的选择和生成](./java-solution-webinar-2.html)
 
-[技术方案 Webinar - 微服务的结构](./java-solution-webinar-3.html)
+3. [技术方案 Webinar - 微服务的结构](./java-solution-webinar-3.html)
 
-[技术方案 Webinar - 当我们在说模型的时候说的是什么](./java-solution-webinar-4.html)
+4. [技术方案 Webinar - 当我们在说模型的时候说的是什么](./java-solution-webinar-4.html)
 
-[技术方案 Webinar - 微服务中的鉴权（Auth）怎么做？](./java-solution-webinar-5.html)
+5. [技术方案 Webinar - 微服务中的鉴权（Auth）怎么做？](./java-solution-webinar-5.html)
+
