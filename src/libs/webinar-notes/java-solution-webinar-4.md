@@ -144,7 +144,7 @@ SimonHan：
 
 补充一下，参考 RUP：
 
-![img.png](rup.png)
+![](./java-solution-webinar-4/rup.png)
 
 **前端(JS)适合建模吗？**
 

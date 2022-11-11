@@ -15,7 +15,7 @@ head:
 
 ## 典型微服务的结构
 
-![](micro-services.png)
+![](./java-solution-webinar-3/micro-services.png)
 
 水平分层：
 
