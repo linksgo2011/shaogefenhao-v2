@@ -49,7 +49,7 @@
 
         <div class="center">
             <div class="guide">
-                Side Project和其它资源
+                Side Project 和其它资源
             </div>
 
             <div class="features">
