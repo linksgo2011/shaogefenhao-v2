@@ -15,6 +15,7 @@ head:
 
 ## 会议信息
 
+```text
 会议主题：Webinar for Java Common Solutions
 会议时间：2022/10/15 21:00-22:30 (GMT+08:00) 中国标准时间 - 北京
 重复周期：2022/10/15-2022/11/26 21:00-22:30, 每周 (周六)
@@ -23,6 +24,19 @@ head:
 https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 腾讯会议：438-7768-4480
+```
+
+## 讨论记录
+
+1. [技术方案 Webinar - 业务单号生成](./java-solution-webinar-1.html)
+
+2. [技术方案 Webinar - ID 类型的选择和生成](./java-solution-webinar-2.html)
+
+3. [技术方案 Webinar - 微服务的结构](./java-solution-webinar-3.html)
+
+4. [技术方案 Webinar - 当我们在说模型的时候说的是什么](./java-solution-webinar-4.html)
+
+5. [技术方案 Webinar - 微服务中的鉴权（Auth）怎么做？](./java-solution-webinar-5.html)
 
 ## Agenda 和准备材料
 
@@ -70,16 +84,3 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 26. 私有化部署
 27. API 版本设计
 28. 服务治理 @刘彦龙 ESB 上怎么做的
-
-## 讨论记录
-
-1. [技术方案 Webinar - 业务单号生成](./java-solution-webinar-1.html)
-
-2. [技术方案 Webinar - ID 类型的选择和生成](./java-solution-webinar-2.html)
-
-3. [技术方案 Webinar - 微服务的结构](./java-solution-webinar-3.html)
-
-4. [技术方案 Webinar - 当我们在说模型的时候说的是什么](./java-solution-webinar-4.html)
-
-5. [技术方案 Webinar - 微服务中的鉴权（Auth）怎么做？](./java-solution-webinar-5.html)
-
