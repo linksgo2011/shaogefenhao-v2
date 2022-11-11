@@ -91,12 +91,12 @@ export default defineUserConfig<DefaultThemeOptions>({
         activeMatch: "/libs/*",
         children: [
           {
-            text: "一页纸笔记",
-            link: "/libs/mini-notes/"
+            text: "每周线上技术 Webinar 笔记",
+            link: "/libs/webinar-notes/"
           },
           {
-            text: "Thoughtworks Inception 笔记",
-            link: "/libs/training-notes/inception.html"
+            text: "一页纸笔记",
+            link: "/libs/mini-notes/"
           }
         ]
       },
