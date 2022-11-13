@@ -11,4 +11,11 @@ head:
 
 ## 录屏和文件分享
 
-链接: https://pan.baidu.com/s/12G_-ouD-bVccux4QvDdyrw?pwd=rses 提取码: rses 
+
+**视频**
+
+链接: https://pan.baidu.com/s/1KNNNXl17wnpoM5Q2fvFChQ?pwd=fpii 
+
+**文字转录**
+
+链接: https://pan.baidu.com/s/12G_-ouD-bVccux4QvDdyrw?pwd=rses 
