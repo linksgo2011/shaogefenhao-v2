@@ -38,6 +38,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 5. [技术方案 Webinar - 微服务中的鉴权（Auth）怎么做？](./java-solution-webinar-5.html)
 
+5. [技术方案 Webinar - 邓老师 DDD 代码结构分享](./java-solution-webinar-6.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
