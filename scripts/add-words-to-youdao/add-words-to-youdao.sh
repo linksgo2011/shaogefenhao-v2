@@ -2,7 +2,7 @@
 #!/bin/sh
 
 addToYoudao () {
-echo "Add $1 \r\n";
+echo "Add $1 ";
 curl "https://dict.youdao.com/wordbook/webapi/v2/ajax/add?word=$1&lan=en" \
   -H 'Accept: application/json, text/plain, */*' \
   -H 'Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,es;q=0.7' \
@@ -19,7 +19,7 @@ curl "https://dict.youdao.com/wordbook/webapi/v2/ajax/add?word=$1&lan=en" \
   --compressed
 }
 
-for fn in $(cat words.txt); do
+for fn in $(cat silicon-valley-words.txt); do
   addToYoudao "$fn";
 done
 
