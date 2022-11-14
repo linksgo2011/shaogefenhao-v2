@@ -19,7 +19,7 @@ curl "https://dict.youdao.com/wordbook/webapi/v2/ajax/add?word=$1&lan=en" \
   --compressed
 }
 
-for fn in $(cat silicon-valley-words.txt); do
+for fn in $(cat high-frequency-2200.txt); do
   addToYoudao "$fn";
 done
 
