@@ -11,5 +11,4 @@ head:
 
 The mini book notes for 《Learn More, Study Less》
 
-![](learn-more-study-less/learn-more-study-less.png)
-
+![](./learn-more-study-less/learn-more-study-less.png)
