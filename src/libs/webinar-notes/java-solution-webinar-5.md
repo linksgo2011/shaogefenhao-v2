@@ -158,7 +158,7 @@ https://stackoverflow.com/questions/53500219/spring-security-oauth2-vs-spring-cl
 
 主要用于分布式授权体系，外部系统的接入，下面这张图演示了最复杂的一种情况。
 
-![](java-solution-webinar-5/oauth2.png)
+![](./java-solution-webinar-5/oauth2.png)
 
 **SAML**
 
