@@ -11,3 +11,4 @@ sidebar: false
 - [离散数学](./discrete-mathematics.html)
 - [《态度》读书笔记](./attitude-reading-notes.html)
 - [《Learn More, Study Less》](./learn-more-study-less.html)
+- [《计算机科学精粹》](./computer-science-distilled.html)
