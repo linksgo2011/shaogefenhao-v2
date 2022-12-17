@@ -71,3 +71,7 @@ head:
 1. 一个技术方案用那些图来表达?
 
 比如，四加一，下周六。
+
+## 录屏分享
+
+链接: https://pan.baidu.com/s/1S4ViACGDSzgD_3OlqY1V1g?pwd=v52i 提取码: v52i 
