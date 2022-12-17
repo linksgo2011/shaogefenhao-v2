@@ -42,6 +42,9 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 7. [技术方案 Webinar - 分库分表和数据库选型](./java-solution-webinar-7.html)
 
+8. [技术方案 Webinar - 微服务下的导出方案](./java-solution-webinar-8.html)
+
+9[技术方案 Webinar - 审批流方案](./java-solution-webinar-9.html)
 
 ## Agenda 和准备材料
 
