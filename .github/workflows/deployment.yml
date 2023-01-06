@@ -11,7 +11,7 @@ on:
 jobs:
   # This workflow contains a single job called "greet"
   deployment:
-    runs-on: ubuntu-latest # 运行在虚拟机环境ubuntu-latest
+    runs-on: ubuntu-20.04 # 运行在虚拟机环境 ubuntu-20.04
 
     strategy:
       matrix:
