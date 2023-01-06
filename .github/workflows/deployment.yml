@@ -32,7 +32,7 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_KEY }}
-          ARGS: "-rltgoDzvO"
+          ARGS: "-rltgoDzvO -o PubkeyAcceptedKeyTypes=rsa-sha2-256"
           SOURCE: "src/.vuepress/dist"
           REMOTE_HOST: ${{ secrets.SERVER_HOST }}
           REMOTE_USER: ${{ secrets.SERVER_USER }}
