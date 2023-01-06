@@ -33,6 +33,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_KEY }}
           ARGS: "-rltgoDzvO"
+          SSH_CMD_ARGS: "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
           SOURCE: "src/.vuepress/dist"
           REMOTE_HOST: ${{ secrets.SERVER_HOST }}
           REMOTE_USER: ${{ secrets.SERVER_USER }}
