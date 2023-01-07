@@ -48,6 +48,7 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 10. [技术方案 Webinar - 架构设计和规划](./java-solution-webinar-10.html)
 
+11. [技术方案 Webinar - 如何处理业务公式？](./java-solution-webinar-11.html)
 
 ## Agenda 和准备材料
 
@@ -95,3 +96,6 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 26. 私有化部署
 27. API 版本设计
 28. 服务治理 @刘彦龙 ESB 上怎么做的
+29. 排序如何建模？
+30. 在线协作如何实现（画图软件）？
+31. 性能如何估算的方法是什么？
