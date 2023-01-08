@@ -1,5 +1,5 @@
 ---
-title: 我把一本去年的博客整理成了电子书
+title: 我把去年的博客整理成了电子书
 date: 2023-01-08 15:39:00
 sidebar: auto
 category: 
@@ -8,7 +8,7 @@ head:
   - - meta
     - name: keyword
       content: 认知,电子书,软件工程,程序员的认知心得
-description: 我把一本去年的博客整理成了电子书,这本电子书的名称为《程序员的认知心得》
+description: 我把一本去年的博客整理成了开源电子书,这本电子书的名称为《程序员的认知心得》
 ---
 
 去年在更新《最近在忙什么？为什么没更新》推文中提到我在工作之外做的两件事情：
@@ -24,15 +24,10 @@ description: 我把一本去年的博客整理成了电子书,这本电子书的
 
 这本电子书大概 10W 字左右，使用了一些逻辑学、哲学思考串了软件工程的各个阶段，内容上和此前公众号的文章内容有所重复，但也有更多补充的内容。
 
-电子书 Github 地址：[https://github.com/linksgo2011/a-programmer-s-cognitive-experience](https://github.com/linksgo2011/a-programmer-s-cognitive-experience)
+电子书 Github 地址：[https://github.com/shaogefenhao/a-programmer-s-cognitive-experience](https://github.com/shaogefenhao/a-programmer-s-cognitive-experience)
 
 电子书 HTML 阅读地址：[https://renzhi.shaogefenhao.com/](https://renzhi.shaogefenhao.com/)
 
 我不是一个聪明的人，写作只能算是工作之外非常有价值的一项爱好，借助写作这项"外脑"，拓展了思维边界和能力上限，同时交到了不少同行的朋友并得到大量反馈。
 
 电子书中可能依然存在大量错误、值得提升的地方，请不吝赐教。另外，公众号和知识星球将坚持更新，以获得更为频繁的交流和反馈。主要内容可能是更为具体的系统方案设计、领域建模等话题。我们在微信社群每周进行一个技术话题的交流和讨论活动，新的一年（2023）考虑会将其整理出来作为日常工作参考。
-
-
-
-
-
