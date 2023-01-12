@@ -1,5 +1,5 @@
 ---
-title: 算法之心-实际问题驱动的算法总结
+title: Java 常见算法和策略
 categories: 
   - 计算机科学基础
 sidebar: auto
@@ -25,19 +25,82 @@ description: 通过讨论算法的解决的问题、用途、策略来系统的�
 
 ## 从问题出发
 
-### 如何实现字符串？
+阅读了很多关于算法的书籍，主要是聚焦在代码上，但是理解起来比较困难，我这里把代码放到最后一步，先梳理问题和解决问题的策略，再看如何编写代码，这里的代码使用 Java 表达（最常用）。
 
-使用策略：迭代
+先从问题出发然后分析解决问题的策略，寻找合适的数据结构，这样更能真正的掌握算法。
 
-### 如何实现从列表中查找指定的元素？
+## 元素查找
 
-使用策略：迭代、分支定界
+我们先从最简单问题开始（其实也会在面试中被问到）。 比如在一个列表中（或者数组），从元素中找到需要的元素。 
+
+根据经验，我们会想到两种查找方式：
+
+1. 顺序查找。逐个遍历整个过程，直到找到符合要求的元素（这几乎不能叫算法，没有人不知道这种过程）。
+2. 折半查找（Binary search algorithm）。对于有序的列表来说，很容易通过元素的总数获取中间值，然后前后定位。
+
+顺序查找就是一种迭代的策略，一次找不到就找下一个，直到找出来为止。而折半查找就是一种分支定界的策略，通过分析现有数据特征进行减少迭代的次数。
+
+下面是顺序查找的 Java 示例：
+
+```java
+    private static int sequentialSearch(int[] sourceList, int targetValue) {
+        for (int i = 0; i < sourceList.length; i++) {
+            if (sourceList[i] == targetValue) {
+                return i;
+            }
+        }
+        throw new RuntimeException("Can't find elements");
+    }
+```
+
+顺序查找很简单，马上就能写出来，但是折半查找这么简单的算法，我居然立马写不出来。于是赶紧在图（纸上）推演了一下，把策略分析好，然后再写出来。
+
+![](./core-of-algorithm/binary-search.png)
+
+二分查找的策略其实非常简单，对于有序的列表来说。我们只需要找到中间的数字，然后判断大于、小于、还是等于，然后不断缩小边界，最终找到目标元素。
+
+在写代码前先整理思路和进行任务分解：
+
+1. 为了定位到中间元素，首先需要获取列表的长度。对于数组来说，可以用 length 属性，定义并赋值给 length 变量。
+2. 如果第一次迭代没有命中，需要做第二次定界，那么就需要变量存储上界 right 和下界 left 变量、middle 变量。
+3. 每次迭代，需要把 middle 变量赋值给 right 或者 left 变量。如果目标值定位到了左边就需要重新设置上界，如果目标值定位到了由边就需要重新设置下界，如果目标值准确定位到了就返回。
+4. 需要思考停止循环的条件：left > right 则未找到目标需要抛出异常，这个条件可以同时处理升序和降序的列表，通用性更好。
+
+所以算法实现如下：
+
+```java
+    private static int binarySearch(int[] sourceList, int targetValue) {
+        int left = 0;
+        int right = sourceList.length - 1;
+        while (left <= right) {
+            int middle = (int) Math.floor((left + right) / 2);
+            if (sourceList[middle] < targetValue) {
+                // 如果目标值定位到了左边就需要重新设置上界
+                left = middle;
+            } else if (sourceList[middle] > targetValue) {
+                // 如果目标值定位到了由边就需要重新设置下界
+                right = middle;
+            } else {
+                // 如果目标值准确定位到了就返回
+                return middle;
+            }
+        }
+        // 如果没有匹配，抛出异常
+        throw new RuntimeException("Can't find elements");
+    }
+```
 
 ### 如何对列表排序？
 
 1. 排序的用处
 2. 
 
+
+## 其他内容
+
+### 如何实现字符串？
+
+字符串很多时候不是原生语法层面的内容，一般作为语言的标准库发布。字符串往往也不是基本类型，而是根据数组、字符等基本类型实现的。比如，在 C++ 中 char[] 表达字符串。如果想要更方便的使用 string 则需要使用 STL 容器中的 string 类。
 
 ## 参考资料
 
