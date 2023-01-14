@@ -45,7 +45,7 @@ head:
 
 ## 模型
 
-![](./java-solution-webinar-12/formular.png)
+![](./java-solution-webinar-11/formular.png)
 
 PS：图片可以使用 draw.io 打开并编辑。
 

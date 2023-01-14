@@ -50,6 +50,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 11. [技术方案 Webinar - 如何处理业务公式？](./java-solution-webinar-11.html)
 
+12. [技术方案 Webinar - 如何实现实时协作？](./java-solution-webinar-12.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
