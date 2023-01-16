@@ -1,5 +1,5 @@
-folder=posts/thinking
-fileName=cargo-cult-programming
+folder=libs/email
+fileName=book-review-request
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
