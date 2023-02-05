@@ -40,6 +40,7 @@ head:
 - MVEL 表达式引擎。类似于 Spring EL 表达式引擎，需要自己引入，和 Java 代码风格接近。
 - JS 引擎。可以使用 Java 自带的表达式引擎，可以使用 Js 脚本来写，更灵活没有类型。
 - Easy Rule（规则引擎）。可以使用 MVEL、Spring EL、原生 Java，超越了表达式引擎的范畴。
+- QL express。阿里开发的规则引擎。
 
 优先推荐可以考虑 Spring EL，如果需要用户编写，可以考虑 JS 引擎，如果有非常多条件需求，可以考虑 Easy Rule。
 

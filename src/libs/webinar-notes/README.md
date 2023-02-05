@@ -52,6 +52,10 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 12. [技术方案 Webinar - 如何实现实时协作？](./java-solution-webinar-12.html)
 
+13. [技术方案 Webinar - 除夕蔡老师分享技术方案图例](./java-solution-webinar-13.html)
+
+14. [技术方案 Webinar - 国际化](./java-solution-webinar-14.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
