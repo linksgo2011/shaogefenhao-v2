@@ -1,10 +1,10 @@
 ---
-title: 小技巧：可编辑的架构图
+title: 小技巧，可编辑的架构图
 date: 2023-01-16 16:24:35
 sidebar: auto
 category:
 - 软件架构
-  head:
+head:
 - - meta
 - name: keyword
   content: 架构图设计,可编辑架构图的小经验,可编辑图片
