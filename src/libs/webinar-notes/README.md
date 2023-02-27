@@ -56,7 +56,9 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 14. [技术方案 Webinar - 国际化](./java-solution-webinar-14.html)
 
-5[技术方案 Webinar - 分布式事务](./java-solution-webinar-15.html)
+15. [技术方案 Webinar - 分布式事务](./java-solution-webinar-15.html)
+
+16. [技术方案 Webinar - 库存、一盘货、批量库存扣减、秒杀](./java-solution-webinar-16.html)
 
 ## Agenda 和准备材料
 
