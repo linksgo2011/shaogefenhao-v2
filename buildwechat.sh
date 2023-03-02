@@ -1,6 +1,6 @@
-folder=posts/thinking
-fileName=little-cognitive-book
-imageHost=imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
+folder=posts/architecture
+fileName=editable-architecture-diagrams
+imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
 
