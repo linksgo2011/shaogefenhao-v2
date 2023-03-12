@@ -1,5 +1,5 @@
 folder=libs/email
-fileName=book-review-request
+fileName=book-review-request-java-self-testin
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build

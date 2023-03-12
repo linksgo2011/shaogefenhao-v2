@@ -60,6 +60,10 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 16. [技术方案 Webinar - 库存、一盘货、批量库存扣减、秒杀](./java-solution-webinar-16.html)
 
+17. [技术方案 Webinar - 团队的工作方式](./java-solution-webinar-17.html)
+
+18. [技术方案 Webinar - 容量估算](./java-solution-webinar-18.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 

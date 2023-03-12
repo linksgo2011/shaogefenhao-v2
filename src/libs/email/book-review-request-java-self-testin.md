@@ -1,5 +1,5 @@
 ---
-title: xxx
+title: 【RFC】我们编写了一本关于研发自测的书，请求反馈
 date: 2023-03-10 20:59:58
 sidebar: true
 ---
