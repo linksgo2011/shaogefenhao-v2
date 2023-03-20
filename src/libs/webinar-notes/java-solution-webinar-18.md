@@ -77,6 +77,5 @@ head:
 3. 一口气搞懂MySQL索引所有知识点 https://www.51cto.com/article/629382.html
 4. 掌握MySQL的B＋Tree索引暨如何计算索引树高度 https://cloud.tencent.com/developer/news/373193
 5. MySql分区、分表和分库 https://www.cnblogs.com/zwtblog/p/15332735.html#mysql%E5%88%86%E5%8C%BA%E7%B1%BB%E5%9E%8B
-6. 一本书《Web容量规划的艺术》
-
-
+6. 每日一面 - 从 innodb 的索引结构分析，为什么索引的 key 长度不能太长？ https://cloud.tencent.com/developer/article/1811696
+7. 一本书《Web容量规划的艺术》
