@@ -64,6 +64,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 18. [技术方案 Webinar - 容量估算](./java-solution-webinar-18.html)
 
+19. [技术方案 Webinar - CI/CD 之流水线搭建、质量扫描、测试策略](./java-solution-webinar-19.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
