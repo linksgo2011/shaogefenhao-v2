@@ -68,6 +68,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 20. [技术方案 Webinar - 软件工程中的政治问题](./java-solution-webinar-20.html)
 
+21. [技术方案 Webinar - 使用 AI 编程](./java-solution-webinar-21.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
