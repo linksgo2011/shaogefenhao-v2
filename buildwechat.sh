@@ -1,5 +1,5 @@
 folder=posts/architecture
-fileName=permission-checkpoints
+fileName=data-dictionary-solution
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
