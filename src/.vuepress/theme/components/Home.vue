@@ -56,6 +56,7 @@
                 <div class="feature">
                   <ul>
                       <li><a href="http://todo.printf.cn/">极简任务管理工具</a></li>
+                      <li><a href="http://domain-driven-design.org/">开源网站：DDD 参考指南</a></li>
                   </ul>
                 </div>
                 <div class="feature">
@@ -66,7 +67,7 @@
                 <div class="feature">
                     <ul>
                         <li><a href="https://renzhi.shaogefenhao.com/">电子书：《程序员的认知心得》</a></li>
-                        <li><a href="http://domain-driven-design.org/">DDD 参考指南</a></li>
+                        <li><a href="https://java-self-testing.github.io/java-self-testing-book/">电子书：《Java 研发自测》</a></li>
                     </ul>
                 </div>
             </div>
