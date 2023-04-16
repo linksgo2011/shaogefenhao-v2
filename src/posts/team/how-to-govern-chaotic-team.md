@@ -2,14 +2,15 @@
 title: IT 团队治理思考
 date: 2023-04-14 15:13:56
 sidebar: auto
-category:
-- 软件团队
-  head:
-- - meta
-- name: keyword
-  content: 软件工程，团队治理
-  description: 一些关于团队治理的经验
+category: 
+  - 软件团队
+head:
+  - - meta
+    - name: keyword
+      content: 软件工程，团队治理
+description: 一些关于团队治理的经验
 ---
+
 
 IT 团队出现管理上的问题几乎是必然的，工作多年的软件工程师总归需要面对技术管理和团队相关的问题。作为一名 Tech Lead，有一点思考分享给大家，如果你的团队刚好出现了一些问题希望有所帮助。
 
