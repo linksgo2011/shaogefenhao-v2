@@ -19,7 +19,7 @@ curl "https://dict.youdao.com/wordbook/webapi/v2/ajax/add?word=$1&lan=en" \
   --compressed
 }
 
-for fn in $(cat 1984.txt); do
+for fn in $(cat how-to-win-friends-and-infulent-people.txt); do
   addToYoudao "$fn";
 done
 
