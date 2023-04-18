@@ -9,7 +9,7 @@ head:
     - name: keyword
       content: 研发自测
       description: Java 研发自测的开源书发布
-cover: https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/news/java-self-testing-book/cover.png
+cover: ./java-self-testing-book/cover.png
 ---
 
 写作是一件孤独和漫长的事，但是却伴随着满足和收获。
@@ -30,10 +30,10 @@ cover: https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/
 
 前半部分的内容已经足以帮助初学者在日常工作中编写 Java 基本的单元测试、了解测试替身、基于 Spring 环境下的单元测试，以及 API 测试。
 
-请大家多提反馈，如果喜欢相关内容可以给开源仓库贡献 Star、Issue 和 Pull Requesz。
+请大家多提反馈，如果喜欢相关内容可以给开源仓库贡献 Star、Issue 和 Pull Request。
 
 感谢大家支持！
 
-访问地址：[https://java-self-testing.github.ihttps://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/news/java-self-testing-book/](https://java-self-testing.github.ihttps://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/news/java-self-testing-book/)
+访问地址：[https://java-self-testing.github.io/java-self-testing-book/](https://java-self-testing.github.io/java-self-testing-book/)
 
 代码仓库：[https://github.com/orgs/java-self-testing/repositories](https://github.com/orgs/java-self-testing/repositories)

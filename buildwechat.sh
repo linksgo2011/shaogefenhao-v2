@@ -1,5 +1,5 @@
-folder=posts/architecture
-fileName=data-dictionary-solution
+folder=posts/news
+fileName=java-self-testing-book
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
