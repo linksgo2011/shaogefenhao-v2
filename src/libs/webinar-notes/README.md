@@ -72,6 +72,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 22. [技术方案 Webinar - 遗留系统改造和切换](./java-solution-webinar-22.html)
 
+22. [技术方案 Webinar - OpenAPI 设计](./java-solution-webinar-23.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
