@@ -12,12 +12,9 @@ sidebar: true
 
 - [第 1 章 研发自测基础](https://docs.google.com/document/d/1GFaQErHaobCgp_2E_-8GQNM-qooce50P/edit?usp=share_link&ouid=116453960691325024784&rtpof=true&sd=true)
 - [第 2 章 代码评审](https://docs.google.com/document/d/1pIZmhiXrY6gQoTyOdHsLj-z8cGyflKt2/edit?usp=share_link&ouid=116453960691325024784&rtpof=true&sd=true)
-- 陆续更新中
-
-这本书本来按计划应该已经完成出版了，但是在出版前考虑到还没有细致的公开技术评审，出于对出版物严谨的态度，我们决定重新整理和优化，因此发到中国区邮件组寻求大家的帮助。
-
-希望能多提反馈和在项目上帮助到大家，谢谢！
-
+- [第 3 章 单元测试基础](https://docs.google.com/document/d/15lsfJkg-CP5z70C9Ts6GzFT_Eoe4pO0o/edit?usp=share_link&ouid=116453960691325024784&rtpof=true&sd=true)
+- [第 4 章 测试替身](https://docs.google.com/document/d/1yKyJfa6ecJcsB7k5Yus1iLUW-Nc4AGno/edit?usp=share_link&ouid=116453960691325024784&rtpof=true&sd=true)
+- [第 5 章 Spring 应用的测试](https://docs.google.com/document/d/1Bbcs4dAMuqxlRdJN66JkMTM8fXA8D6cW/edit?usp=share_link&ouid=116453960691325024784&rtpof=true&sd=true)
 
 
 

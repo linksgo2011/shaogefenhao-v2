@@ -1,39 +1,22 @@
 ---
-title: Java 研发自测的开源书
-date: 2023-04-18 21:00:07
-sidebar: auto
-category: 
-  - 内容更新
-head:
-  - - meta
-    - name: keyword
-      content: 研发自测
-      description: Java 研发自测的开源书发布
-cover: https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/news/java-self-testing-book/cover.png
+title: 【RFC】我们编写了一本关于研发自测的书，请求反馈
+date: 2023-03-10 20:59:58
+sidebar: true
 ---
 
-写作是一件孤独和漫长的事，但是却伴随着满足和收获。
+有很多书介绍怎么做测试，但是很少有写给开发人员的软件测试图书。软件质量是决定一款软件是否能用的底线，软件质量低下，会造成开发人员不断地返工和修复 Bug，而这需要付出巨大的代价，侵占原本紧凑的开发时间。
 
-从某种程度上来说，写作的最大受益者是其作者本人，而不是读者。
+这本书介绍了每个项目上都可能会用到的研发自测配置和技巧，以实用的角度说明如何进行单元测试、集成测试、API 测试、TDD、测试工程化、测试框架源码分析等内容。
 
-因为在写作的过程中可以重新系统性整理学到的知识，写作完成后还可以放心的"忘掉"。
+内容已按章节放到 Google Doc 上，可以尽情评论：
 
-将大脑中的临时记忆和知识写下来，这个过程就像把内存中的数据缓冲到磁盘上，释放内存压力的同时真正积累了经验。
+- [第 1 章 研发自测基础](https://docs.google.com/document/d/1GFaQErHaobCgp_2E_-8GQNM-qooce50P/edit?usp=share_link&ouid=116453960691325024784&rtpof=true&sd=true)
+- [第 2 章 代码评审](https://docs.google.com/document/d/1pIZmhiXrY6gQoTyOdHsLj-z8cGyflKt2/edit?usp=share_link&ouid=116453960691325024784&rtpof=true&sd=true)
+- [第 3 章 单元测试基础](https://docs.google.com/document/d/15lsfJkg-CP5z70C9Ts6GzFT_Eoe4pO0o/edit?usp=share_link&ouid=116453960691325024784&rtpof=true&sd=true)
+- [第 4 章 测试替身](https://docs.google.com/document/d/1yKyJfa6ecJcsB7k5Yus1iLUW-Nc4AGno/edit?usp=share_link&ouid=116453960691325024784&rtpof=true&sd=true)
+- [第 5 章 Spring 应用的测试](https://docs.google.com/document/d/1Bbcs4dAMuqxlRdJN66JkMTM8fXA8D6cW/edit?usp=share_link&ouid=116453960691325024784&rtpof=true&sd=true)
 
-作为应用开发者，研发自测是其重要的组成部分。有单元测试的软件，会比没有单元测试的软件更健壮和专业。虽然我不是 TDD 的拥趸，但是也从单元测试及类似的 E2E 测试中获益匪浅。
 
-于是我把 Java 编程过程中在实际项目中能使用的相关经验和技巧整理了下来，汇集成了一本书《Java 研发自测》。
 
-原本在去年计划出版，由于没有太多出版写作经验，在出版前意识到其内容质量还达不到满意的程度，于是取消了出版计划，并邀请了同事继续编辑。
 
-为了获得更多朋友的反馈，以及更早的将这些内容在同事、朋友中传播和使用。我们决定将其前半部分开源，并继续修改出版稿件。
 
-前半部分的内容已经足以帮助初学者在日常工作中编写 Java 基本的单元测试、了解测试替身、基于 Spring 环境下的单元测试，以及 API 测试。
-
-请大家多提反馈，如果喜欢相关内容可以给开源仓库贡献 Star、Issue 和 Pull Requesz。
-
-感谢大家支持！
-
-访问地址：[https://java-self-testing.github.ihttps://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/news/java-self-testing-book/](https://java-self-testing.github.ihttps://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/news/java-self-testing-book/)
-
-代码仓库：[https://github.com/orgs/java-self-testing/repositories](https://github.com/orgs/java-self-testing/repositories)
