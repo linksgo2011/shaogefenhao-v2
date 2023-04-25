@@ -1,5 +1,5 @@
-folder=posts/news
-fileName=java-self-testing-book
+folder=posts/personal-promotion
+fileName=incorrect-education-during-childhood
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
