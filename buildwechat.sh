@@ -1,5 +1,5 @@
-folder=posts/personal-promotion
-fileName=incorrect-education-during-childhood
+folder=posts/architecture
+fileName=business-code-solution
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
