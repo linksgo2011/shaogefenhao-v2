@@ -1,5 +1,5 @@
 ---
-title: 编程风格偏好和团队冲突解决
+title: 团队管理 | 
 date: 时间
 sidebar: auto
 category: 
