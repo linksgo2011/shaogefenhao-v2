@@ -65,6 +65,9 @@ IR 一种计算机技术，用于帮助人们把需要的信息获取回来，�
 - https://en.wikipedia.org/wiki/Tf%E2%80%93idf
 - https://en.wikipedia.org/wiki/Okapi_BM25
 
+## 录屏
+
+链接: https://pan.baidu.com/s/1TtSC_4XR8HGhZSr5CrQ5Rw?pwd=ktcx 提取码: ktcx 复制这段内容后打开百度网盘手机App，操作更方便哦
 
 
 
