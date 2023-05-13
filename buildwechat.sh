@@ -1,5 +1,5 @@
-folder=posts/modeling
-fileName=model-diagnosis-context
+folder=posts/architecture
+fileName=testing-strategy
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
