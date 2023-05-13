@@ -90,7 +90,7 @@ SDK 分类：
 
 管理平台功能清单参考：
 
-![](java-solution-webinar-23/img.png)
+![](./java-solution-webinar-23/img.png)
 
 难度不在管理平台上，而是一个流量控制这部分。
 
