@@ -1,6 +1,6 @@
 ---
 title: 系统设计 | 如何表达技术架构？（规划篇）
-date: 时间
+date: 2023-05-14 23:17:36
 sidebar: auto
 category: 
   - 软件架构
