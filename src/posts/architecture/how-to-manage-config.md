@@ -8,7 +8,7 @@ head:
   - - meta
     - name: keyword
       content: 配置管理
-      description: 应用系统中不同类型的配置应该如何处理？
+      description: 当一个应用系统演变地非常大时，配置会变得非常混乱。应用系统中不同类型的配置应该如何处理？
 ---
 
 当一个应用系统演变地非常大时，配置会变得非常混乱。
@@ -95,7 +95,7 @@ String json = objectMapper.writeValueAsString(yamlObject);
 
 ```java
 // 创建 YAMLMapper 实例
-            YAMLMapper yamlMapper = new YAMLMapper();
+YAMLMapper yamlMapper = new YAMLMapper();
 
 // 从 YAML 文件中读取数据并转换为 Java 对象
 Object yamlObject = yamlMapper.readValue(new File(yamlFilePath), Object.class);

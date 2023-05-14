@@ -10,3 +10,8 @@ head:
       content: 关键字
       description: 描述
 ---
+
+
+## 参考资料
+
+- https://github.com/structurizr/dsl/tree/master/docs/cookbook

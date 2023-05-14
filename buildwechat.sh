@@ -1,5 +1,5 @@
-folder=posts/personal-promotion
-fileName=politic-in-it-industry
+folder=posts/architecture
+fileName=how-to-manage-config
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
