@@ -1,6 +1,6 @@
 ---
-title: 标题
-date: 时间
+title: 做好知识库，不做入职培训
+date: 2023-05-15 09:04:32
 sidebar: auto
 category: 
   - 软件架构
