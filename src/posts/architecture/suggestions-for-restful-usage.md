@@ -8,7 +8,7 @@ head:
   - - meta
     - name: keyword
       content: RESTFul，API
-      description: 项目上关于 RESTFul API 的痛点和注意事项
+      description: 项目上关于 RESTFul API 的痛点和注意事项整理
 ---
 
 虽然 RESTFul API 已经成为业界对于 API 的共识，但是不得不说，但是不得不说它具有很多局限性。
@@ -36,7 +36,7 @@ RESTFul API 和很多的技术流传的原因类似：始于一种非常理想�
 版本化 API 会有很多好处，而版本化 API 有很多种风格，包括：
 
 - 使用 URL 前缀
-- 顺手 URL 后缀
+- 使用 URL 后缀
 - 使用 Header 传参
 - 使用 Query 参数
 
@@ -70,6 +70,12 @@ HTTP 协议提供了很多多的 Method，但是处于团队理解成本的原�
 ## 04 实体的单复数应具有实际意义
 
 通过 URL 应该能识别出返回的结构类型是否是一个列表或者分页的包装对象。
+
+例如，通过 `GET /v1/orders/{id}`能猜测出返回结果是一个资源对象。
+
+而通过 `GET /v1/orders` 能猜测出其结果是一个列表。
+
+在某些项目中，复数词汇的 URL 默认返回分页对象，而一些项目会给分页 URL 添加一个 page 后缀，例如 `GET /v1/orders/page`。 
 
 ## 05 合理实现幂等性
 
@@ -156,6 +162,11 @@ public class MyMapper<T> extends BaseMapper<T> {
 在一些文章中，还会区分 bulk 和 batch 的区别，认为 bulk 是对多个资源处理同样的操作，而 batch 是针对多个资源处理不同的操作。
 
 当然在实践中我们不用如此区分，但在微服务环境下一些基础服务往往需要提供批量接口，避免循环调用带来的性能问题。
+
+一些分页接口的例子： 
+
+- 批量创建订单  `POST /v1/orders/batch`
+- 批量提交订单 `POST /v1/orders/batch-submit`
 
 ## 09 动词名词化技巧和场景
 
