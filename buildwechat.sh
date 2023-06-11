@@ -1,5 +1,5 @@
-folder=posts/architecture
-fileName=suggestions-for-restful-usage
+folder=libs/ad/
+fileName=book-ad-code
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
