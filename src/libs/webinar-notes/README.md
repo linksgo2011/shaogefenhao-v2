@@ -82,7 +82,15 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 23. [技术方案 Webinar - OpenAPI 设计](./java-solution-webinar-23.html)
 
 24. [技术方案 Webinar - 信息检索 Information retrieval](./java-solution-webinar-24.html)
+
 25. [技术方案 Webinar - 应用缓存设计](./java-solution-webinar-25.html)
+
+26. [技术方案 Webinar - 架构师面试](./java-solution-webinar-26.html)
+
+27. [技术方案 Webinar - 如何成为咨询师和如何做好咨询师？](./java-solution-webinar-27.html)
+
+28. [技术方案 Webinar - 术语管理](./java-solution-webinar-28.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 

@@ -197,5 +197,7 @@ PS：这里的架构师指的技术架构。
 ## 录屏
 
 
+上 链接: https://pan.baidu.com/s/1HasiL5VjBMUNuw0dWfPGLQ?pwd=h9uc 提取码: h9uc 复制这段内容后打开百度网盘手机App，操作更方便哦
 
+下 链接: https://pan.baidu.com/s/1NEgvLZRQkVgVpZjeFrhGNQ?pwd=u5q9 提取码: u5q9 复制这段内容后打开百度网盘手机App，操作更方便哦
 

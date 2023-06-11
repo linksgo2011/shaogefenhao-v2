@@ -185,6 +185,10 @@ description: 我个人的方向是专注于分布式系统架构设计和中间�
 
 《论人类不平等的起源和基础》
 
+《控制论革命者》
+《存在与时间》
+《复杂》
+
 ## 参考书单
 
 - https://github.com/keithnull/TeachYourselfCS-CN/blob/master/TeachYourselfCS-CN.md

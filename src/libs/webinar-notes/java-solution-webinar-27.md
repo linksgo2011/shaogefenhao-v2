@@ -1,5 +1,5 @@
 ---
-title: 技术方案 Webinar - 咨询
+title: 技术方案 Webinar - 如何成为咨询师和如何做好咨询师？
 date: 2023-06-03 20:54:03
 sidebar: true
 head:
@@ -141,4 +141,6 @@ head:
   - 声音：慢、起息足、吐字清晰
   - 气味：避免口气、异味
 
-## 参考资料
+## 录屏
+
+链接: https://pan.baidu.com/s/1xbyxxef_a-WnSZN-gEyOZQ?pwd=6cy9 提取码: 6cy9 复制这段内容后打开百度网盘手机App，操作更方便哦
