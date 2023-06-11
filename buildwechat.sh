@@ -1,5 +1,5 @@
-folder=libs/ad/
-fileName=book-ad-code
+folder=posts/architecture/
+fileName=unified-language
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
