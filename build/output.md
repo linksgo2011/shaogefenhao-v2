@@ -1,236 +1,138 @@
 ---
-title: 系统设计 | RESTful API 使用问题和建议
-date: 2023-05-30 23:59:25
+title: 系统设计 | "胖瘦" BFF：常见的两种微服务形态
+date: 2023-06-11 23:35:07
 sidebar: auto
 category: 
   - 软件架构
 head:
   - - meta
     - name: keyword
-      content: RESTful，API
-      description: 项目上关于 RESTful API 的痛点和注意事项整理
+      content: BFF, 微服务, 架构, "胖瘦" BFF
+      description: 了解"胖瘦" BFF微服务架构的两种形态，它们的优缺点以及如何选择最适合的方案。
 ---
 
-虽然 RESTful API 已经成为业界对于 API 的共识，但是不得不说，但是不得不说它具有很多局限性。
+微服务架构中的一些概念非常模糊，业界往往没有取得共识。对于应用来说，其原因是业务背景多种多样，往往单一的模式不能满足现实需要。个人认为这是架构意识形态之争的根本原因。
 
-RESTful API 和很多的技术流传的原因类似：始于一种非常理想化的愿景，但是在落地时却需要做出权衡和取舍。
+今天来辨析一下微服务架构中 BFF，其含义和两种架构形态。
 
-它的流行开始于 Roy Fielding 的演讲，Roy Fielding 也是 HTTP 协议标准作者之一。
+## 胖瘦 BFF 之争
 
-我猜测 Roy Fielding 的想法是，HTTP 协议已经是一个完善的应用层协议了，对于应用开发来说，只需要将所有的网络数据抽象为 URI 资源，然后配合可选的 Method 以及状态码就够用了。
+我自 2015 年开始参与的所有应用系统都是服务化的了，都算比较大型的系统，这可能是解决大型复杂应用的必然之路。
 
-但是，在我们实际落地的情况中，**HTTP 的表达力完全不够**。其限制主要有这几个：
+在服务化的系统中规划阶段，有一些必然会被讨论的话题：
 
-- 不是所有的信息都能抽象为静态资源，总会有一些动态行为存在。例如 Github 的 Star 操作，即使抽象为 star-records 也违反人的表达认知。
-- HTTP Method 无法在应用层随意拓展，很多行为难以被表达为合适的 Method
-- HTTP Status 无法在应用层拓展，很多业务状态无法使用 HTTP Status 表达
+> 要不要 BFF?要不要编排层？要不要网关？什么是网关？应用网关和网关的区别是什么？后端（领域服务）服务之间要不要互相调用？要不要使用 BFF 来编排后端服务？BFF 是不是编排层？BFF 能不能宏观上对应 DDD 的应用层？
 
-基于这些原因，人们为了遵守 RESFul 不得不绞尽脑汁，而如果使用 RPC 风格的 API 只需要使用合适的动词作为 URI 以及合适的 Payload 报文格式即可。
+在这些问题中，最显著的问题倒不是用来接用户流量的服务叫什么名字，而是它应该直接转发数据还是需要为每个 API 重新编写一次实现，并调用后端 API。
 
-但是，总体来说，在一定程度上，使用 RESTful 风格，可以做到自解释性，减少了文档的依赖。而它的缺点，也可以通过一些团队规约避免。
+其结论会决定我们在 BFF 中是否编写大量代码，所以我把它们的区别称之为"胖瘦 BFF"。不同 BFF 的考量会决定微服务架构的两种形态。
 
-本文基于技术研讨会讨论的内容，整理了一些使用 RESTful 的一些建议，包括如何通过团队契约在一定程度上弥补表达力不够的问题。
+在开始讨论 BFF 之前，我们先对齐一下语言。
 
-## 01 使用版本号解决版本不兼容问题
+目前还比较少关于微服务架构的标准，我参考了中国通信标准化协会发布的 《分布式应用架构通用技术能力要求 第1部分:微服务平台》中的概念"应用服务"来代表 BFF。
 
-版本化 API 会有很多好处，而版本化 API 有很多种风格，包括：
+BFF 的全称为：Backend for Frontend，意思是由于微服务众多，需要一个统一入口作为前端集成使用，这类服务我们一般叫做 BFF。
 
-- 使用 URL 前缀
-- 使用 URL 后缀
-- 使用 Header 传参
-- 使用 Query 参数
+其实这类入口服务有很多种称呼，我所知或者听到的就有：
 
-推荐使用 URL 前缀实现，这样对后面 API 定义无侵入性且能通过 URL 表达版本。
+- BFF
+- 编排层
+- 编排服务
+- 应用网关
+- 服务网关（通信协会标准中使用的名称）
+- Portal API （意思是系统的不同入口）
+- 前台（一些电商系统喜欢这么叫，区别于后台、领域服务、Domain Service 或者中台）
+- Experience/User  API （用于用户体验使用的 API）
 
-实例：`GET /v1/products/{id}`
+在本文范围内暂且使用 BFF 吧。
 
-## 02 资源路径参考领域模型
+## 胖 BFF
 
-在一般情况下，可以以模块、聚合根作为路径前缀，让路径排列更有规律。
+在有一些架构中形态中，BFF 会有以下职责：
 
-参考类似模式： `/[模块]/[版本号]/[聚合根]/{id}/[实体]/{id}/[属性/动作]`
+- 鉴权
+- 限流、熔断、服务降级、灰度路由等
+- 接入多种协议和设备，比如 MQTT 服务、WebSocket 等
+- 编排领域服务，尽量避免后端服务之间互相依赖，统一由 BFF 处理
+- 不同类型的客户端一套 BFF
+- 非常接近 DDD 四层架构中的应用层，处理面向场景的业务
 
-- 在微服务项目中，模块部分可以是服务名
-- 资源参考领域模型设计用词，因此需要使用名词复数
-- 为了弥补 RESTful 不足，允许在路径结尾使用属性或者动作满足特定业务需求
-- 一般 URL 路径和文件名风格类似，使用中横线（Dash）
-- 和领域模型的层次类似，URL 层次不要太深，通过拆分小聚合实现短 URL
+为了区分另外一种相反的架构思路，我暂且叫做胖 BFF，因为它的职责比较多。
 
-## 03 谨慎选择 HTTP Method
+胖 BFF 的好处是：
 
-HTTP 协议提供了很多的 Method，但是处于团队理解成本的原因建议只使用下面几个 HTTP Method：
+- 可以对不同类型的客户端定制一套 API，且各自之间不受干扰
+- 领域服务可以设计得比较原子化，比较少的侵入特定场景信息到领域服务中
+- 容易适配更多类型的客户端
+- 比较容易实现个性化的鉴权、特定用户群的交互逻辑
+- 方便实现准确、统一的 API 文档
 
-- GET 查询
-- POST 新增
-- PUT 修改/更新
-- DELETE 删除
+但是这类架构也有非常多的弊端，导致很多架构师非常抗拒：
 
-避免使用 PATCH，原因是无法表达业务含义，往往产生破坏性变更。例如，将保存的出库单提交，业务上需要修改单据的状态。应该避免使用 Patch 部分更新单据，建议使用 `PUT /xxx/submit` 的形式设计，让团队更容易理解，保证业务一致性。
+- 破坏了端到端交付能力，如果按照上下文划分微服务，刚好这些微服务和前端业务和需求对应，那么跨功能团队的交付效率会更高
+- 重复劳动，一些接口的模型不仅在领域服务实现一次，还需要在 BFF 做一次
+- 难以分工，维护后端服务的人员都会和这个服务集成
 
-## 04 实体的单复数应具有实际意义
+在海外的一些文章和书籍中，他们也会有类似的困惑。很多架构师把这种结构叫做编排（Orchestration），而相对的就是 BFF 仅仅扮演转发的作用，我将其成为“瘦 BFF”，也就成了我们口中的网关，有时候被称为 Choreography 架构，中文是编舞。
 
-通过 URL 应该能识别出返回的结构类型是否是一个列表或者分页的包装对象。
+![](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/fat-and-thin-bff-architecture/fat.png)
 
-例如，通过 `GET /v1/orders/{id}`能猜测出返回结果是一个资源对象。
+## 瘦 BFF
 
-而通过 `GET /v1/orders` 能猜测出其结果是一个列表。
+瘦 BFF 可以等同于 Choreography 架构，其职责可能更少：
 
-在某些项目中，复数词汇的 URL 默认返回分页对象，而一些项目会给分页 URL 添加一个 page 后缀，例如 `GET /v1/orders/page`。 
+- 鉴权
+- 透明转发流量到后端服务
+- 和胖 BFF 类似，也有限流、熔断、服务降级、灰度路由等职责
 
-## 05 合理实现幂等性
+它的好处是：
 
-幂等含义：相同输入，应得到相同返回。
+- 端到端交付，前端开发人员直接使用后端领域服务的 API 文档
+- 开发效率高，避免多编写一层 BFF
+- 减少一次集成
 
-- GET 天然具有幂等性
-- PUT DELETE Method 应设计为具有幂等性
-- POST 根据实际情况进行幂等性设计，例如在消息体中要求调用方传入事务 ID 实现幂等
+对应的，它的弊端可想而知： 
 
-## 06 提前设计查询语言或关键字
+- 没有编排层，服务之间相互依赖
+- 编排行为落入前端或者领域服务，拓展性差
+- 领域服务之间调用关系复杂
+- 领域服务职责过多，侵入业务场景，难以被复用
 
-如果需要实现复杂的查询，可以提前设计一套基于 Query 参数的查询规则，尽可能实现通用的数据库字段查询。
+![](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/fat-and-thin-bff-architecture/thin.png)
 
-需要考虑：
+## 两种形态对比
 
-- 分页
-- 排序
-- 关键字搜索
-- 与过滤条件
-- 并过滤条件
-- 开闭区间查询
+我们把这两种常见的架构放到一起如下所示：
 
-这类实现一般需要结合具体数据库查询框架，例如 JPA、QueryDsl、Mybatis Plus 的 Wrapper 查询能力。
+![](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/fat-and-thin-bff-architecture/architecture .png)
 
-例如下面一个基于 Mybatis Plus 的通用 QueryWrapper：
+Design Pattern 1 的架构中，对不同的来源请求都使用了各自的入口服务承接，这种结构成本很大，但是对于接入渠道多样的系统来说非常适合。
 
-```java
+Design Pattern 2 的架构中，前端直接调用后端服务，忽略掉了 BFF，适合接入差异较小的应用。
 
-// 查询条件的父类
-public class QueryCondition {
-    private String name;
-    private Integer age;
-}
+## 权衡
 
-// 为通用字段生成查询 Wrapper
-public class MyMapper<T> extends BaseMapper<T> {
-    public List<T> queryByCondition(QueryCondition condition) {
-        QueryWrapper<T> queryWrapper = new QueryWrapper<>();
-        LambdaQueryWrapper<T> lambdaQueryWrapper = queryWrapper.lambda();
+那么在什么场景下，更合理的选择这两种结构之一呢？ 
 
-        // 根据条件动态构建查询
-        if (condition.getName() != null) {
-            lambdaQueryWrapper.like(T::getName, condition.getName());
-        }
+受到不同业务场景的影响，这就是不同架构师之间不同意见的由来。 我和很多人交流过这个问题，他们都有各自的偏好，而且都觉得理所当然。
 
-        if (condition.getAge() != null) {
-            lambdaQueryWrapper.eq(T::getAge, condition.getAge());
-        }
+对于电商、互联网产品的开发者来说，他们会觉得胖 BFF 架构非常自然，甚至会觉得为什么会有公司连 BFF（或者说前台）都不要。如果没有胖 BFF，如何应对多种多样的用户群和客户端将是一个难题。
 
-        // 执行查询
-        return selectList(queryWrapper);
-    }
-}
-```
+以互联网金融产品为例，他们的业务渠道非常多：APP、第三方集成、官网、代理商后台、管理后台等，这些渠道的接入方式多种多样，甚至可以看做不同的产品。
 
-## 07 状态码的选用
+但是，以企业内部使用的应用系统来说，即使用户规模非常大，但是他们的用户群非常固定、交互方式统一、数据权限能找到规律，这类应用做起来就会发现胖 BFF 中写了非常多重复代码。
 
-状态码的选用只用于前端处理一些通用的错误，而具体的业务规则错误统一使用 409（业务规则冲突）来返回，并返回约定的错误码、报错信息。
+不过，唯一例外的是，对于企业内部应用来说，在系统集成方面又会变得多种多样。那么对于用户侧的 BFF 来说可以简化，对于 Open API 中的逻辑往往省略不掉，Open API 作为系统防腐层，非常有必要设计为具有编排能力的 BFF。
 
-参考如下：
+## 总结
 
-- 200 请求成功
-- 201 创建成功
-- 400 数据校验失败
-- 401 用户未认证
-- 403 权限检查失败
-- 404 资源找不到
-- 405 不支持的 Method
-- 409 业务规则冲突
-- 415 不支持的数据请求格式
-- 500 服务器内部错误
-- 503 BFF 转发后端错误
+无论是胖瘦 BFF，其实都是基于场景对单体系统拆分的结果。因此非常取决于所属场景，并选择一个能忍受其缺点的技术方案。
 
-## 08 批量处理接口
-
-批量处理也是 RESTful 风格 API 不好处理的地方。有一些常见的做法：
-
-1. 由于 URL 使用复数已经代表资源，因此需要增加 `/batch` 后缀作为 URL 区分
-2. 使用类似版本号的处理方式在 URL 前增加 `/batch` 前缀
-3. URL 上可以不区分，在传入参数的格式上区分。例如，通过传入一个列表表达批量创建用户。
-
-方案 2 看似更符合 RESTful API 风格，实际上非常容易让人困惑，因为无法通过 URL 语义区分批量接口；方案 2 的问题是，批量接口并不常见，使用前缀会影响很多接口的语义。
-
-在一些文章中，还会区分 bulk 和 batch 的区别，认为 bulk 是对多个资源处理同样的操作，而 batch 是针对多个资源处理不同的操作。
-
-当然在实践中我们不用如此区分，但在微服务环境下一些基础服务往往需要提供批量接口，避免循环调用带来的性能问题。
-
-一些分页接口的例子： 
-
-- 批量创建订单  `POST /v1/orders/batch`
-- 批量提交订单 `POST /v1/orders/batch-submit`
-
-## 09 动词名词化技巧和场景
-
-有些情况下动词 API 在充分建模的情况下也可以名词化。
-
-比如登录的接口，我们在建模充分后识别到登录行为本质上创建了一个会话或者凭证，于是可以将：
-
-`POST /v1/users/login `
-
-改写为： 
-
-`POST /v1/authorizes`
-
-另外一个例子，在金融领域需要对资产进行估值，看似应该使用：
-
-`POST /v1/assets/calculate`
-
-其实应该改写为：
-
-`POST /v1/capital-rating-transactions`
-
-每次评估后都会产生一次事务 ID。
-
-## 10 区分成功和错误的返回结果
-
-当 API 报错时，有些做法是使用一个容器包装错误信息和成功的消息体。
-
-例如：
-
-```json
-{
-    "code": "xxx"
-    "data": {}
-    "error": {}
-}
-```
-这种做法相当于再次封装了 payload 会显得有些冗余，主流的 API 设计一般是： 当返回 HTTP 代码为 2xx 时，返回成功的对象，当使用其他代码时返回错误的对象。
-
-错误的对象一般包含：
-
-- 业务意义的错误码
-- 错误消息
-- 错误的详细对象，用于某些特殊报错需要返回更多信息
-
-## 11 创建和更新只返回必要信息
-
-在讨论中，有一个话题是创建和更新操作是否需要返回处理后的对象？
-
-返回的好处是，在编写 API 测试时方便取数，另外也可以复用详情的返回模型。
-
-不返回的好处时，可以简化开发工作，仅仅返回必要的字段和数据，前端需要获取详细数据，可以调用查看相关接口。
-
-同时，不返回全量信息也可以在部分场景提高性能，避免组装、传输过多数据。
-
-## 12 可以参考的 API 规范和示例
-
-除了前面的建议外，我们也经常参考一些真实的 API 设计规范，下面是一些常见可参考模仿的 API 设计示例：
-
-- https://docs.github.com/en/rest?apiVersion=2022-11-28
-- https://jsonapi.org/
-- https://wiki.onap.org/display/DW/RESTful+API+Design+Specification
+正是由于应用开发中需求的多样性，我们还不能找到一个一劳永逸的技术架构，这也解释了为什么目前还没有形成统一的技术方案和观念。
 
 ## 参考资料
 
-- https://en.wikipedia.org/wiki/Representational_state_transfer
-- https://www.codementor.io/blog/batch-endpoints-6olbjay1hd
-- https://medium.com/paypal-tech/batch-an-api-to-bundle-multiple-paypal-rest-operations-6af6006e002
+- 微服务的结构 https://shaogefenhao.com/libs/webinar-notes/java-solution-webinar-3.html
+- https://medium.com/gbtech/orchestration-pattern-3d8f5abc3be3
+- https://orkes.io/blog/why-is-microservice-orchestration-important-now
+- https://medium.com/geekculture/microservices-orchestration-vs-choreography-technology-5dbe612cf7e9

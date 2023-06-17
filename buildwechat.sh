@@ -1,4 +1,4 @@
-folder=posts/architecture/
+folder=posts/architecture
 fileName=fat-and-thin-bff-architecture
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
