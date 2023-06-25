@@ -1,5 +1,5 @@
 folder=posts/architecture
-fileName=multi-time-zone
+fileName=fat-and-thin-bff-architecture
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build

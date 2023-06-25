@@ -3,7 +3,7 @@ title: 团队管理 | 如何进行技术决策和取得团队共识？
 date: 2023-05-13 19:04:32
 sidebar: auto
 category: 
-  - 团队管理
+  - 技术管理
 head:
   - - meta
     - name: keyword

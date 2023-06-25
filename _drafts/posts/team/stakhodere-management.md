@@ -3,7 +3,7 @@ title: 团队管理 | 如何分析和影响你的干系人
 date: 2023-05-13 19:04:32
 sidebar: auto
 category: 
-  - 软件架构
+  - 技术管理
 head:
   - - meta
     - name: keyword
