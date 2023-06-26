@@ -1,13 +1,13 @@
 ---
-title: 团队管理 | 如何进行技术决策和取得团队共识？
+title: 技术管理 | 如何通过提案+评审取得团队共识？
 date: 2023-05-13 19:04:32
 sidebar: auto
 category: 
-  - 技术管理
+  - 软件团队
 head:
   - - meta
     - name: keyword
-      content: 团队，技术管理，
+      content: 团队，技术管理，软件团队
       description: 用提案+评审的方式处理团队不同意见。
 ---
 
