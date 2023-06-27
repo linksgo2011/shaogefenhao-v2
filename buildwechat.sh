@@ -1,5 +1,5 @@
-folder=posts/team
-fileName=team-consensus-and-technical-decisions
+folder=posts/architecture
+fileName=caching
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
