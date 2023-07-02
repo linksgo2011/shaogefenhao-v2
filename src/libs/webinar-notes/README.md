@@ -95,7 +95,10 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 28. [技术方案 Webinar - 术语管理](./java-solution-webinar-28.html)
 
-29. [技术方案 Webinar - 术语管理](./java-solution-webinar-29.html)
+29. [技术方案 Webinar - 企业级数字化资产治理](./java-solution-webinar-29.html)
+
+30. [技术方案 Webinar - 二方包](./java-solution-webinar-30.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
