@@ -100,7 +100,7 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 30. [技术方案 Webinar - 二方包](./java-solution-webinar-30.html)
 
-
+31. [技术方案 Webinar - 锁和并发](./java-solution-webinar-31.html)
 
 ## Agenda 和准备材料
 
