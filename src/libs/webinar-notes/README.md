@@ -16,9 +16,10 @@ head:
 
 ### 近期讨论活动
 
-- 2023-07-01：服务之间调用有哪些方案？推荐什么形式？使用二方包？ 
 - 2023-07-08：锁和并发
 - 2023-07-15：系统之间集成
+- 2023-07-22：智能应用的架构
+- 2023-07-29：高精度计算
 
 ## 会议信息
 
@@ -98,6 +99,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 29. [技术方案 Webinar - 企业级数字化资产治理](./java-solution-webinar-29.html)
 
 30. [技术方案 Webinar - 二方包](./java-solution-webinar-30.html)
+
+
 
 ## Agenda 和准备材料
 
