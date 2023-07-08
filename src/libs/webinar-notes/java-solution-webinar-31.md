@@ -124,6 +124,8 @@ head:
 
 ## 录屏
 
+链接: https://pan.baidu.com/s/1BlzR5_H5BExXIYQUuLT6LA?pwd=byv4 提取码: byv4 复制这段内容后打开百度网盘手机App，操作更方便哦
+
 ## 参考资料
 
 - Java 全栈知识体系 https://pdai.tech/
