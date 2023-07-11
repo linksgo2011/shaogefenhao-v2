@@ -1,5 +1,5 @@
-folder=posts/team/
-fileName=why-dont-things-push
+folder=posts/personal-promotion/
+fileName=psychology-of-programmer
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build

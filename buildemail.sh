@@ -1,5 +1,5 @@
-folder=libs/email
-fileName=book-review-request-java-self-testin
+folder=posts/business/
+fileName=02.software-value-pyramid
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
