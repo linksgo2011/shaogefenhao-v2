@@ -1,6 +1,6 @@
 ---
-title: 团队管理 | 如何分析和影响你的干系人？
-date: 2023-05-13 19:04:32
+title: 技术管理 | 如何分析和影响你的干系人？
+date: 2023-07-12 19:04:32
 sidebar: auto
 category: 
   - 技术管理
@@ -41,9 +41,9 @@ head:
 图片来源：维基百科
 
 
-有些厉害的人在干系人非常敏感，往往能快速识别关键干系人。
+有些厉害的人在干系人方面非常敏感，往往能快速识别关键干系人。
 
-对于普通人来说，可以找一些关键分析模型。例如干系人地图、RACI 模型等，甚至在中国传统文化中，易学的分支奇门术也有这类作用，不过考虑到其迷信成分，这里就只讨论前面两个。
+对于普通人来说，可以找一些关键分析模型帮助我们提高这方面的能力。例如干系人地图、RACI 模型等，甚至在中国传统文化中，易学的分支奇门术也有这类作用，不过考虑到其迷信成分，这里就只讨论前面两个。
 
 ## 干系人地图模型
 
@@ -51,7 +51,7 @@ head:
 
 这是咨询思维中常见的用法，即矩阵（Matrix）。
 
-我在几乎一些重大的项目上都会整理一个干系人矩阵。对干系人矩阵的分析可能比较敏感，往往私下进行。
+我在几乎一些重大的项目上都会整理一个干系人矩阵。有时候对干系人矩阵的分析可能比较敏感，往往私下进行。
 
 下面是一个干系人矩阵的模板：
 
@@ -71,16 +71,14 @@ RACI 的出发点是权责一致的逻辑，责任更大的干系人自然兴趣
 
 ![](./stakhodere-management/raci.png)
 
-从这个例子中很容易说明 RACI 的用法，只需要拆解相关职责、任务或者事项，并通过表格映射的干系人或者角色上即可。
+从这个例子中很容易说明 RACI 的用法，只需要拆解相关职责、任务或者事项，并通过表格映射到干系人或者角色上即可。
 
 这几个指标分别解释如下：
 
-R: 谁负责（Responsible）。负责执行任务的角色，具体负责运营项目和解决问题。
-A: 谁批准（Accountable）。 对任务的后果负责，并具有批准执行的权力。
-
-C: 咨询谁（Consult）。对任务能提出指导性意见的人。
-
-I: 通知谁（Consult）。需要及时通知的人，可以不用向其咨询意见或者看法。
+- R: 谁负责（Responsible）。负责执行任务的角色，具体负责运营项目和解决问题。
+- A: 谁批准（Accountable）。 对任务的后果负责，并具有批准执行的权力。
+- C: 咨询谁（Consult）。对任务能提出指导性意见的人。
+- I: 通知谁（Consult）。需要及时通知的人，可以不用向其咨询意见或者看法。
 
 RACI 更像是第一视角，而干系人矩阵像是俯视图，这两种常见的干系人管理思维工具往往足够使用，且可以相互配合。
 
@@ -96,12 +94,24 @@ RACI 更像是第一视角，而干系人矩阵像是俯视图，这两种常见
 
 ## 写在最后
 
+干系人管理是一项很硬的软实力，由干系人管理带来价值可能比很多开发人员加班合起来还大。
 
+虽然在国内有独特的干系人管理文化（酒桌），但是在 IT 行业中更多的是以技术影响力作为干系人管理的支点。
+
+在职场环境中，每个人都喜欢"懂我所想"、"行我所不行"这类人，需要在技术之外懂得一些心理学、哲学的思想。
+
+而这些工作有时候甚至看起来像是一场艺术。
 
 ## 参考资料
 
-- 如何管理干系人？ https://cloud.tencent.com/developer/article/2126579
-- Impact Mapping https://www.productplan.com/glossary/impact-mapping/
-- Drawing impact maps https://www.impactmapping.org/drawing.html
-- impactmapping Book  https://www.impactmapping.org/book.html
-- https://medium.com/the-symmetry/stakeholder-management-for-product-managers-raci-model-c4864d984267
+[1] 如何管理干系人？ https://cloud.tencent.com/developer/article/2126579
+
+[2] Impact Mapping https://www.productplan.com/glossary/impact-mapping/
+
+[3] Drawing impact maps https://www.impactmapping.org/drawing.html
+
+[4] impactmapping Book  https://www.impactmapping.org/book.html
+
+[5] https://medium.com/the-symmetry/stakeholder-management-for-product-managers-raci-model-c4864d984267
+
+[6] 菲利普·津巴多,迈克尔·利佩.影响力心理学[M].人民邮电出版社,2008.
