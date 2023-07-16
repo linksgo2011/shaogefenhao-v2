@@ -103,6 +103,7 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 31. [技术方案 Webinar - 锁和并发](./java-solution-webinar-31.html)
 
+32. [技术方案 Webinar - 系统集成](./java-solution-webinar-32.html)
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
