@@ -1,5 +1,5 @@
 folder=posts/team/
-fileName=stakhodere-management
+fileName=rhythm-sensation
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
