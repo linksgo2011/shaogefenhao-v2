@@ -1,27 +1,55 @@
-import yaml
-from graphviz import Digraph
+def topological_sort(graph):
+    in_degree = {node: 0 for node in graph}
+    for node in graph:
+        for neighbor in graph[node]:
+            in_degree[neighbor] += 1
 
-def create_tree(root_list, data, graph):
-    print(root_list)
-    print(data)
-    for key in root_list:
-        item = data[key]
-        if 'variables' in item:
-            remain_nodes = []
-            for sub_key in item['variables']:
-                if sub_key in data:
-                    print('需要递归构建')
-                    remain_nodes.append(sub_key)
-                graph.edge(key,sub_key )
-            create_tree(remain_nodes, data, graph)
+    queue = [node for node in graph if in_degree[node] == 0]
+    result = []
+    levels = {node: 0 for node in graph}
 
-def visualize_yaml_tree(file_path):
-    with open(file_path, 'r') as file:
-        yaml_data = yaml.safe_load(file)
-        graph = Digraph(format='png')
-        root_list = ['key1','key2']
-        create_tree(root_list, yaml_data, graph)
-        graph.render('yaml_tree')
+    while queue:
+        node = queue.pop(0)
+        result.append(node)
 
-# 用法示例
-visualize_yaml_tree('example.yaml')
+        for neighbor in graph[node]:
+            in_degree[neighbor] -= 1
+            levels[neighbor] = max(levels[neighbor], levels[node] + 1)
+            if in_degree[neighbor] == 0:
+                queue.append(neighbor)
+
+    return result, levels
+
+
+def generate_parallel_expression(graph):
+    topological_order, levels = topological_sort(graph)
+
+    parallel_tasks = {}
+    for node in topological_order:
+        level = levels[node]
+        if level not in parallel_tasks:
+            parallel_tasks[level] = []
+        parallel_tasks[level].append(node)
+
+    when_expr = "THEN(" + ", ".join(f"WHEN({', '.join(parallel_tasks[level])})" for level in sorted(parallel_tasks.keys())) + ")"
+    return when_expr
+
+
+def main():
+    # 定义有向无环图
+    graph = {
+        "a": ["b","e"],
+        "b": [ "d"],
+        "c": ['e'],
+        "d": ["e"],
+        "e": ["f"],
+        "f": []
+    }
+
+    # 生成并行执行表达式
+    parallel_expression = generate_parallel_expression(graph)
+    print("Parallel Execution Expression:")
+    print(parallel_expression)
+
+if __name__ == "__main__":
+    main()
