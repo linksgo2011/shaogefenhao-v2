@@ -1,5 +1,5 @@
-folder=posts/team/
-fileName=rhythm-sensation
+folder=posts/architecture/
+fileName=business-conditions-and-formulas
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build

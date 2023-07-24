@@ -86,7 +86,7 @@ head:
 
 表达式求值本质是是将人类能理解的语句转换成抽象语法树（AST）。
 
-![](business-conditions-and-formulas/ast.png)
+![](./business-conditions-and-formulas/ast.png)
 
 图片来源：https://oi-wiki.org/misc/expression/
 
@@ -213,6 +213,8 @@ public class ArithmeticEvaluator {
 ![](./business-conditions-and-formulas/bool-expression.png)
 
 ![](./business-conditions-and-formulas/truth-table.png)
+
+图片来源：https://www.emathhelp.net/en/calculators/discrete-mathematics/boolean-algebra-calculator/
 
 ## 补充知识 2： DSL 的实现 
 
