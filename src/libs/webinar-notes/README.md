@@ -21,6 +21,7 @@ head:
 - 2023-07-29(周六)：高精度计算
 - 2023-08-05(周六)：跨国交易
 - 2023-08-12(周六)：开发者心理和工作体验
+- 2023-08-19(周六)：领域特定语言（DSL）
 
 ## 会议信息
 
@@ -104,6 +105,9 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 31. [技术方案 Webinar - 锁和并发](./java-solution-webinar-31.html)
 
 32. [技术方案 Webinar - 系统集成](./java-solution-webinar-32.html)
+
+33. [技术方案 Webinar - 智能应用架构](./java-solution-webinar-33.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 

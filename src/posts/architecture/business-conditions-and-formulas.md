@@ -35,7 +35,7 @@ head:
 
 ## 表达式类型
 
-我在数个项目实践过通过表达式来解决业务问题，不过和一开始想的不一样，使用一篮子解决方案其实不是最佳方案。
+我在数个项目实践过通过表达式来解决业务问题，不过和一开始想的不一样，往往没有一套完美的解决方案处理所有场景，所以我们需要先对表达式类型进行分类。
 
 对于可以用于公式执行的业务类型其实有这么几种：
 
@@ -44,7 +44,7 @@ head:
 - 自定义函数的计算：有时候数学运算不能满足所有的需求，可以自定义一些函数，这些函数可以被用于数学表达式。例如，求和、取最大值、最小值。一些公式引擎往往内置一些函数。
 - 条件表达式：根据一些条件返回特定的值，这类场景往往比较少，更应该使用原生语言实现这类需求。
 
-注意： 如果把布尔表达式、条件语句、数学表达式放到一起执行，这和图灵完备的通用计算机语言有什么区别，而后者的性能更好，功能更多。
+注意： 如果把布尔表达式、条件语句、数学表达式放到一起执行，这和图灵完备的通用计算机语言就没有区别了，而后者的性能更好，功能更多。
 
 ## 技术选型
 
@@ -52,10 +52,10 @@ head:
 
 - Spring EL 表达式：Spring 项目自带，基本上能兼容 Java 语法，能和 Java 无缝对接，被广泛用于 Spring 框架，因此也可以用于业务的表达式求值。 
 - MVEL 表达式引擎：相当强大的表达式引擎，几乎支持通用语言的常见语法，一定程度上和 Spring EL 等同，接近 Java 语法。
-- JDK JS 引擎：可以使用 Java 自带的表达式引擎（Rhino、Nashorn），可以使用 JS 脚本来写业务规则。 
-- QLExpress：阿里开发的规则引擎，QLExpress 的语法比较贴近业务，也支持高精度计算、对公式中的变量进行标签替换等能力。
+- JDK JS 引擎：也可以可以使用 Java 自带的表达式引擎（Rhino、Nashorn），也可以使用 JS 脚本来写业务规则。 
+- QLExpress：阿里开发的规则引擎，QLExpress 的语法比较贴近业务，具有高精度计算、对公式中的变量进行标签替换等能力。
 
-总体使用下来，Spring EL 适合一些技术规则的配置，对业务语言并不是很友好，对于 Spring 的项目直接可以使用；MVEL 这类通用、强大的表达式引擎反而找不到场景使用；JDK JS 引擎适合把 JS 当做一种 DSL 使用，不过缺点是性能比较差；QL express 适合用于业务上希望配置规则和表达式的场景，通过标签替换的能力输出让业务人员能理解的表达式。
+总体使用下来，Spring EL 适合一些技术规则的配置，对业务语言并不是很友好，Spring 的项目直接可以使用；MVEL 这类通用、强大的表达式引擎反而找不到场景使用；JDK JS 引擎适合把 JS 当做一种 DSL 使用，不过缺点是性能比较差；QL express 适合用于业务上希望配置规则和表达式的场景，通过标签替换的能力输出让业务人员容易理解的表达式。
 
 ## 模型设计
 
@@ -218,102 +218,17 @@ public class ArithmeticEvaluator {
 
 ## 补充知识 2： DSL 的实现 
 
-相对四则运算表达式求值来说，有时候可能需要设计一些非常复杂的表达式或者语句。
+相对四则运算表达式求值而言，有时候可能需要设计一些非常复杂的表达式或者语句。
 
-我们可以设计出自己的 DSL 来完成相关工作，不过 DSL 设计对编译原理的要求非常高，并不容易。
+我们可以设计出自己的 DSL 来完成相关工作，不过 DSL 设计对编译原理的要求非常高，所以并不容易。
 
-好在有一些库可以在一定程度上帮助我们减少相关工作，例如：ANTLR、JavaCC。
+好在有一些库可以在一定程度上帮助我们减少工作量，例如：ANTLR、JavaCC。
 
-ANTLR 是一个非常流行的 DSL 设计库，Spark SQL、Hive SQL 都采用了 ANTLR。 我们也可以使用 ANTLR 实现一个四则运算的 DSL。
+ANTLR 是一个非常流行的 DSL 设计库，Spark SQL、Hive SQL 都采用了 ANTLR。 我们可以使用 ANTLR 实现一个四则运算的 DSL。
 
-首先，定义一个 ANTLR 语法描述文件: 
+ANTLR 的使用教程可以参考《编程语言实现模式》这本书，这本书的作者同时也是 ANTLR 的作者。
 
-```antlr
-grammar ArithmeticExpression;
-
-expression : additiveExpression;
-additiveExpression : multiplicativeExpression ( ( '+' | '-' ) multiplicativeExpression )* ;
-multiplicativeExpression : unaryExpression ( ( '*' | '/' ) unaryExpression )* ;
-unaryExpression : ('+'|'-')? primaryExpression ;
-primaryExpression : NUMBER | '(' expression ')' ;
-NUMBER : [0-9]+ ;
-WS : [ \t\r\n]+ -> skip ;
-
-```
-
-生成对应的 Java 代码(Lexer\Parser)： 
-
-> antlr4 ArithmeticExpression.g4
-
-根据解析器实现最终的四则运算表达式引擎： 
-
-```java 
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
-
-public class ArithmeticExpressionEvaluator extends ArithmeticExpressionBaseVisitor<Integer> {
-    @Override
-    public Integer visitAdditiveExpression(ArithmeticExpressionParser.AdditiveExpressionContext ctx) {
-        int left = visit(ctx.multiplicativeExpression(0));
-        for (int i = 1; i < ctx.multiplicativeExpression().size(); i++) {
-            if (ctx.ADD_OP(i - 1).getText().equals("+")) {
-                left += visit(ctx.multiplicativeExpression(i));
-            } else {
-                left -= visit(ctx.multiplicativeExpression(i));
-            }
-        }
-        return left;
-    }
-
-    @Override
-    public Integer visitMultiplicativeExpression(ArithmeticExpressionParser.MultiplicativeExpressionContext ctx) {
-        int left = visit(ctx.unaryExpression(0));
-        for (int i = 1; i < ctx.unaryExpression().size(); i++) {
-            if (ctx.MUL_OP(i - 1).getText().equals("*")) {
-                left *= visit(ctx.unaryExpression(i));
-            } else {
-                left /= visit(ctx.unaryExpression(i));
-            }
-        }
-        return left;
-    }
-
-    @Override
-    public Integer visitUnaryExpression(ArithmeticExpressionParser.UnaryExpressionContext ctx) {
-        int factor = 1;
-        if (ctx.PLUS() != null) {
-            factor = 1;
-        } else if (ctx.MINUS() != null) {
-            factor = -1;
-        }
-        return factor * visit(ctx.primaryExpression());
-    }
-
-    @Override
-    public Integer visitPrimaryExpression(ArithmeticExpressionParser.PrimaryExpressionContext ctx) {
-        if (ctx.NUMBER() != null) {
-            return Integer.parseInt(ctx.NUMBER().getText());
-        } else {
-            return visit(ctx.expression());
-        }
-    }
-
-    public static void main(String[] args) {
-        String input = "3 + 5 * ( 2 - 6 )";
-
-        ANTLRInputStream inputStream = new ANTLRInputStream(input);
-        ArithmeticExpressionLexer lexer = new ArithmeticExpressionLexer(inputStream);
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        ArithmeticExpressionParser parser = new ArithmeticExpressionParser(tokens);
-
-        ParseTree tree = parser.expression();
-        ArithmeticExpressionEvaluator evaluator = new ArithmeticExpressionEvaluator();
-        int result = evaluator.visit(tree);
-
-        System.out.println("Expression Result: " + result);
-    }
-}
-```
+由于 ANTLR 需要使用构建工具生成解析器和访问器等代码，在后面的内容我们会讨论如何使用 ANTLR 设计自己的 DSL，包括一个四则运算表达式引擎。
 
 ## 总结
 
