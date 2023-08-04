@@ -1,5 +1,5 @@
-folder=posts/team/
-fileName=spike
+folder=posts/architecture/
+fileName=iteration-tactics-tech-design
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
