@@ -7,8 +7,8 @@ category:
 head:
   - - meta
     - name: keyword
-      content: 关键字
-      description: 描述
+      content: 战术设计，迭代技术方案，技术方案，敏捷
+      description: 本文整理了一些日常项目上进入迭代前的技术方案输出物。
 ---
 
 我们在《系统设计 | 如何表达技术架构？（规划篇）》中讨论了一个新的项目启动时如何表达技术架构，类似的我们还需要在敏捷项目的迭代前进行更细致的技术方案设计。
@@ -180,7 +180,7 @@ paths:
     post:
       summary: 添加用户
     get:
-      summary：查询用户
+      summary: 查询用户
 ```
 
 渲染图：
@@ -309,9 +309,14 @@ userService -> userService: 完成注册
 
 ## 参考资料
 
-- Plant UML https://www.plantuml.com/
-- Open API 规范 https://swagger.io/specification/
-- Markdown https://www.markdownguide.org/
-- Online DDL Operations https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html
-- https://asciidoc.org/
-- https://docutils.sourceforge.io/rst.html
+[1] Plant UML https://www.plantuml.com/
+
+[2] Open API 规范 https://swagger.io/specification/
+
+[3] Markdown https://www.markdownguide.org/
+
+[4] Online DDL Operations https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html
+
+[5] https://asciidoc.org/
+
+[6] https://docutils.sourceforge.io/rst.html
