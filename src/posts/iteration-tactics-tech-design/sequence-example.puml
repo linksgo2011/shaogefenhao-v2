@@ -1,0 +1,26 @@
+@startuml
+
+actor WEB用户 as user
+participant 浏览器 as browser
+participant 用户服务 as userService
+participant 人机校验服务 as captchaService
+participant 短信服务 as smsService
+
+==获取验证码==
+user -> browser: 输入手机号点击获取验证码
+browser -> captchaService: 获取人机校验 token（captcha）
+captchaService --> browser: 返回人机校验 token
+user -> browser: 完成人机校验
+user -> browser: 输入手机号点击获取验证码
+browser -> userService: 获取验证码（OTP）
+userService -> userService: 校验手机号
+userService -> captchaService: 验证 captcha 信息
+userService -> userService: 生成 OTP
+userService -> smsService: 发送 OTP
+
+==提交注册==
+user -> browser: 输入 OTP、密码
+browser -> userService: 输入 OTP
+userService -> userService: 完成注册
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml 'https://plantuml.com/class-diagram'
+
+class User <<Aggregate Root>>
+class UserRole <<Entity>>
+
+enum UserOrigin {
+    用户来源
+    --
+    ADMIN_ADDED 管理员添加
+    SELF_REGISTERED 自助注册
+}
+
+enum Role {
+    角色
+    --
+    ADMIN 管理员
+    MERCHANT 商户
+}
+
+class User {
+    用户
+    --
+    String id 用户ID
+    String name 用户名
+    UserOrigin origin 用户来源
+    List<UserRole> roles 用户角色
+}
+
+class UserRole {
+    用户角色
+    --
+    String id ID
+    Role role 角色
+}
+
+User "1" *-- "*" UserRole
+
+@enduml

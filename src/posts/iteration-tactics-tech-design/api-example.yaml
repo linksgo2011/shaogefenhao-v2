@@ -1,0 +1,10 @@
+openapi: 3.0.3
+info:
+  title: 用户
+  version: "1"
+paths:
+  /v1/users:
+    post:
+      summary: 添加用户
+    get:
+      summary：查询用户
