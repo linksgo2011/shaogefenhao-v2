@@ -108,6 +108,10 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 33. [技术方案 Webinar - 智能应用架构](./java-solution-webinar-33.html)
 
+34. [技术方案 Webinar - 金额和高精度计算问题](./java-solution-webinar-34.html)
+
+35. [技术方案 Webinar - 软件工程中人的问题](./java-solution-webinar-35.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
