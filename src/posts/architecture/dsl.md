@@ -162,7 +162,7 @@ generateGrammarSource {
 
 我们以数学四则运算为例，运行一下 Antlr 这部分代码是参考 AI 生成的结果，大家也可以使用 AI 来获取这些代码。不过 AI 生成出来的内容不一定能跑通，需要改一改。
 
-**step1创建 Arithmetic.g4 文件**
+**step1 创建 Arithmetic.g4 文件**
 
 ```antlr
 // src/main/antlr grammar 后面的规则名必须和文件名同名
@@ -193,6 +193,8 @@ WS : [ \t\r\n]+ -> skip ;
 这里有一份详细的语法规则文档：https://github.com/antlr/antlr4/blob/master/doc/lexer-rules.md。
 另外，antlr 提供了一个包含非常多场景的规则库：https://github.com/antlr/grammars-v4
 
+**step2 生成相关解析器代码**
+
 定义好 Arithmetic.g4 后可以生成相关解析器代码，并将需要的解析器代码拷贝到代码中（也可以用构建工具按照 class 文件夹引入）。
 
 ![](./dsl/codebase.png)
@@ -204,6 +206,8 @@ WS : [ \t\r\n]+ -> skip ;
 - ArithmeticListener：监听器接口，用来处理错误
 - ArithmeticParser：解析器
 - ArithmeticVisitor：访问器接口
+
+**step3 实现访问器**
 
 上面的文件不需要修改，编写下面的文件即可：
 
