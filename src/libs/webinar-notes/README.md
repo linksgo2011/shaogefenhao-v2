@@ -17,8 +17,8 @@ head:
 ### 近期讨论活动
 
 - 2023-08-12(周六)：领域特定语言（DSL）
-- 2023-08-19(周六)：系统架构和组织架构
-- 2023-08-26(周六)：审批流引擎设计 
+- 2023-08-19(周六)：审批流引擎设计 
+- 2023-08-26(周六)：系统架构和组织架构
 
 ## 会议信息
 
@@ -109,6 +109,9 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 35. [技术方案 Webinar - 软件工程中人的问题](./java-solution-webinar-35.html)
 
+36. [技术方案 Webinar - 领域特定语言](./java-solution-webinar-36.html)
+
+37. [技术方案 Webinar - 基于 Activiti 建设企业级流程引擎实践](./java-solution-webinar-37.html)
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
@@ -169,3 +172,4 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 40. 数仓设计 
 41. 数据库性能优化
 42. 活文档设计
+43. 技术标准
