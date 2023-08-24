@@ -1,5 +1,5 @@
 ---
-title: 为什么需要做估算？
+title: 技术管理 | 估算为什么如此重要？
 date: 2023-04-18 22:04:32
 sidebar: auto
 category: 
@@ -7,6 +7,6 @@ category:
 head:
   - - meta
     - name: keyword
-      content: 关键字
+      content: 技术管理、估算、
       description: 描述
 ---

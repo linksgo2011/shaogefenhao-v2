@@ -1,5 +1,5 @@
 ---
-title: 系统设计 | 基于读者反馈的补充更新
+title: 系统设计 | 基于读者反馈的补充更新 (1)
 date: 2023-08-21 22:04:32
 sidebar: auto
 category: 
@@ -17,9 +17,9 @@ head:
 
 在 《系统设计中需要考虑到的时间问题》文章中我们讨论了时间的标准化表达格式，在其中提到了 ISO-8601 规范。
 
-其实 ISO-8601 中有非常多很有价值的表达方式，只不过使用不够频繁没有拿出来讲。 其实我们应该尽可能使用现有的规范来实现业务，可以少走一些弯路。
+其实 ISO-8601 中有非常多很有价值的表达方式，只不过使用不够频繁没有拿出来讲。 我们应该尽可能使用现有的规范来实现业务，可以少走一些弯路。
 
-在 ISO-8601 中，时间段表达法非常有用。如果我们需要做一个会议、日历系统，需要表达会议周期，我们可以使用时间段格式。在保险、金融行业，也需要表达期限，同样需要类似的数据格式，否则需要存储为多个字段。
+在 ISO-8601 中，时间段表达法非常有用。如果我们需要做一个会议、日历系统，需要表达会议周期，在保险、金融行业，也需要表达期限，同样需要类似的数据格式，否则需要存储为多个字段。这时，我们可以使用时间段格式。
 
 例如，P1Y3M5D 可以表达为 1 年 3 月 5 天，P1Y3M5DT6H7M30S 可以表达 1 年 3 月 5 天 6 小时 7 个月 30 秒。
 
@@ -84,17 +84,19 @@ RFC 文档：https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2
 
 即：通过 HTML 模板编写页面，并通过模板引擎获取渲染后的 HTML 页面，再将其转换为 PDF。
 
+其优点是可以更加灵活的排版。
+
 在 Java 中可以采用 FreeMaker 作为模板引擎，使用 openhtmltopdf 这个库实现 PDF 生成。
 
 该库通过封装 pdfbox 实现 PDF 操作，支持 CSS2.1、SVG和Base64图片等常用功能，且 License 开放，可以代替 iText。
 
 ## 补充流程引擎、规则引擎、公式引擎区别
 
-在《处理业务公式》我们讨论了公式引擎，因此衍生出规则引擎、流程引擎的概念。
+在《处理业务公式》我们讨论了公式引擎，因此在反馈中衍生出规则引擎、流程引擎的概念。
 
 这三个概念有一定程度的重叠，但是边界还算清晰。补充如下：
 
-- 公式引擎：用于执行一段表达式的工具库，可以支持一些 if 语句。
+- 公式引擎：用于执行一段表达式的工具库，一般用于求值，有些可以支持一些 if 语句，可以作为规则来使用。
 - 规则引擎：在满足一些条件时，出发一些规则，也可以通过配置文件进行编排。例如 Drools、LiteFlow。
 - 流程引擎：用于编排系统之间的能力，用于系统集成、审批，一般支持 BPM 等模型。例如，Flowable、Activiti。
 
@@ -102,6 +104,8 @@ RFC 文档：https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2
 
 部分参考链接已经贴在文中，补充其它有用的参考材料如下。
 
-- Server-Sent Events 教程 https://www.ruanyifeng.com/blog/2017/05/server-sent_events.html
-- https://www.baeldung.com/spring-server-sent-events
-- https://bookstack.soffid.com/books/scim/page/scim-query-syntax
+[1] Server-Sent Events 教程 https://www.ruanyifeng.com/blog/2017/05/server-sent_events.html
+
+[2] https://www.baeldung.com/spring-server-sent-events
+
+[3] https://bookstack.soffid.com/books/scim/page/scim-query-syntax

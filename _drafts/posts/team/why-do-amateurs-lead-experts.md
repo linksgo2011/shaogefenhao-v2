@@ -1,5 +1,5 @@
 ---
-title: 为什么外行可以领导内行
+title: 为什么外行可以领导内行？
 date: 2023-04-18 22:04:32
 sidebar: auto
 category: 

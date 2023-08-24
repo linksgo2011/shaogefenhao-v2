@@ -1,5 +1,5 @@
 folder=posts/team
-fileName=why-no-body-using
+fileName=core-of-agile
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
