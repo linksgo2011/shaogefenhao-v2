@@ -113,6 +113,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 37. [技术方案 Webinar - 基于 Activiti 建设企业级流程引擎实践](./java-solution-webinar-37.html)
 
+38. [技术方案 Webinar - 哪些技术标准可以帮助系统设计？](./java-solution-webinar-38.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
