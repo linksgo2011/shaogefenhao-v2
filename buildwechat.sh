@@ -1,5 +1,5 @@
-folder=posts/team
-fileName=core-of-agile
+folder=posts/architecture
+fileName=specifications-for-tech
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
