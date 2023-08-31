@@ -3,7 +3,7 @@ title:  技术管理 | 人的特点和心理学效应
 date: 2023-08-4 22:04:32
 sidebar: auto
 category: 
-  - 软件架构
+  - 技术管理
 head:
   - - meta
     - name: keyword

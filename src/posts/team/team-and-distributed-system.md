@@ -3,7 +3,7 @@ title: 团队系统论：用分布式系统思考团队管理
 date: 2021-08-11 19:18:36
 sidebar: auto
 category: 
-  - 软件团队
+  - 技术管理
 head:
   - - meta
     - name: keyword

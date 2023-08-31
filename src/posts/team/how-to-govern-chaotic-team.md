@@ -3,7 +3,7 @@ title: IT 团队治理思考
 date: 2023-04-14 15:13:56
 sidebar: auto
 category: 
-  - 软件团队
+  - 技术管理
 head:
   - - meta
     - name: keyword

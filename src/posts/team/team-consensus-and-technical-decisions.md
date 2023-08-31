@@ -3,7 +3,7 @@ title: 技术管理 | 如何通过提案+评审取得团队共识？
 date: 2023-05-13 19:04:32
 sidebar: auto
 category: 
-  - 软件团队
+  - 技术管理
 head:
   - - meta
     - name: keyword

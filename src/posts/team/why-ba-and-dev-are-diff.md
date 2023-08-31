@@ -3,7 +3,7 @@ title: 技术管理 | 业务和研发的矛盾如何解决？
 date: 2023-07-25 22:04:32
 sidebar: auto
 category: 
-  - 软件架构
+  - 技术管理
 head:
   - - meta
     - name: keyword

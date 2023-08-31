@@ -3,7 +3,7 @@ title: 技术管理 | 为什么有时候老板说无人可用？
 date: 2023-08-16 22:04:32
 sidebar: auto
 category: 
-  - 团队管理
+  - 技术管理
 head:
   - - meta
     - name: keyword

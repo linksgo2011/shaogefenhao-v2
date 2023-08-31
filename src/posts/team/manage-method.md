@@ -3,7 +3,7 @@ title: 好领导，本来应是挖渠人
 date: 2021-08-11 19:18:36
 sidebar: auto
 category: 
-  - 软件团队
+  - 技术管理
 head:
   - - meta
     - name: keyword

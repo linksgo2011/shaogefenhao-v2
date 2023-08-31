@@ -3,7 +3,7 @@ title: 敏捷项目的快速启动指南
 date: 2023-03-12 13:27:53
 sidebar: auto
 category:
-  - 软件团队
+  - 技术管理
 head:
   - - meta
     - name: keyword
