@@ -115,7 +115,11 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 38. [技术方案 Webinar - 哪些技术标准可以帮助系统设计？](./java-solution-webinar-38.html)
 
-39.[技术方案 Webinar - 企业应用数据和数仓](./java-solution-webinar-39.html)
+39. [技术方案 Webinar - 企业应用数据和数仓](./java-solution-webinar-39.html)
+
+40. [技术方案 Webinar - 活文档](./java-solution-webinar-40.html)
+
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 

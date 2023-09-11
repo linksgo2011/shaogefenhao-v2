@@ -8,7 +8,7 @@ head:
   - - meta
     - name: keyword
       content: 
-      description: 管理的客体是系统不仅仅是人，也不仅仅是事。
+      description: 管理的客体不仅仅是人，也不仅仅是事，是系统。
 ---
 
 我读了很多关于管理的书和文章，在此之前一直有两个观点交替出现在我眼前。
