@@ -119,6 +119,7 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 40. [技术方案 Webinar - 活文档](./java-solution-webinar-40.html)
 
+41. [技术方案 Webinar - 多对多关系拆解](./java-solution-webinar-41.html)
 
 ## Agenda 和准备材料
 

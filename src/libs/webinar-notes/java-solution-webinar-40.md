@@ -68,6 +68,6 @@ Nop 框架，业务层的东西尽量使用 DSL 开发，避免使用 Java 开�
 
 - 元数据转化为百度的amis底层的json https://aisuda.bce.baidu.com/amis/zh-CN/docs/index
 
-## 参考资料
+## 录屏
 
 链接: https://pan.baidu.com/s/1qIctBHC7AaZXIGWzXnWIBg?pwd=6du4 提取码: 6du4 复制这段内容后打开百度网盘手机App，操作更方便哦
