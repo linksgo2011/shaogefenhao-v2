@@ -121,6 +121,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 41. [技术方案 Webinar - 多对多关系拆解](./java-solution-webinar-41.html)
 
+42. [技术方案 Webinar - 拓展点设计](./java-solution-webinar-42.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 

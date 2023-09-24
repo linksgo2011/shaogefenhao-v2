@@ -1,5 +1,5 @@
 folder=posts/architecture
-fileName=legacy-system-switching-patten
+fileName=many-to-many-handling
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
