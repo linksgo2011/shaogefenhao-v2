@@ -1,5 +1,5 @@
 ---
-title: 一个用例的例子
+title: 技术管理 | 协商和谈判
 date: 2023-04-18 22:04:32
 sidebar: auto
 category: 
@@ -10,5 +10,3 @@ head:
       content: 关键字
       description: 描述
 ---
-
-情景假设限制，限制时候删除情景，实际上少了一个用例

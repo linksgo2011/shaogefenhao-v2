@@ -1,5 +1,5 @@
 ---
-title: 面相业务透明化应用开发
+title: 技术管理 | 管理者的使命
 date: 2023-04-18 22:04:32
 sidebar: auto
 category: 

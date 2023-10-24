@@ -1,5 +1,5 @@
 ---
-title: Scrum 有多少会议？
+title: 技术管理 | 管理货币
 date: 2023-04-18 22:04:32
 sidebar: auto
 category: 

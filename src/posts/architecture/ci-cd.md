@@ -292,11 +292,6 @@ pipeline {
 }
 ````
 
-
-## 总结
-
-
-
 ## 参考资料
 
 [1] https://thenewstack.io/a-brief-devops-history-the-road-to-ci-cd/
