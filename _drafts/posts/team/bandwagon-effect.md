@@ -1,5 +1,5 @@
 ---
-title: 系统管理 | 常见报表方案
+title: 技术管理 | 从众效应在管理上的应用
 date: 2023-04-18 22:04:32
 sidebar: auto
 category: 
@@ -10,3 +10,10 @@ head:
       content: 关键字
       description: 描述
 ---
+
+
+案例：
+
+- 食品店排队效应
+- 加班的情况
+- 生理周期的同步

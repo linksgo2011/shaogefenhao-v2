@@ -1,6 +1,6 @@
 ---
-title: 标题
-date: 2023-04-18 22:04:32
+title: 系统设计 | 常用的网络数据交换格式
+date: 2023-10-25 22:04:32
 sidebar: auto
 category: 
   - 软件架构

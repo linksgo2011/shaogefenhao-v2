@@ -1,5 +1,5 @@
-folder=posts/team
-fileName=motivation
+folder=posts/architecture
+fileName=process-application-rule-orchestration
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
