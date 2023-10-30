@@ -125,6 +125,10 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 
 43. [技术方案 Webinar - 可逆计算原理与 Nop 平台实现](./java-solution-webinar-43.html)
 
+44. [技术方案 Webinar - 常见报表方案](./java-solution-webinar-44.html)
+
+45. [技术方案 Webinar - 非线性中国式报表引擎源码分析](./java-solution-webinar-45.html)
+
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
@@ -187,4 +191,5 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 42. 活文档设计 ✅
 43. 技术标准  ✅
 44. 业财一体化方案
-45. CRM 
+45. CRM
+46. 绘制好看的架构图
