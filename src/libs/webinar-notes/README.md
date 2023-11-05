@@ -128,6 +128,7 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 44. [技术方案 Webinar - 常见报表方案](./java-solution-webinar-44.html)
 
 45. [技术方案 Webinar - 非线性中国式报表引擎源码分析](./java-solution-webinar-45.html)
+46. [技术方案 Webinar - 业务中台的一些困难问题](./java-solution-webinar-46.html)
 
 ## Agenda 和准备材料
 
