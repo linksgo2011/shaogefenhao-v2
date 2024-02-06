@@ -3,12 +3,12 @@ title: 打样工程：增删改查真的那么简单吗？
 date: 2023-03-26 14:32:52
 sidebar: auto
 category:
-- 软件架构
-  head:
-- - meta
-- name: keyword
-  content: CRUD、增删改查、
-  description: 如何实现一套无脑写代码的 Demo，减少开发人员认知负担
+  - 软件架构
+head:
+  - - meta
+    - name: keyword
+      content: CRUD、增删改查
+      description: 如何实现一套无脑写代码的 Demo，减少开发人员认知负担
 ---
 
 项目启动前如果把会遇到的问题都考虑好，那么是否可以大大的提高开发效率呢?
