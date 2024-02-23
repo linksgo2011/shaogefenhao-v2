@@ -1,5 +1,5 @@
-folder=posts/business/
-fileName=02.software-value-pyramid
+folder=libs/others
+fileName=cold-medical-knowledge
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
