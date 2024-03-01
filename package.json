@@ -12,7 +12,8 @@
     "vite-serve": "vuepress-vite dev src",
     "webpack-build": "vuepress-webpack build src",
     "webpack-clean-serve": "vuepress-webpack dev src --clean-cache",
-    "webpack-serve": "vuepress-webpack dev src"
+    "webpack-serve": "vuepress-webpack dev src",
+    "generate-libs-home-page": "node scripts/generateLibHomePage.js"
   },
   "devDependencies": {
     "@vuepress/plugin-google-analytics": "^2.0.0-beta.37",
