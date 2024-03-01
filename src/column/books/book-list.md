@@ -197,6 +197,16 @@ description: 我个人的方向是专注于分布式系统架构设计和中间�
 
 《说谎:揭穿商业、政治与婚姻中的骗局》
 
+## 英文书单
+
+《Capital in the Twenty First Century》
+
+《Zero to One: Notes on Startups, or How to Build the Future》
+
+《Vision to Reality: Stop Working, Start Living》
+
+《Animal Farm》
+
 ## 参考书单
 
 - https://github.com/keithnull/TeachYourselfCS-CN/blob/master/TeachYourselfCS-CN.md
