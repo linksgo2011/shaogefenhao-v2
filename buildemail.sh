@@ -1,5 +1,5 @@
-folder=libs/others
-fileName=cold-medical-knowledge
+folder=libs/email/
+fileName=tawf-review-request
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
