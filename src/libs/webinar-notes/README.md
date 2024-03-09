@@ -133,6 +133,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 48. [技术方案 Webinar - 如何推动架构落地](./java-solution-webinar-48.html)
 49. [技术方案 Webinar - 微服务跨库查询和列表](./java-solution-webinar-49.html)
 50. [技术方案 Webinar - 技术经理问题和挑战](./java-solution-webinar-50.html)
+51. [技术方案 Webinar - 如何快速定位问题](./java-solution-webinar-51.html)
+52. [技术方案 Webinar - 架构设计有什么常见的难点](./java-solution-webinar-52.html)
 
 ## Agenda 和准备材料
 
