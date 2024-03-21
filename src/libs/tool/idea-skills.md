@@ -24,5 +24,5 @@ sidebar: auto
 
 ## 查看子类（实现类）类图
 
-![image-20200406094512355](idea-skills/image-20200406094512355.png)
+![image-20200406094512355](./idea-skills/image-20200406094512355.png)
 
