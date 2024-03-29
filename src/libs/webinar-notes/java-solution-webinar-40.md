@@ -70,4 +70,4 @@ Nop 框架，业务层的东西尽量使用 DSL 开发，避免使用 Java 开�
 
 ## 录屏
 
-链接: https://pan.baidu.com/s/1qIctBHC7AaZXIGWzXnWIBg?pwd=6du4 提取码: 6du4 复制这段内容后打开百度网盘手机App，操作更方便哦
+链接: https://pan.baidu.com/s/1NGHqZg1XnqqUvifbN48YSQ?pwd=qw1f 提取码: qw1f 复制这段内容后打开百度网盘手机App，操作更方便哦
