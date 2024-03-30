@@ -133,7 +133,8 @@ https://meeting.tencent.com/dm/3hmMzJplIFc0
 50. [技术方案 Webinar - 技术经理问题和挑战](./java-solution-webinar-50.html)
 51. [技术方案 Webinar - 如何快速定位问题](./java-solution-webinar-51.html)
 52. [技术方案 Webinar - 架构设计有什么常见的难点](./java-solution-webinar-52.html)
-
+53. [技术方案 Webinar - 程序员的成长问题](./java-solution-webinar-53.html)
+54. [技术方案 Webinar - 软件研发流程](./java-solution-webinar-54.html)
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
