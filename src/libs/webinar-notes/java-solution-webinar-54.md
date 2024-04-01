@@ -29,9 +29,9 @@ zyz：研发流程和大中型公司软件研发流程类似。
 
 ### 某咨询公司典型的敏捷研发流程？
 
-![calender.png](./java-solution-webinar-54%2Fcalender.png)
+![calender.png](./java-solution-webinar-54/calender.png)
 
-![dev-flow.png](./java-solution-webinar-54%2Fdev-flow.png)
+![dev-flow.png](./java-solution-webinar-54/dev-flow.png)
 
 ### 私有化部署类的研发流程有什么特别的地方？
 
