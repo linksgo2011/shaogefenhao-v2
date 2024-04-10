@@ -1,5 +1,5 @@
-folder=posts/architecture
-fileName=solve-a-difficult-problem
+folder=posts/team
+fileName=dominate
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
