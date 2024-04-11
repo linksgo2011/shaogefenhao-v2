@@ -1,5 +1,5 @@
 folder=posts/team
-fileName=dominate
+fileName=efficiency-not-importtant
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
