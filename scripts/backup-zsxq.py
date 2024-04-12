@@ -114,4 +114,7 @@ for topic in topics:
         print(topic['talk']['text'])
     elif 'images' in topic['talk']:
         for img in topic['talk']['images']:
-            print(f"![]({img['original']['url']})")
+            if 'original' in img:
+                print(f"![]({img['original']['url']})")
+            else:
+                print(f"![]({img['large']['url']})")
