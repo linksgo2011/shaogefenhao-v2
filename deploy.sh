@@ -4,6 +4,7 @@
 set -e
 
 initDist(){
+
   echo $1 > base.js
   npm run vite-build
   cd src/.vuepress/dist

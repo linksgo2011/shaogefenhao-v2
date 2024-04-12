@@ -91,12 +91,20 @@ export default defineUserConfig<DefaultThemeOptions>({
         activeMatch: "/libs/*",
         children: [
           {
+            text: "知识库索引",
+            link: "/libs/"
+          },
+          {
             text: "每周线上技术 Webinar 笔记",
             link: "/libs/webinar-notes/"
           },
           {
             text: "一页纸笔记",
             link: "/libs/mini-notes/"
+          },
+          {
+            text: "2024年认知",
+            link: "/libs/renzhi-2024.html"
           }
         ]
       },

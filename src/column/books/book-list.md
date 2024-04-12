@@ -197,6 +197,12 @@ description: 我个人的方向是专注于分布式系统架构设计和中间�
 
 《说谎:揭穿商业、政治与婚姻中的骗局》
 
+《意识探秘》
+
+《金钱心理》
+
+《爱的博弈》
+
 ## 英文书单
 
 《Capital in the Twenty First Century》
