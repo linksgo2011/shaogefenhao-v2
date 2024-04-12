@@ -5,7 +5,8 @@ import time
 import calendar
 import sys
 
-month = int(sys.argv[1])
+year = int(sys.argv[1])
+month = int(sys.argv[2])
 
 tz = timezone(timedelta(hours=8))
 
@@ -59,16 +60,18 @@ def format_date(datetime):
     return datetime.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + datetime.strftime('%z')
 
 
-def call_api_with_month(year, month, base_url, cookies):
+def call_api_with_month(year, month, base_url, cookies, end_time):
     begin_time = datetime(year, month, 1, 0, 0, 0, 0, tzinfo=tz)
     last_day = calendar.monthrange(year, month)[1]
-    end_time = datetime(year, month, last_day, 23, 59, 59, 999999, tzinfo=tz)
+
+    if end_time is None:
+        end_time = format_date(datetime(year, month, last_day, 23, 59, 59, 999999, tzinfo=tz))
 
     params = {
         'scope': 'all',
         'count': '20',
         'begin_time': format_date(begin_time),
-        'end_time': format_date(end_time)
+        'end_time': end_time
     }
     encoded_params = urllib.parse.urlencode(params)
     response = requests.get(f"{base_url}?{encoded_params}", cookies=cookies)
@@ -82,8 +85,15 @@ def call_api_with_month(year, month, base_url, cookies):
         print("API returned a failure response")
         exit()
 
-    return data['resp_data']['topics']
+    topics = data['resp_data']['topics']
 
+    time.sleep(1)
+    if len(topics) == 20:
+        last_end_time = topics[-1]['create_time']
+        print("持续抓取：", last_end_time)
+        topics.extend(call_api_with_month(year, month, base_url, cookies, last_end_time))
+
+    return topics
 
 # Setup your initial parameters
 api_url = 'https://api.zsxq.com/v2/groups/15522848288852/topics'
@@ -92,11 +102,16 @@ cookies = 'zsxqsessionid=4eaaa057f72b3ce0d9120b5807274493; zsxq_access_token=9CE
 # Fetch data
 # topics = fetch_data(api_url, parse_cookie_string(cookies))
 
-year = 2024
 
-topics = call_api_with_month(year, month, api_url, parse_cookie_string(cookies))
-time.sleep(1)
+topics = call_api_with_month(year, month, api_url, parse_cookie_string(cookies),None)
+
 print('## ', year, '-', month)
 for topic in topics:
+    if 'talk' not in topic:
+        continue
     print('### ', topic['topic_id'], topic['create_time'])
-    print(topic['talk']['text'])
+    if 'text' in topic['talk']:
+        print(topic['talk']['text'])
+    elif 'images' in topic['talk']:
+        for img in topic['talk']['images']:
+            print(f"![]({img['original']['url']})")
