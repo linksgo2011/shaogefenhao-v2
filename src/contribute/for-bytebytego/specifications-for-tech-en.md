@@ -115,7 +115,7 @@ W3C has defined a series of specifications for XML including the structure of XM
 
 The WebRTC standard enables developers to implement audio and video capabilities in browsers. Through simple application programming interfaces (APIs), both browsers and mobile apps can conduct real-time audio and video communication (RTC). WebRTC allows for the direct exchange of data streams between web browsers without the need for additional plugins or third-party software.
 
-## ECMA 组织和常见标准
+## ECMA Organization and Common Standards
 
 ECMA (European Computer Manufacturers Association) primarily focuses on setting standards related to computer manufacturing and programming. ECMA has established specifications for many programming languages, such as C# and C++. Interestingly, Sun Microsystems once submitted standards related to Java to ECMA but later withdrew them. The most famous specifications under ECMA include ECMAScript, JSON, and office document standards.
 
