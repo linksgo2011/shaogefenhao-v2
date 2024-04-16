@@ -19,7 +19,7 @@ Generally, the terms "specification," "standard," and "protocol" can all refer t
 
 ## Overview of Technical Standards Organizations and Standards
 
-![./specifications-for-tech.png](specifications-for-tech.png)
+![](./specifications-for-tech/specifications-for-tech.png)
 
 ## IETF Organization and Popular Standards
 
@@ -41,13 +41,13 @@ For those needing to build authorization systems, almost all developers must und
 
 The difference between OAuth and SAML is that OAuth focuses more on third-party application authorization, while SAML concentrates on single sign-on and identity federation primarily used in enterprise environments. 
 
-### Uniform Resource Identifier (URI)  RFC 3986
+### URI RFC 3986
 
 The title of RFC 3986 is "Uniform Resource Identifier (URI): Generic Syntax.", the use of URIs is not limited just to web pages.
 
 URIs can be utilized in many aspects. For example, they can be used to tag the window resources of an app, facilitating a technology known as Deep Linking, which allows a web page to open a specific window of a native app.
 
-### Media Type Specifications RFC 6838
+### Media Type RFC 6838
 
 Media types refer to the formats of common files, typically marked in the file header information. Application developers can define their own file media formats, and if they wish these formats to be adopted by other applications, they can register them with IANA for management.
 
@@ -157,7 +157,7 @@ Defining meta-models allows software to have greater versatility and is widely u
 
 ISO (International Organization for Standardization) is the world’s largest international standard-setting body. ISO not only sets standards for the computing field but also covers a wide range, including quality, food safety, and some information technology-related standards.
 
-### Date and time format ISO 8601
+### Date and Time Format ISO 8601
 
 ISO 8601 is a standard for date and time formats aimed at providing a universal format for date and time data exchange across borders, cultures, and industries.
 

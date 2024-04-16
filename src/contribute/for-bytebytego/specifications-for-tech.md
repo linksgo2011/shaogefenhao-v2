@@ -19,7 +19,7 @@ head:
 
 ## 技术标准组织和标准一览
 
-![./specifications-for-tech.png](specifications-for-tech.png)
+![](./specifications-for-tech/specifications-for-tech.png)
 
 ## IETF 组织和常见标准
 

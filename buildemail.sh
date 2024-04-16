@@ -1,5 +1,5 @@
-folder=libs/email/
-fileName=tawf-review-request
+folder=contribute/for-bytebytego
+fileName=specifications-for-tech-en
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
