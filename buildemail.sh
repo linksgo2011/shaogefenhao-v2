@@ -1,5 +1,5 @@
-folder=contribute/for-bytebytego
-fileName=specifications-for-tech-en
+folder=posts/architecture
+fileName=multi-currencies
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build

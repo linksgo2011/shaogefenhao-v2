@@ -203,6 +203,8 @@ description: 我个人的方向是专注于分布式系统架构设计和中间�
 
 《爱的博弈》
 
+《高效能团队模式》
+
 ## 英文书单
 
 《Capital in the Twenty First Century》
@@ -212,6 +214,8 @@ description: 我个人的方向是专注于分布式系统架构设计和中间�
 《Vision to Reality: Stop Working, Start Living》
 
 《Animal Farm》
+
+
 
 ## 参考书单
 
