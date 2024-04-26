@@ -62,6 +62,7 @@
                 <div class="feature">
                     <ul>
                         <li><a href="https://edu.51cto.com/topic/5211.html">51CTO DDD 系列课程</a></li>
+                        <li><a href="https://u.jd.com/R8ZlYBw">《Java 研发自测: 入门到与进阶》</a></li>
                     </ul>
                 </div>
                 <div class="feature">
