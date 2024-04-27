@@ -137,7 +137,7 @@ https://meeting.tencent.com/dm/FteBhNgMeyuu
 53. [技术方案 Webinar - 程序员的成长问题](./java-solution-webinar-53.html)
 54. [技术方案 Webinar - 软件研发流程](./java-solution-webinar-54.html)
 55. [技术方案 Webinar - 从零开始编写的下一代逻辑编排引擎 NopTaskFlow](./java-solution-webinar-55.html)
-
+56. [技术方案 Webinar - UML 元模型生成 GraphQL 后端系统](./java-solution-webinar-56.html)
 ## Agenda 和准备材料
 
 - 讨论的形式和话题话题枚举 
