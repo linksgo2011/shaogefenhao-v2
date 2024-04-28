@@ -76,7 +76,7 @@ head:
 
 介于前面这两个方案之间，大部分国际化的公司会根据自己的经营情况，将所有进入的市场划分为有限的几个区域，通过这些区域来定价，其价格模型如下所示。
 
-![multi-currency-pricing.png](./multi-currencies%2Fmulti-currency-pricing.png)
+![multi-currency-pricing.png](./multi-currencies/multi-currency-pricing.png)
 
 当然，定价是一个非常复杂的业务场景，区域和币种也仅仅是其影响定价的一个因素，所以有时候也需要使用定价单来实现。
 
