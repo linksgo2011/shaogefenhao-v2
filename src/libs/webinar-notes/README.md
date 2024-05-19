@@ -16,7 +16,6 @@ head:
 
 ### 近期讨论活动
 
-- 2024-05-18(周六)：#57 上线清单
 - 2024-05-25(周六)：#58 如何估算准确，以及保证准时交付
 - 2024-06-01(周六)：#59 如何让工程师的工作显性化
 
@@ -139,6 +138,7 @@ https://meeting.tencent.com/dm/FteBhNgMeyuu
 54. [技术方案 Webinar - 软件研发流程](./java-solution-webinar-54.html)
 55. [技术方案 Webinar - 从零开始编写的下一代逻辑编排引擎 NopTaskFlow](./java-solution-webinar-55.html)
 56. [技术方案 Webinar - UML 元模型生成 GraphQL 后端系统](./java-solution-webinar-56.html)
+57. [技术方案 Webinar - 上线清单](./java-solution-webinar-57.html)
 
 ## Agenda 和准备材料
 
