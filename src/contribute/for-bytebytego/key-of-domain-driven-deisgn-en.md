@@ -43,13 +43,13 @@ In the relational model of databases, models form a network structure. This pose
 
 If an aggregate has only one entity, then the aggregate root is this entity.
 
-## Entity and Value Objects
+## Distinguish between entities and value objects
 
 In addition to aggregate roots and entities, some models look like one-time use, they do not have their own ID to indicate identity, but are more like part of an entity, expressing a collection of several fields.
 
 For example, in an e-commerce system, a user's frequently used address is a typical entity, which has its own ID as identity. But when a user selects an address for an order, the address at this time is just several fields on the order, which we will treat as value objects.
 
-## Factory\Service\Repository
+## Manipulate Models
 
 In Domain-Driven Design, in order to manipulate these models, some objects have been derived as "operators".
 
@@ -57,7 +57,7 @@ In Domain-Driven Design, in order to manipulate these models, some objects have 
 - Service: Used to handle some business logic. For example, calculating the total price for an order or validating some business rules.
 - Repository: Responsible for persisting domain models to the database or rebuilding them from the database. Its purpose is to isolate the differences between domain models and technical implementations.
 
-## Layers
+## Layering the architecture
 
 In order to better organize the various objects in the project, we need to layer like computer networks to simplify the complexity of complex projects.
 
@@ -68,6 +68,8 @@ In Domain-Driven Design, a four-layer architecture is recommended:
 - Domain Layer: Handles general domain logic, that is, reusable or more professional business logic, such as order price calculation.
 - Infrastructure Layer: Used to adapt to the infrastructure, such as connecting to the database, operating Redis, etc.
 
-## Event Storming
+## Domain Modeling
 
 In order to extract domain models from business knowledge, people have invented many methods. Event storming is a popular software modeling method.Guiding business personnel and technical personnel to collaboratively create domain models through workshops, using business events as clues, to explore possible domain models in the system.
+
+In addition to event storms, color modeling is also a commonly used modeling method. It distinguishes the characteristics of different domain models through colors to clarify the responsibilities of the domain model. Color modeling has been very popular in many years past.
