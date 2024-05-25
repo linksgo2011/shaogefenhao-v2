@@ -149,6 +149,7 @@ B 站直播地址：http://live.bilibili.com/31252787 搜索关键词：系统�
 55. [技术方案 Webinar - 从零开始编写的下一代逻辑编排引擎 NopTaskFlow](./java-solution-webinar-55.html)
 56. [技术方案 Webinar - UML 元模型生成 GraphQL 后端系统](./java-solution-webinar-56.html)
 57. [技术方案 Webinar - 上线清单](./java-solution-webinar-57.html)
+58. [技术方案 Webinar - 估算的考量](./java-solution-webinar-58.html)
 
 ## Agenda 和准备材料
 
