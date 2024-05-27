@@ -1,11 +1,12 @@
 # Home Page
 
-个人知识库（学习或者采集，未加工内容），自动生成。
-
-
-
 ## ad 
 - [读书 | 《编码:隐匿在计算机软硬件背后的语言》（含购买广告）](ad/book-ad-code.md)
+- [研发自测之路："救火"还是自测？](ad/java-self-self-testing-advertorial.md)
+- [《Java 研发自测》出版上线啦！](ad/java-self-testing-ad-wechat.md)
+- [《Java 研发自测》广告推文](ad/java-self-testing-ad.md)
+- [《Java 研发自测》广告推文](ad/java-self-testing-promotion-guide.md)
+- [我把微信改版啦！](ad/wechat-rebrand.md)
 ## algorithm 
 - [LRU 算法](algorithm/lru.md)
 - [幂集算法](algorithm/power-set.md)
@@ -34,22 +35,6 @@
 - [鬼谷子](book-notes/guiguzi.md)
 ## business 
 - [银行产品定价领域知识](business/pricing-of-bank-products.md)
-## c&c++ 
-- [extern](../../_drafts/c&c++/c++-extern.md)
-- [C++ linux服务器编程](../../_drafts/c&c++/c++-linux.md)
-- [内存分配](../../_drafts/c&c++/c++-memory.md)
-- [vc驿站视频教程笔记4 Cstring 讲解](../../_drafts/c&c++/cctry-note-4.md)
-- [vc驿站视频教程笔记 对话框](../../_drafts/c&c++/cctry-note-5.md)
-- [对话框之间的数据传递](../../_drafts/c&c++/cctry-note-6.md)
-- [vc驿站视频教程笔记 vc++编程环境的介绍](../../_drafts/c&c++/cctry-note1.md)
-- [vc驿站视频教程笔记2 ansi 和 unicode](../../_drafts/c&c++/cctry-note2.md)
-- [开源控件](../../_drafts/c&c++/cctry-note8.md)
-- [Mac 上 QT 环境搭建](../../_drafts/c&c++/qt-environment-setting.md)
-- [如何用qt实现学生信息管理系统](../../_drafts/c&c++/qt-example.md)
-- [如何阅读别人的C代码](../../_drafts/c&c++/read-c-code.md)
-- [C++ 学习资源](../../_drafts/c&c++/resources.md)
-- [文件操作](../../_drafts/c&c++/vc-file.md)
-- [定时器](../../_drafts/c&c++/vc-timer.md)
 ## cakephp 
 - [Cake PHP 缓存](cakephp/cakephp-cache.md)
 - [Cake PHP 学习笔记](cakephp/cakephp-lean-note.md)
@@ -66,6 +51,8 @@
 - [集合论基础](computer-science/set-theory.md)
 - [系统思考的方法](computer-science/systematic-thinking.md)
 - [时区问题](computer-science/time-zone.md)
+## data 
+- [Data Engineering Accelerated](data/thoughtworks-apac-data-training.md)
 ## design 
 - [配色方案](design/color-schema-generation.md)
 - [设计相关内容](design/index.md)
@@ -76,7 +63,6 @@
 - [EulerOS 安装 Nodejs（ARM版本）](devops/arm-install-nodejs-on-arm.md)
 - [使用SSH实现自动化部署](devops/auto-deployment-with-ssh.md)
 - [Circle CI 基本使用](devops/circleci-basic.md)
-- [常用的GIT命令](devops/git-commands.md)
 - [Git 提交文件属性](devops/git-commit-filemode.md)
 - [Gradle 构建 Spring boot 项目](devops/gradle-build-spring-boot.md)
 - [华为云使用笔记](devops/huaweicloud.md)
@@ -97,9 +83,9 @@
 - [docker 部署机器上镜像清理](docker/docker-clean.md)
 - [docker 容器导入导出](docker/docker-export.md)
 - [docker 自带镜像仓库清理](docker/docker-registry-clean.md)
-- [Dockerfile 详解](../../_drafts/libs/dockerfile.md)
 - [kubernetes](docker/kubernetes.md)
-- [Swarm](../../_drafts/libs/swarm.md)
+## domain-knowledge 
+- [Hotel Domain Knowledge](domain-knowledge/hotel.md)
 ## email 
 - [【RFC】我们编写了一本关于研发自测的书，请求反馈](email/book-review-request-java-self-testin.md)
 - [我把博客整理成了电子书，求反馈](email/book-review-request.md)
@@ -126,7 +112,6 @@
 - [jquery 常用代码](frontend/jquery-useful-code.md)
 - [微格式 (Microformat）](frontend/micro-format.md)
 - [产品官网 Portal 页面参考](frontend/portal-page-collection.md)
-- [触屏网站之网站尺寸](../../_drafts/libs/screen-size.md)
 - [前端工程师知识清单](frontend/skills.md)
 - [理解js 的作用域链 原型链 闭包 词法分析](frontend/understand-js-advance.md)
 - [前端开发中常用工具函数总结](frontend/useful-functions.md)
@@ -245,7 +230,6 @@
 - [如何克服害怕失败的心理](others/face-failure-then-welcom-success.md)
 - [如何做笔记？](others/how-to-take-notes.md)
 - [Java web 方向技术核心](others/java-web-skill.md)
-- [开发者如何快速熟悉一个新项目](../../_drafts/libs/know-a-project-quickly.md)
 - [那些我在 BeeArt 学到的](others/leaned-from-bees.md)
 - [鼻炎及鼻窦炎调研](others/nasosinusitis-investigation.md)
 - [专注编码，一次只做一件事](others/one-time-one-thing.md)
@@ -305,7 +289,6 @@
 ## security 
 - [开发安全的 API 所需要核对的清单](security/api-security.md)
 - [灰产](security/black-production.md)
-- [CSP 浏览器内存安全策略](../../_drafts/libs/csp-in-browser.md)
 - [认证和授权的基本概念](security/iam.md)
 - [ldap](security/ldap.md)
 - [安全红线参考](security/red-line.md)
@@ -322,6 +305,7 @@
 ## solution 
 - [UUID 生成](solution/UUID-generation.md)
 - [Java 中的缓存策略](solution/cache-solution.md)
+- [内容管理 Content Management Solutions](solution/content-management.md)
 - [分库分表方案](solution/database-sharding.md)
 - [文件上传](solution/file-upload.md)
 - [导出到 Excel](solution/java-excel-export.md)
@@ -329,6 +313,7 @@
 - [PDF 导出](solution/pdf-export.md)
 - [网页快照方案 puppeteer](solution/puppeteer.md)
 - [real time web 实时协作方案](solution/real-time.md)
+- [搜索引擎](solution/search-engine.md)
 - [拖拽排序后端设计方案](solution/sort-in-db.md)
 - [储存高性能架构](solution/storage-architecture.md)
 - [服务器推送方案](solution/websocket.md)
@@ -362,7 +347,6 @@
 - [apollo 配置中心](tech-components/apollo.md)
 - [elasticjob 分布式计划任务中间件](tech-components/elasticjob.md)
 - [FastDFS 分布式文件系统方案](tech-components/fastDFS.md)
-- [【转载】内网穿透组件 lanproxy](../../_drafts/libs/lanproxy.md)
 - [OpenResty](tech-components/open-resty.md)
 - [Prometheus 开源设备监控平台](tech-components/prometheus.md)
 - [thrift RPC 调用框架](tech-components/thrift.md)
@@ -384,7 +368,6 @@
 - [使用 spring-security-test 作为 user mock](testing/spring-security-test.md)
 - [测试策略](testing/testing-strategy.md)
 ## thinking 
-- [前端的编程思维](../../_drafts/libs/10-good-design-experence.md)
 - [使用概念图梳理编程中的概念](thinking/concept-map.md)
 - [道家的世界观](thinking/dao-thinking.md)
 - [建模和编程中的契约 —— Design By Contract](thinking/design-by-contract.md)
@@ -408,7 +391,6 @@
 - [主客体建模法](thinking/zhuketi-modeling.md)
 - [主客体命名法](thinking/zhuketi-naming.md)
 ## tool 
-- [Chrome 自带截图](../../_drafts/libs/chrome-screenshot.md)
 - [开发工具图谱](tool/development-tool.md)
 - [Intellij 常用技巧](tool/idea-skills.md)
 - [VIM 简明命令](tool/vim-commands.md)
@@ -464,6 +446,14 @@
 - [技术方案 Webinar - 微服务跨库查询和列表](webinar-notes/java-solution-webinar-49.md)
 - [技术方案 Webinar - 微服务中的鉴权（Auth）怎么做？](webinar-notes/java-solution-webinar-5.md)
 - [技术方案 Webinar - 技术经理问题和挑战](webinar-notes/java-solution-webinar-50.md)
+- [技术方案 Webinar - 如何快速定位问题](webinar-notes/java-solution-webinar-51.md)
+- [技术方案 Webinar - 架构设计有什么常见的难点](webinar-notes/java-solution-webinar-52.md)
+- [技术方案 Webinar - 程序员的成长问题](webinar-notes/java-solution-webinar-53.md)
+- [技术方案 Webinar - 软件研发流程](webinar-notes/java-solution-webinar-54.md)
+- [技术方案 Webinar - 从零开始编写的下一代逻辑编排引擎 NopTaskFlow](webinar-notes/java-solution-webinar-55.md)
+- [技术方案 Webinar - UML 元模型生成 GraphQL 后端系统](webinar-notes/java-solution-webinar-56.md)
+- [技术方案 Webinar - 上线清单](webinar-notes/java-solution-webinar-57.md)
+- [技术方案 Webinar - 估算的考量](webinar-notes/java-solution-webinar-58.md)
 - [技术方案 Webinar - 邓老师 DDD 代码结构分享](webinar-notes/java-solution-webinar-6.md)
 - [技术方案 Webinar - 分库分表和数据库选型](webinar-notes/java-solution-webinar-7.md)
 - [技术方案 Webinar - 微服务下的导出方案](webinar-notes/java-solution-webinar-8.md)
