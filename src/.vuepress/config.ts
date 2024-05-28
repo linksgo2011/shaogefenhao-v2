@@ -91,10 +91,6 @@ export default defineUserConfig<DefaultThemeOptions>({
         activeMatch: "/libs/*",
         children: [
           {
-            text: "知识库索引",
-            link: "/libs/"
-          },
-          {
             text: "每周线上技术 Webinar 笔记",
             link: "/libs/webinar-notes/"
           },

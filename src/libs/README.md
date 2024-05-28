@@ -87,6 +87,7 @@
 ## domain-knowledge 
 - [Hotel Domain Knowledge](domain-knowledge/hotel.md)
 - [MarTech](domain-knowledge/mar-tech.md)
+- [MarTech](domain-knowledge/user-behavior-analysis.md)
 ## email 
 - [【RFC】我们编写了一本关于研发自测的书，请求反馈](email/book-review-request-java-self-testin.md)
 - [我把博客整理成了电子书，求反馈](email/book-review-request.md)
