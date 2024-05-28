@@ -53,4 +53,4 @@ sidebar: true
 
 与君共勉!
 
-![logo.png](./wechat-rebrand%2Flogo.png)
+![logo.png](./wechat-rebrand/logo.png)
