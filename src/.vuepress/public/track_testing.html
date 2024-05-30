@@ -22,6 +22,17 @@
         //如果是私有云部署还需要在上面那段JS后面紧接着添加日志域名埋点
         //通常私有云日志服务端域名类似于：quickaplus-web-api.xxx.com.cn, 具体域名要找交付同学要
         aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['aplus-rhost-v', 'log-api.aplus.emas-poc.com']  });
+
+        aplus_queue.push({
+            action: 'aplus.setMetaInfo',
+            arguments: ['pageConfig', {
+                hashMode: false,
+                '/track_testing.html': {
+                    pageName: '${page_name}',
+                    regRule: /.*/
+                },
+            }]
+        });
     </script>
 </head>
 <body>
