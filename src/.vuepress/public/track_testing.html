@@ -7,21 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hello PoC</title>
     <script type="application/javascript">
-        (function(w, d, s, q) {
-            w[q] =w[q] || [];
-            var f=d.getElementsByTagName(s)[0],j=d.createElement(s);
-            j.async=true;
-            j.id='beacon-aplus';
-            j.src='https://o.alicdn.com/QTSDK/quicktracking-sdk/qt_web.cjs.js ';
+        (function (w, d, s, q) {
+            w[q] = w[q] || [];
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+            j.async = true;
+            j.id = 'beacon-aplus';
+            j.src = 'https://o.alicdn.com/QTSDK/quicktracking-sdk/qt_web.cjs.js ';
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'aplus_queue');
 
         //集成应用的appKey
-        aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['appKey', '17xjijn6hdu7tcb35p351p5z']  })
+        aplus_queue.push({action: 'aplus.setMetaInfo', arguments: ['appKey', '17xjijn6hdu7tcb35p351p5z']})
 
         //如果是私有云部署还需要在上面那段JS后面紧接着添加日志域名埋点
         //通常私有云日志服务端域名类似于：quickaplus-web-api.xxx.com.cn, 具体域名要找交付同学要
-        aplus_queue.push({ action: 'aplus.setMetaInfo', arguments: ['aplus-rhost-v', 'log-api.aplus.emas-poc.com']  });
+        aplus_queue.push({action: 'aplus.setMetaInfo', arguments: ['aplus-rhost-v', 'log-api.aplus.emas-poc.com']});
 
         aplus_queue.push({
             action: 'aplus.setMetaInfo',
@@ -39,5 +39,17 @@
 
 This is Ning's Test page for PoC。
 
+<script type="application/javascript">
+    function pageView() {
+        aplus_queue.push({
+            'action': 'aplus.sendPV',
+            'arguments': [{
+                is_auto: false
+            }, {
+                pageName: 'View',
+            }]
+        });
+    }
+</script>
 </body>
 </html>
