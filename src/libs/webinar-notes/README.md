@@ -42,7 +42,7 @@ https://meeting.tencent.com/dm/FteBhNgMeyuu
 
 活动日历邀请链接： https://discord.gg/fQqkue48?event=1243865495829221447
 
-Discord 服务器和频道： https://discord.gg/TVZ6MuMG
+Discord 服务器和频道： https://discord.gg/jWupRuB54Q
 
 B 站直播地址：http://live.bilibili.com/31252787 搜索关键词：系统设计研讨会,少个分号
 
@@ -177,6 +177,7 @@ B 站回放观看地址： https://www.bilibili.com/list/2066241928
 56. [技术方案 Webinar - UML 元模型生成 GraphQL 后端系统](./java-solution-webinar-56.html)
 57. [技术方案 Webinar - 上线清单](./java-solution-webinar-57.html)
 58. [技术方案 Webinar - 估算的考量](./java-solution-webinar-58.html)
+59. [技术方案 Webinar - 工程师的工作显性化](./java-solution-webinar-59.html)
 
 ## Agenda 和准备材料
 
