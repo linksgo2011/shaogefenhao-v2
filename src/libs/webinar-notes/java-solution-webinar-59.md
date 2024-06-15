@@ -58,3 +58,7 @@ head:
   - 算法底层开发比代码整洁设计体现更方便
   - 书或者文章比谈话和个人理解更有价值
   - 有些人很强，但是没法举证很强，写的代码全是和内部项目相关的
+
+## 录屏
+
+[https://www.bilibili.com/list/2066241928?oid=1355266224&bvid=BV1Vz421Y7s6](https://www.bilibili.com/list/2066241928?oid=1355266224&bvid=BV1Vz421Y7s6)
