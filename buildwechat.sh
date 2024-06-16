@@ -1,5 +1,5 @@
-folder=contribute/others-for-wechat-account
-fileName=seckill-system-design
+folder=libs/ad
+fileName=wechat-rebrand
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
