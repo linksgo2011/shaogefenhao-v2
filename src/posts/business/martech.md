@@ -27,7 +27,7 @@ description: 一篇文章入门数字化营销（MarTech）知识
 
 下图是一张 MarTech 技术全景图：
 
-![mar-tech-landscape.png](./martech%2Fmar-tech-landscape.png)
+![mar-tech-landscape.png](./martech/martech-landscape.png)
 
 下面分别解释这张图中的一些内容。
 
