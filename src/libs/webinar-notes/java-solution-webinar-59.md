@@ -23,7 +23,7 @@ head:
 - 写书
 - 专栏
 
-![img.png](./java-solution-webinar-59%2Fimg.png)
+![img.png](./java-solution-webinar-59/img.png)
 
 
 ## 为什么你会觉得一个人很专业（Buy-in），像一个专家？
