@@ -222,4 +222,44 @@ Canonica 在 NopReport 项目中实现了类似的小型非线性报表引擎，
 - https://www.zhihu.com/tardis/bd/art/36552380?source_id=1001
 - https://zhuanlan.zhihu.com/p/688793604
 - 蒋步星介绍 https://www.raqsoft.com.cn/about/founder
-- 非线性报表模型原理.pdf 链接: https://pan.baidu.com/s/1nK-nZ3y6sriNa6VGxp7zJw?pwd=ghft 提取码: ghft 
+- 非线性报表模型原理.pdf 链接: https://pan.baidu.com/s/1nK-nZ3y6sriNa6VGxp7zJw?pwd=ghft 提取码: ghft
+
+## 大佬的反馈
+
+大部分内容差不多吧，主要是最后的
+具体过程是：
+读取模版文件到内存中，解析模版文件
+先自上而下，根据列表头的数据深度展开足够的行数
+根据列表头的树和模版语法自左而右递归增加列数
+根据行表头的树和模版自上而下递归增加行数
+这四个步骤的描述不对。按照蒋步星的推导，先展开行还是先展开列结果是一样的，但是实际做的时候是从左向右，从上到下逐个去展开单元格。如果是行展开，则复制行，如果是列展开，则复制列。
+复制的时候，如果考虑单元格的父子关系，复制父格的时候会复制子格，而复制子格的时候会修改父格的span。
+一般情况下按顺序去做展开的时候父格会排在前面，会先展开，但是报表引擎允许直接设置单元格的父格或者子格，结果就可能导致父格出现在子格的后面，因此实际实现的时候需要引入一个Queue。发现父格还没有展开的时候要先把当前单元格放回队列，先展开父格。
+
+你对于报表引擎的关键点的理解是正确的，即报表引擎里最关键的是层次坐标，每个单元格最终在层次坐标体系中都有一个唯一的坐标，然后在报表表达式中可以利用这种层次坐标，通过相对位置等取到关联的单元格的值进行计算。 具体做展开的时候也是先展开上级的坐标，然后再展开下级的坐标。比如说模板中A1和B1两个单元格，A1做行展开，B1的缺省行父格为A1, 则A1展开成三个单元格，每个A1展开的时候会管辖一个行的区域，即它的所有行子格所构成的行。也就是说如果不和A1在同一行，但是行父格设置为A1，则A1展开的时候也会导致该行被复制。在B1单元格中的表达式中写A1这个坐标的时候，它指向的是离它最近的A1，也就是它的父格A1。因为A1展开成三个，这样当不同的B1在展开或者执行报表计算的时候，通过A1就可以获取到与它关联的那个A1单元格。如果在B1中引用了非父子关系中的某个单元格，比如A3, 那么它就指向的是所有的A3（如果A3展开就是多个，否则就是一个）。
+
+在报表引擎中配置的时候，我们经常只需要指定当前单元格对应的字段名，但是因为它的行父格和列父格分别有对应的字段名，所以实际执行的结果相当于是按照多维坐标（行父格和列父格的坐标）从数据集中过滤出子集数据，然后再根据字段名获取具体的值。报表引擎有一定的计算能力，DataSet本质上就是一个列表数据。
+
+假设当前单元格有一个行父格和一个列父格，当前单元格对应一个值，则执行的计算类似于如下代码
+
+cell.value = dataSet.filter(row=> row[rowParent.field] == rowParent.value)
+.filter(row=> row[colParent.field] == colParent.value)
+.first()[cell.field]
+
+也就是说根据父格的字段和对应的值过滤得到唯一的一个数据行，然后再获取对应字段值。具体引擎执行的过程中为了保证性能实际都是每个父格执行完毕后都会记录当前过滤得到的数据子集，然后求数据集的角。
+
+rowParent.subList = dataSet.filter(row=>row[rowParent.field] == rowParent.value)
+colParent.subList = dataSet.filter(row=>row[rowParent.field] == colParent.value)
+cell.subList = intersect(rowParent.subList, colParent.subList)
+cell.value = cell.subList.first()[cell.field]
+
+比较复杂的情况下最细粒度的单元格仍然对应一组数据记录，此时可以通过汇总表达式来求出一个汇总值，一般的报表引擎可能会得到一个列表，然后用逗号分隔显示。
+
+cell.value = cell.subList.map(row=> row[cell.field]).sum() 或者
+cell.value = cell.subList.map(row=> row[cell.field]).join(',')
+
+模板中的B1在展开后就变成了 B1[3]{A1[2]} 这种情况了，首先要确定自己的父格的坐标，然后自己在父格中是第几个复制出来的实例。如果只看行或者列一个方向，那就是构成一个Tree，自己要确定自己在Tree的第几层，而且是第几个复制实例。因为同时存在行和列两个Tree，所以管理起来要更复杂一些，但是原则上是差不多的
+
+所谓的单元格展开，如果指定了field，就是上是一个groupBy
+Map<Object,List> expanded = subList.groupBy(cell.field) 按照 指定field的值 进行拆分，每个key对应一个列表，每个列表产生一个新的cell。这个新的cell.value = entry.key, cell.subList = entry.value。实际引擎实现会更复杂一些，展开得到的值是expandedValue，可以通过valueExpr重新计算得到一个value。缺省cell.value = cell.expandedValue
+
