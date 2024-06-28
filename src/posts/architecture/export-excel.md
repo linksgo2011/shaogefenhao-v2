@@ -207,7 +207,7 @@ lastCell 参数是指影响循环的范围，指定了 lastCell，即使后面�
 
 就像这样： 
 
-![condition.png](export-excel/condition.png)
+![condition.png](./export-excel/condition.png)
 
 ## 参考资料
 
