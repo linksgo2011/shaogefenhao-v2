@@ -1,225 +1,264 @@
 ---
-title: 系统管理 | 复杂报表（非线性报表）概念、原理和实现（赠电子书）
-date: 2024-06-23 22:04:32
+title: 系统设计 | 如何生成 PDF？
+date: 2024-06-27 17:48:32
 sidebar: auto
 category: 
   - 软件架构
 head:
   - - meta
     - name: keyword
-      content: 关键字
-      description: 描述
+      content: 如何导出 PDF？
+      description: 一种导出 PDF 的方案，有用可以收藏。
 ---
 
-在之前转发过 NOP 框架作者 canonical 的一篇文章《非线性中国式报表引擎NopReport源码解析》canonical 非常强悍的在 NOP 框架中实现了一个报表引擎，并推荐了一本书《非线性报表模型原理》。
+如果遇到需要导出 PDF 的场景应该如何实现？这个问题在大多数应用中都会出现，所以今天把用过的一些方案整理一下，如果有更好的方案欢迎留言补充。
 
-这本书被我找到了电子版的图片版，我重新制作了一下，都这里分享出来。
+PS: 大家可能会觉得公众号上的内容比较简单入门，这里想解释一下在公众号上发布文章的意义。在几年前我也喜欢参加大会，听一些“高级”的内容，但是回来后发现对干活帮助不大。尝试转变思维，发现我们遇到的问题都是可以拆解成更小、更具体的方案，随着这些方案的逐渐积累，把这些小的地方做好，已经能让架构变得非常清晰、整洁。所以我组织了研讨会，提取各个公司对这些小问题上的问题、场景和经验，对这两年的工作帮助非常大。
 
-《非线性中国式报表引擎NopReport源码解析》这篇文章理解起来比较困难，我尝试整理复杂报表的来龙去脉和相关技术选型，在类似的场景下或许用得上。
+## 01 常见的几个做法
 
-## 01 非线性报表复杂在哪里？
+其实导出 PDF 的方案非常多，不过这些方案很难有比较完美的做法，我把业界几种方案都整理下来，并选了一个比较通用的方案做了实现。
 
-本文的主角是非线性报表，也被称为中国式报表。这个概念的来源还有一段故事，以及一个重要的人物。
+### iText
 
-报表软件起源于 20 多年前，很多公司没有自己的信息化系统，所以依赖报表软件来管理数据，也就是说把数据呈现的各种诉求一揽子压力给到了报表系统。
+iText 是一个非常不错的库，可以通过模版的方式实现 PDF 导出，支持 XML/HTML/PDF等模版。
 
-这些复杂的报表需求有：
+比较有吸引力的是 PDF 模版，PDF 提供了一种表单机制来作为模版使用非常方便。这样可以用 PDF 编辑器实现模版，再用 Java 填充相关字段信息，在很多场景下非常方便。
 
-1. 多维表：二维或者超过二维的嵌套数据，把地区、时间、产品数量、订单数量等全部合并到一个报表中。
-2. 多数据源：由于多维表的需求，那么自然数据源也来自不同的数据表，需要集成多数据源。
-3. 表间计算：一些不在维度中的统计数据也需要单独列出来，例如总产品数量、总订单数量。
+不过从 iText 5 开始就收费了，iText 提供了商业许可和 AGPL（Affero General Public License）许可，如果软件需要分发，使用了 iText 5 也需要对开发的软件进行开源。
 
-这些需求别说 Excel 了，当时国外的软件，例如水晶报表都很难满足中国老板的需求，毕竟人家也不需要把所有数据揉到一起。所以很长一段时间内，这些复杂的报表都让开发者头疼。
+除了通过模版生成 PDF，它的套件还提供了合并文件、优化、擦除等功能。 如果不差钱，iText 是解决 PDF 生成最好的选择。
 
-直到润乾软件创始人蒋步星在研究很多报表后，凭借数学功力，搞了一个数学模型解决了这个问题，还写了一本《非线性报表模型原理》书，这本书的电子版我附录在本文末了。
+### Apache PDFBox
 
-由于这种报表不是往往是多维的，所以又被成为非线性报表、交叉表、多维报表。
+Apache PDFBox 是一个开源的 Java 基础库，用于处理 PDF 文档。单独使用 Apache PDFBox 自己编写大量代码，所以可以被用于内容比较简单的情况。
 
-下面是一个例子：
+用 PDFBox 的原因也往往是为了处理 PDF，而不是生成 PDF，例如编辑、分割 PDF 文件，从 PDF 文件中提取资源之类的操作 PDFBox 是最好的选择之一。
 
-![example.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/non-linear-report/example.png)
+后面会介绍一种结合 PDFBox 实现 HTML 导出 PDF 的方案。
 
-它的特点是：
+### JasperReports
 
-- 复杂嵌套的表头
-- 来自不同的数据源
-- 多个维度、斜线多
+其实是 JasperReports 是一个很大的报表库，用于生成复杂的报表和文档。它可以从各种数据源获取数据，生成 PDF、HTML、Excel 等多种格式的报表。
 
-### 难在哪里？
+用来生成 PDF 会有点复杂，可以生成其它的报表类型。还支持图表、子报表这些，对于仅仅需要导出 PDF 来说有点庞大，但是如果确实需要这套东西的场景来说可以选择 JasperReports。
 
-非线性报表是相对于线性报表而言，线性报表只能往一个方向延展，一般是固定的列，而行的方向是可以拓展的，这和数据库中的表结构模型一致，我们很容易通过 EasyExcel 这样的工具库导出成 Excel。
+使用 JasperReports 学习成本稍微有点高。
 
-如果使用 SQL 来实现交叉表，假设只是获取统计数据，其实并不难，难在如何把这个 HTML 渲染出来或者把 Excel 做出来。而最难的是报表引擎如何做到通过模版的方式展开里面的数据。
+### 无头浏览器截屏
 
-通常来说报表引擎会通过一个模版来表达表格的结构，然后自动填充表格。如果不同报表引擎就需要使用 POI 逐行、逐单元格来生成 Excel。
+这个方案有点骚，这个方案的思路是搭建一个无头浏览器的服务，可以对任何网页进行访问并截图，生成 PDF。
 
-遇到需要把多个数据源拼装到一起的时候，即使不用报表引擎，通过 Java 代码逐行、逐单元格来生成 Excel 也不容易。
+一般我们会使用 Puppeteer 这个 Node.js 的库，通过搭建一个 Node.js 服务来访问需要导出的页面，相关页面需要配置一些权限、用于打印的排版格式。
 
-## 02 通过代码如何做出交叉表？
+这个方案看似可以一劳永逸解决导出 PDF 的问题，但是有几个非常麻烦的缺点：
 
-分析一下这个复杂的报表结构，在不用报表引擎的情况下，如何设计数据结构并实现这个报表。
+1. 如何给 PDF 导出服务配置权限？
+2. 相关页面需要提供一个用于导出 PDF 的样式。
+3. 性能非常差，尤其是有并发的情况下。
+4. 服务之间通信比较麻烦，如果文件中断了需要重新导出。
 
-![data-source-analysis.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/non-linear-report/data-source-analysis.png)
+好处其实也并非没有：
 
-这张报表本质上是一堆报表的组合（在10多年前有幸做过类似的报表，只不过是 HTML 的版本）。
+1. 用于处理非常炫酷的场景，其它方案不容易做出来。
+2. 如果有需要截屏的场景，可以一起实现
+3. 可以构建一个非常通用的服务
 
-我们先考虑一下数据结构，我们可以只考虑最小单位的统计值，上一级单位可以通过最小单位再次统计得到。
+### HTML 渲染 + openhtmltopdf
 
-例如华南可以通过海口、深圳、厦门等数据再次统计，所以数据源中得到按城市统计即可。
+相比之下，通过 HTML 的排版能力是一个非常不错的选择。好处在于 HTML 和 CSS 都非常简单，通过 Java 将 HTML 转换为 PDF 性能和成本也都非常低。
 
-数据源A1、B1、C1 虽然在同一行本质是三个数据源，分别是地区销售额、大于1000销售额、产品类别销售额。只不过可以通过月份关联起来，我之前的做法是根据年+月份生成一个唯一 ID 来标识所有行的数据。
+其思路是：
 
-类似的逻辑对于后面的数据源也适用，可以通过每行的最小单位找到一个 key 作为标识符，来关联多块数据。这个 Key 的选择可以用每个层级组合起来，例如销售员的销售额可以用 “销售员_销售代表_小李” 来表达数据结构。
+1. 先通过 HTML 模版和数据生成渲染后的 HTML 页面，HTML 引擎可以自己选
+2. 使用 openhtmltopdf 库将 HTML 生成为 PDF
+3. 通过插件或者自定义 Java 代码实现水印、页码、签名
 
-所以完成上面的报表统计，需要进行至少 12 次 SQL 统计，每次统计可能使用两个 Group 字段，这样就可以加工出需要的数据了。
+这个方案比较中庸，兼具灵活性和性能的考量，所以我在这里将其视为一种通用的方案。
 
-如何画出这样的 Excel 呢或者生成一个 HTML 表格呢？
+下面我们看看这个方案如何实现。
 
-难在如何计算什么时候合并单元格。例如销售员需要计算需要合并单元格的数量，销售代表则又不同，如果我们的数据结构是一颗树的话，那么需要计算出叶子节点的数量。
+## 02 实现 HTML 渲染的方案
 
-所以多维表的问题是需要在多维结构中找到线性规律。 以 HTML 为例，我之前采用了一个比较笨的办法（我相信有更好的办法，可以在评论区告知），
+主要的实现流程如下所示：
 
-先根据数据结构把表头建立起来，把整个表格画出来，再填充数据。
+![diagram.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-pdf/diagram.png)
 
-![headers.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/non-linear-report/table_structure.png)
+HTML 的编译过程，我们可以选择 thymeleaf 来实现，下面是一个例子：
 
-因此我们可以把表头分为几个区域：
+准备一个 HTML 模版。
 
-- 斜线区，这里一般固定三个，可以根据列表头深度、行表头深度合并单元格然后绝对定位就行。
-- 列表头，根据列表头的嵌套深度，决定渲染多少层，以及何时合并单元格。
-- 行表头，根据行表头的嵌套深度，决定渲染多少层，以及何时合并单元格。
+```html
+<h1>Order Summary</h1>
+<p>Order ID: <span th:text="${order.id}"></span></p>
+<p>Customer Name: <span th:text="${order.customerName}"></span></p>
+<p>Date: <span th:text="${order.date}"></span></p>
 
-所以在设计数据结构上，可以设计为表头数据 + 数据记录。
+<h2>Items</h2>
+<ul>
+    <li th:each="item : ${order.items}" th:text="${item.name} + ' - Quantity: ' + ${item.quantity} + ', Price: $' + ${item.price}"></li>
+</ul>
 
-我这里展示一个表头的数据结构：
-
-```json
-
-{
-    columns_headers_level: 2,
-    rows_headers_level: 3,
-    columns_headers:[
-		{
-			key: '华南',
-			level: 1, 
-			rowspan: 1,
-			colspan: 7,
-			children: [
-				{
-					key: '总计',
-					level: 1, 
-					rowspan: 1,
-					colspan: 7,
-				},
-				{
-					key: '海口',
-					level: 1, 
-					rowspan: 1,
-					colspan: 7,
-				}
-			]
-		},
-		{
-			key: '销售额大于一千的总计',
-			level: 1,
-			rowspan: 2,
-			colspan: 1,
-		}
-	],
-	rows_headers:[
-		{
-			key: '2015年',
-			level: 1, 
-			rowspan: 5,
-			colspan: 1,
-			children: [
-				{
-					key: '1月',
-					level: 3
-				}
-			]
-		}
-	]
-}
+<p>Total: <span th:text="${order.total}"></span></p>
 ```
 
-其实就是两棵树互相垂直，rowspan、colspan 可以根据叶子节点计算得到。先循环 columns_headers 再循环 rows_headers。
+使用 thymeleaf 编译为 HTML 内容。
 
-循环 rows_headers 的时候可以带上数据一起循环，但是这样不太好处理。可以先填写为空，然后再把数据表遍历一次写值就行了。
+```java
+TemplateEngine templateEngine = new TemplateEngine();
+ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+templateResolver.setTemplateMode("HTML");
+templateEngine.setTemplateResolver(templateResolver);
 
-如果建立了这个报表结构，数据区域就是一个矩阵，我之前的做法是每个行、列都创建一个编码，甚至可以做到不用遍历就能访问每一个坐标，在 HTML 标签上放上坐标信息，就能用相关数据更新表格了（无论数据来源几个地方）。
-
-例如 2025 年1月华南总计，可以编码为: "2025-1_huanan-total"。
-
-这样统计数据只需要整理成线性结构就可以了：
-
-```json
-
-{ 
-  "2025-1_huanan-total": 10000,
-  ……
-}
+Context context = new Context();
+context.setVariable("order", OrderFixture.buildData());
+return templateEngine.process("/html-templates/order_details.html", context);
 
 ```
 
-表头结构和数据统计结果分离非常好维护和增加新的功能，不用担心增加一行、一列导致数据映射错误。
+得到 HTML 后将其转换为 PDF 的过程，我们可以使用 openhtmltopdf 库，相关 POM 依赖如下。
 
-当然这是非常朴实无华的做法，我这里只提供一个基本的实现思路供没做过的朋友了解。
+```xml
+<dependency>
+    <groupId>org.thymeleaf</groupId>
+    <artifactId>thymeleaf</artifactId>
+    <version>3.0.12.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>com.openhtmltopdf</groupId>
+    <artifactId>openhtmltopdf-core</artifactId>
+    <version>${openhtml.version}</version>
+</dependency>
+<dependency>
+    <groupId>com.openhtmltopdf</groupId>
+    <artifactId>openhtmltopdf-pdfbox</artifactId>
+    <version>${openhtml.version}</version>
+</dependency>
+```
 
-## 03 报表引擎是怎么做的？
+相关实现代码，其中 htmlContent 即为 HTML 字符串，下面这段代码会返回生成的 PDF 字节数组，在合适的地方输出为需要的文件或者 HTTP 返回流即可。
 
-实际上这样复杂的报表一般都会采购报表引擎，把原始数据清洗成必要的字段即可使用。例如前面这张报表中，原始数据还是以订单维度，只是有城市、日期、订单额、销售人员、产品类别即可。甚至大多数报表平台，可以通过联表得到一张视图再统计数据。
+```java
+try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream();) {
+    PdfRendererBuilder builder = new PdfRendererBuilder();
+    builder.useFastMode();
+    builder.withHtmlContent(htmlContent, null);
+    builder.toStream(outputStream);
+    builder.run();
+    return outputStream.toByteArray();
+} catch (IOException e) {
+    log.error("Fail to create pdf", e);
+}
+```
 
-通过人工实现这个功能已经挺困难的了，居然报表引擎能做出来就非常厉害了。
+在 openhtmltopdf 库的帮助下，它内部也是通过 PDFBox 来渲染的，也可以通过其它PDF库来实现渲染。实现这个方案比较简单，只是有时候需要解决页码和水印的问题，下面说明一下如何解决。
 
-如果是一维表，jxls 框架提供了一种基于 Excel 备注的模版方案，可以编写模版就可以拓展数据源。
 
-模版效果如下：
+### 页码问题
 
-![jxls-template.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/non-linear-report/jxls-template.png)
+页码可以直接通过 HTML 和 CSS 来实现， 在 HTML 和 CSS 中添加如下两端代码。
 
-结果如下：
+```html
+<div class='page-footer'></div>"
+```
 
-![jxls-result.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/non-linear-report/jxls-result.png)
+```css
+.page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+@page {
+    @bottom-center {
+        content: 'Page ' counter(page);
+    }
+    margin-bottom: 30px;
+}
+```
 
-但是对于上面我们手动实现的报表来说 jxls 框架无能为力，因为：
+通过 CSS 媒体查询可以轻松实现。
 
-- 类似纵向的横向数据拓展
-- 多个数据块拼装到一起
+### 水印的问题
 
-本质需要解决了一个问题，模版坐标和数据拓展后的坐标问题。所以在报表引擎中会有一个数据展开的问题，初接触还挺难理解报表为啥要做数据展开。
+水印问题稍微复杂一些，尤其是非固定的矩阵水印。比较好的方式还是在 Java 代码中实现，在生成 PDF 的过程中，编写一个自定义的 ObjectDrawerFactory，这是 openhtmltopdf 的一个拓展点。
 
-我们想通过模版引擎实现这个循环就很难了。
+这里是我编写的一个水印类，供参考：
 
-![loop.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/non-linear-report/loop.png)
+```java
 
-在模版中一个循环语句占用了一个单元格，但是结合数据后拓展了数个、几十个行或者列。其实报表引擎的思路和我们上面手动实现的思路类似，只不过需要处理开发者定义的模版，然后再根据数据展开，并填充数据。
+@AllArgsConstructor
+private static class WatermarkDrawer implements FSObjectDrawer {
+    private String waterMark;
 
-填充数据并不难，难在展开，《非线性报表模型原理》提供了一些数学理论和概念来帮助我们完成这个过程，也奠定了报表的基础。
+    @Override
+    public Map<Shape, String> drawObject(Element e, double x, double y, double width, double height, OutputDevice outputDevice, RenderingContext ctx, int dotsPerPixel) {
+        outputDevice.drawWithGraphics((float) x, (float) y, (float) width / dotsPerPixel, (float) height / dotsPerPixel, (Graphics2D g2d) -> {
 
-Canonica 在 NopReport 项目中实现了类似的小型非线性报表引擎，这里有一张图更加形象表达这一点，我们前面说的构建报表头的过程，在 NopReport 中被称为报表展开。
+            double realWidth = width / dotsPerPixel;
+            double realHeight = height / dotsPerPixel;
 
-![nop-report.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/non-linear-report/nop-report.png)
+            Font font;
+            try {
+                InputStream fontInputStream = WatermarkDrawer.class.getResourceAsStream("/fonts/Arial.ttf");
+                Font parent = Font.createFont(Font.TRUETYPE_FONT, fontInputStream);
+                font = parent.deriveFont(20f);
+            } catch (FontFormatException | IOException e1) {
+                log.error("Fail to draw watermark", e1);
+                throw new BusinessException(WRITE_FILE_FAILED);
+            }
+            Rectangle2D bounds = font.getStringBounds(waterMark, g2d.getFontRenderContext());
 
-前面我们知道，本质结构是垂直的交叉的两棵树，通过在两个方向把循环的模版展开，就得到了最终的表格，然后再填充即可。在润乾报表理论中，这个概念叫做**行列对称**。
+            g2d.setFont(font);
+            g2d.setPaint(Color.BLACK);
+            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+            g2d.rotate(Math.toRadians(45));
+            int margin = 100;
+            int offset = 600;
 
-整体思想是： 自上而下，自左而右，递归执行。
+            // Watermark matrix
+            for (int row = 0; row < 10; row++) {
+                for (int column = 0; column < 10; column++) {
+                    g2d.drawString(waterMark,
+                            (float) ((bounds.getWidth() + margin) * (column + 1) - offset),
+                            (float) ((bounds.getHeight() + margin) * (row + 1) - offset)
+                    );
+                }
+            }
+        });
 
-具体过程是：
+        return null;
+    }
+}
 
-1. 读取模版文件到内存中，解析模版文件
-2. 先自上而下，根据列表头的数据深度展开足够的行数
-2. 根据列表头的树和模版语法自左而右递归增加列数
-3. 根据行表头的树和模版自上而下递归增加行数
+@AllArgsConstructor
+private static class WatermarkDrawerFactory implements FSObjectDrawerFactory {
+    private String waterMark;
 
-非线性报表的引擎实现比较困难，我还不太能拓展 jxls 框架实现一个通用的报表引擎，如果对这块原理感兴趣的朋友可以查看参考资料中的文章，以及参考 NOP Report 源码。
+    @Override
+    public FSObjectDrawer createDrawer(Element e) {
+        if (isReplacedObject(e)) {
+            return new WatermarkDrawer(this.waterMark);
+        }
+        return null;
+    }
 
-## 04 参考资料
+    @Override
+    public boolean isReplacedObject(Element e) {
+        return e.getAttribute("type").equals("watermark");
+    }
+}
 
-- NOP Report 中对报表引擎原理的解释 https://zhuanlan.zhihu.com/p/663964073
-- 非线性报表模型 https://www.raqsoft.com.cn/r/r-model
-- https://zhuanlan.zhihu.com/p/689149081
-- https://www.zhihu.com/tardis/bd/art/36552380?source_id=1001
-- https://zhuanlan.zhihu.com/p/688793604
-- 蒋步星介绍 https://www.raqsoft.com.cn/about/founder
-- 非线性报表模型原理.pdf 链接: https://pan.baidu.com/s/1nK-nZ3y6sriNa6VGxp7zJw?pwd=ghft 提取码: ghft 
+```
+
+在生成 PDF 的 Java 代码中添加使用该 Factory 的代码即可。
+
+```java
+builder.useObjectDrawerFactory(new WatermarkDrawerFactory(waterMark));
+```
+
+## 03 总结
+
+生成 PDF 的场景比较多，比如各种单据的套打和导出。有时候选择一个完美的方案需要各种尝试和调研，本文提供了一个走得通又具有较好通用性的方案，非常容易被放到项目中使用。
+
+上述的方案还是需要根据合适的场景选择。

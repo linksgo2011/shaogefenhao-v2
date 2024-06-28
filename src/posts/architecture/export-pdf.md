@@ -23,7 +23,7 @@ PS: 大家可能会觉得公众号上的内容比较简单入门，这里想解�
 
 iText 是一个非常不错的库，可以通过模版的方式实现 PDF 导出，支持 XML/HTML/PDF等模版。
 
-比较有吸引力的是 PDF 模版，PDF 提供了一种表单机制来作为模版使用非常方便。这样可以用 PDF 编辑器实现模版，再用 Java 填充相关字段信息，在很多场景下非常方面。
+比较有吸引力的是 PDF 模版，PDF 提供了一种表单机制来作为模版使用非常方便。这样可以用 PDF 编辑器实现模版，再用 Java 填充相关字段信息，在很多场景下非常方便。
 
 不过从 iText 5 开始就收费了，iText 提供了商业许可和 AGPL（Affero General Public License）许可，如果软件需要分发，使用了 iText 5 也需要对开发的软件进行开源。
 
@@ -151,7 +151,7 @@ try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream();) {
 }
 ```
 
-在 openhtmltopdf 库的帮助下，它内部也是通过 pdfbox 来渲染的，也可以通过其它PDF库来实现渲染。实现这个方案比较简单，只是有时候需要解决页码和水印的问题，下面说明一下如何解决。
+在 openhtmltopdf 库的帮助下，它内部也是通过 PDFBox 来渲染的，也可以通过其它PDF库来实现渲染。实现这个方案比较简单，只是有时候需要解决页码和水印的问题，下面说明一下如何解决。
 
 
 ### 页码问题

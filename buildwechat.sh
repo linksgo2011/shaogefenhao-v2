@@ -1,5 +1,5 @@
 folder=posts/architecture
-fileName=non-linear-report
+fileName=export-pdf
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
