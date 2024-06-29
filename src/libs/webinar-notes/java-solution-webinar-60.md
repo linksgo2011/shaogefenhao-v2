@@ -286,3 +286,7 @@ CDP 需要把数据集成到推荐系统。
 13. One-ID
 
 是指在各个应用领域有一个统一的用户ID，用来做数据治理和数据建模，One-ID 比较难实现。
+
+## 录屏
+
+https://www.bilibili.com/list/2066241928?oid=112621407767773&bvid=BV1LWVveHERS

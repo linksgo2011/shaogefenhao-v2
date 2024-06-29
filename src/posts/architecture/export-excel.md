@@ -8,7 +8,7 @@ head:
   - - meta
     - name: keyword
       content: 如何生成 Excel？
-      description: 一种导出 Excel 文件的方案，有用可以收藏。
+      description: 一些导出 Excel 文件的方案，有用可以收藏。
 ---
 
 如果遇到需要导出 Excel 的场景应该如何实现？这个问题在大多数应用中都会出现，所以今天把用过的一些方案整理一下，如果有更好的方案欢迎留言补充。
