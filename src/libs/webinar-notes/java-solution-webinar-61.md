@@ -185,7 +185,7 @@ head:
 
 ### 作者提供的一种未归类的分支模式
 
-![trunk-base-other.png](java-solution-webinar-61/trunk-base-other.png)
+![trunk-base-other.png](./java-solution-webinar-61/trunk-base-other.png)
 
 ## Rebase 和 Merge 而实践
 
