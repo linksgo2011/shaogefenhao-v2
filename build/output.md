@@ -1,217 +1,92 @@
 ---
-title: 系统设计 | 如何生成 Excel（列表+详情）？
-date: 2024-06-27 22:22:32
+title: 系统设计 | 数据可视化和图编辑引擎库选型
+date: 2024-07-05 10:48:32
 sidebar: auto
-category: 
+category:
   - 软件架构
 head:
   - - meta
     - name: keyword
-      content: 如何生成 Excel？
-      description: 一种导出 Excel 文件的方案，有用可以收藏。
+      content: 如何实现项目中的数据可视化需求？
+      description: 如何实现项目中的数据可视化需求？
 ---
 
-如果遇到需要导出 Excel 的场景应该如何实现？这个问题在大多数应用中都会出现，所以今天把用过的一些方案整理一下，如果有更好的方案欢迎留言补充。
+数据可视化是一个非常大的领域，在这里我想讨论一下，数据可视化在 Web 项目中的常见需求，以及一些实现方案的技术选型。
 
-相对 PDF 导出来说，Excel 导出需要踩的坑就非常多了。
+有时候我们会觉得，这不就是找个图表库就能搞定的事情嘛，何必还写一篇文章。实际上在我工作经历中，数据可视化的需求非常杂，以至于这个领域的开源框架也非常繁杂。
 
-在 Excel 导出方面常见的需求有两大类：
+这篇文章根据常见的需求，对这些开源框架做一些梳理和归类。
 
-- 列表数据导出
-- Excel 详情导出
+## 01 常见需求
 
-列表数据导出比较简单，而 Excel 详情导出稍显麻烦。
+最常见的需求是展示数据图表，例如电商网站会提供一些订单汇总的图表展示，显示每年每月的销量。这类需求是日常开发工作的主流，通过一些开箱即用的图表库就能实现。
 
-## 01 Excel 列表
+另外一种是交互式的数据可视化。例如基于一个沙盘模型，点击沙盘模型的热点，出现相关的数据或者信息，一般开箱即用的图表库无法满足相关需要，我们可以使用一些更“低级”的图形库实现。这里的低级是指 API 的封装程度不高，灵活性较强。
 
-如果是单纯的列表数据，可以使用的而方案比较多，可以使用 Apache POI 库，Apache POI 是一个非常强大的 Excel 库，但是提供的 API 比较基础，需要自己操作单元格级别的数据填充。
+还有一种是实时监控大屏，时髦一点的说法就是“智能驾驶舱”，用于在大屏上关注实时动态。比如景区人流量、医院、车站的繁忙情况等。这类场景已经比较成熟，往往有专业的开源、商业解决方案。
 
-下面看一个例子（这种例子完全可以使用 AI 生成，这里只贴关键代码了）：
+另外一种是数据分析仪表盘，根据数据分析模型展示数据洞察和动态，往往由 BI 工具完成，这部分在后续的文章中整理。
 
-```java
-Workbook workbook = new XSSFWorkbook();
-Sheet sheet = workbook.createSheet("Users");
+## 02 框架和选型
 
-// Create header row
-Row headerRow = sheet.createRow(0);
-Cell headerCell1 = headerRow.createCell(0);
-headerCell1.setCellValue("Name");
-Cell headerCell2 = headerRow.createCell(1);
-headerCell2.setCellValue("Age");
-Cell headerCell3 = headerRow.createCell(2);
-headerCell3.setCellValue("Email");
+所以我把市面上常见的框架做了一个表格，便于归类和寻找，并对一些框架做了专门说明。
 
-// Fill data
-int rowNum = 1;
-for (User user : users) {
-    Row row = sheet.createRow(rowNum++);
-    row.createCell(0).setCellValue(user.getName());
-    row.createCell(1).setCellValue(user.getAge());
-    row.createCell(2).setCellValue(user.getEmail());
-}
+| 类型      | 用途                                               | 工具                                        |
+|---------|--------------------------------------------------|-------------------------------------------|
+| 图表库     | 用于嵌入到应用程序或网站中的静态或动态图表                            | ECharts,Chart.js, Highcharts, Antv.vision |
+| 实时数据监控  | 实时监控和报警系统，适用于需要即时反馈的场景，一般需要支持时序数据。               | Grafana, Kibana, Prometheus               |
+| GIS 可视化 | 显示地理分布和地理模式                                      | Leaflet,Mapbox                            | 
+| 图和关系可视化 | 例如知识图谱，血缘关系等类型的图表展示                              | Cytoscape, Neo4j Bloom                    |
+| 基础图形库   | 使用图形库的基础 API 实现更高级自定义数据可视化                       | D3.js, Three.js                           |
+| 数据分析    | 适合数据分析师，科研用途的图表展示                                | Plotly,Dash                               |
+| 图形绘制和编辑 | 例如网络设备拓扑图、流程图、时序图等，如果我们要集成这类能力到应用中，需要适当的图形库,又被称为图编辑引擎 | JointJS,drawio,Mermaid,AntV x6    |
 
-// Resize columns
-for (int i = 0; i < 3; i++) {
-    sheet.autoSizeColumn(i);
-}
+上面这些图形库基本满足日常应用开发需求，下面挑选一些重点的说明。
 
-// Write to file
-try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
-    workbook.write(fileOut);
-}
+### 前端报表场景用哪一个图表库？
 
-// Closing the workbook
-workbook.close();
-```
+在这些常见的图表库中（ECharts,Chart.js, Highcharts, Antv.vision）哪一个更适合被拿来开发报表？这个问题我在前端圈子中问过一轮，在 2024 年来说 ECharts 还是首选。
 
-对于列表导出这种场景来说，有两个缺点：
+我们可以从这几个维度来评价前端图表库：
 
-- 代码太繁琐了。当然也可以自己封装一个通用的导出工具，传一个 POJO 进来即可
-- 性能不好。POI 的强大能力，做的事情太多，导致性能相对比较差，不过可以通过优化成流式输出提高一部分性能。
+- 商业授权：其它都没问题，Highcharts 有商业授权问题。
+- 功能：基本都比较强，大部分场景差不了太多。
+- 性能：ECharts 性能不错，Highcharts 文件稍大，Chart.js 性能差一点。
+- 体验：AntV 的体验和设计非常不错，其它的差异不大。
+- 定制化难度：Chart.js 最简单，其它都差不多。
+- 文档：AntV 社区支持少，文档不足。
 
-所以在实际工作中，导出列表一般不用 POI，有点杀鸡用牛刀的感觉。 下面介绍另外一个库 EasyExcel 更简单的实现导入导出。
+所以综合下来，如果是常规的报表需求，ECharts 比较安全；如果图表非常简单 Chart.js 轻量级一些，上手也简单；追求设计感的话 AntV 可以尝试，但需要花更多时间去调研。
 
-EasyExcel 抛弃了 POI 的一些做法，因为就导出来说，不需要构建完整的 Excel 对象，所以显得更加轻量化。
+补充说明：ECharts 是很多年前百度捐赠给 Apache 的项目，一直在更新， AntV 的前身好像是阿里巴巴收购的 Datav。
 
-假设我们有一个 User POJO 对象，这个对象有 name、age、email三个字段。
+### Three.js 和 D3.js 如何选？
 
-定义一个 POJO 对象。
+如果上面的一些开箱即用的图表库不满足需求时，我们可以用更基础的一些库。
 
-```java
-@Getter
-@Setter
-@ToString
-@AllArgsConstructor
-public class User {
-    @ExcelProperty("Name")
-    private String name;
+Three.js 是一个基于 WebGL 的 JavaScript 库，主要用于创建和显示复杂的 3D 图形和动画，一般用于各种仿真场景。例如使用 3D 效果显示建筑构件的结构。
 
-    @ExcelProperty("Age")
-    private int age;
+Three.js 学习难度挺高的，需要一些专门的图形学知识，例如坐标变换、光照处理等。
 
-    @ExcelProperty("Email")
-    private String email;
-}
-```
+而 D3.js 虽然名字有点像 3D, 但是说的完全不是一回事，它的 D3 意思是 Data-Driven Documents? D3.js 是一个用于创建动态、交互式数据可视化的 JavaScript 库，主要用于 2D 图表和数据驱动的 DOM 操作。提供了大量的 API 可以对数据进行复杂的转换和映射，适合各种类型的 2D 数据可视化。
 
-EasyExcel 已经把 API 封装到非常简单的程度了，所以基本上没有啥你可以讲的。
+当遇到一些复杂图表需求时，选择 D3.js 实现个性化的图表是没问题的。
 
-```java
-List<User> users = Arrays.asList(
-        new User("Alice", 30, "alice@example.com"),
-        new User("Bob", 25, "bob@example.com"),
-        new User("Charlie", 35, "charlie@example.com")
-);
-EasyExcel.write("user.xlsx", User.class)
-        .sheet("默认")
-        .doWrite(() -> users);
-```
+### 图编辑引擎有哪些使用经验？
 
-默认情况下 EasyExcel 是往文件中写入内容，但是对往 HTTP 流中写数据，需要构建一个自定义的 Writer。
+drawio 是一个非常强大的绘图软件，原网站名是 draw.io，库名叫做 mxGraph，现在网站改名为 diagrams.net。它把图形库开源出来了，很多国内的一些图形编辑软件都用的这个库（包括我自己参与过的一个图形编辑软件）。
 
-```java
-// 设置HTTP头
-response.setContentType(CONTENT_TYPE);
-response.setHeader("Content-Disposition", "attachment; filename=\"" + URLEncoder.encode(fileName, StandardCharsets.UTF_8); + "\"");
+mxGraph 通过点和边抽象了一套图形库，缺点是使用的 JavaScript 特性比较老，样式也比较老，现在好像还没有 TypeScript 的版本。优点在于，在很多需要拖拽编辑的图形的场景，用 mxGraph 实现起来非常快，也很灵活。
 
-// 返回一个 Writer，可以继续调用 write 方法写入内容，并在最后调用 finish 完成写入。
-EasyExcel.write(response.getOutputStream(), User.class).build();
+JointJS 是一个更新可以平替 mxGraph 的开源库，其样式和 API 都比较新，如果有类似需要内嵌的图编辑引擎，可以参考使用 JointJS。
 
-```
-
-## 02 Excel 详情
-
-如果是 Excel 套打表单，可能需要组合非常多的数据，这些内容中间会有循环、条件（如果内容不存在的情况）等场景，这种场景就比列表写入复杂得多了。
-
-比如下面这个例子上前面的线性结构完全不同，如果要实现出来需要费很大的功夫。
-
-![img.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-excel/complex-tables.png)
-
-在实践中我们有两个选择：
-
-1. 用 POI 在单元格级别去拼装
-2. 使用 jxls 这类的库，通过 Excel 模版和脚本语言来完成。
-
-jxls 是一个 Excel 库，允许通过模版来渲染复杂的 Excel 表格布局，在模版中可以使用 Excel 的注释来作为脚本媒介。
-
-它其实也是通过 Apache POI 来实现 Excel 生成的，只不过提供了更高级的 API。
-
-比如我现在准备了一个模版，我们可以在单元格 A1 上插入一个注释，jx:area(lastCell="D2") 含义是从 A1 到 D2 的这些区域都可以生效表达式赋值。
-
-![simple-template.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-excel/simple-template.png)
-
-把这个 Excel文件保存为 template.xlsx, 准备一些数据生成我们想要的 Excel 文件。
-
-参考下面代码(这段代码需要在 Java 11 下工作，jxls 有点坑的地方在于版本升级马上用了 Java 的新特性，导致如果 JDK 还比较老，官网的代码没有参考价值)，利用 jxls 生成 Excel 文件：
-
-```java
-URL url = Resources.getResource("template.xlsx");
-try (
-        InputStream inputStream = Resources.asByteSource(url).openStream();
-        OutputStream outputStream = new FileOutputStream(new File("detail-report.xlsx"))
-) {
-    Context context = new Context();
-    context.putVar("helloDepartment", "hello department!");
-    JxlsHelper.getInstance().processTemplate(inputStream, outputStream, context);
-} catch (IOException e) {
-    e.printStackTrace();
-}
-```
-
-生成的效果如下：
-
-![simple-template-result.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-excel/simple-template-result.png)
-
-## 循环
-
-其实它也可以实现列表类的数据，只不过需要手动编写循环语句。
-
-这里准备复杂一点的数据，实现前面那一张复杂的例子。
-
-```java
-
-Context context = new Context();
-    context.putVar("totalSalary", new BigDecimal("300.000"));
-    context.putVar("departments",
-               Arrays.asList(
-                       Department.builder()
-                        .name("01 Main department")
-                        .employees(Arrays.asList(
-                                Employee.builder().name("Claudia").salary(new BigDecimal("30.000")).build(),
-                                Employee.builder().name("Sven").salary(new BigDecimal("140.000")).build()))
-                        .totalSalary(new BigDecimal("170.000")).build(),
-                        Department.builder()
-                        .name("03 Finance department")
-                        .employees(Arrays.asList(
-                                Employee.builder().name("Christiane").salary(new BigDecimal("40.000")).build(),
-                                Employee.builder().name("Nadine").salary(new BigDecimal("90.000")).build()))
-                        .totalSalary(new BigDecimal("130.000")).build())
-                );
-    JxlsHelper.getInstance().processTemplate(inputStream, outputStream, context);
-} catch (IOException e) {
-    e.printStackTrace();
-}
-```
-
-请注意下面这个模版中的脚本写法。这里两个循环，一个是 departments 的循环，另外一个是 department 下的 employees 的循环。在循环中，可以通过 var 变量暴露循环中的临时变量，作为嵌套的子循环。
-
-lastCell 参数是指影响循环的范围，指定了 lastCell，即使后面没有数据也会保留空行。
-
-![complex-template-result.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-excel/complex-template-result.png)
-
-## 条件
-
-在复杂的场景下，如果有一些字段不存在，那么我们希望整块区域都不显示，这也是非常常见的需求，这种情况可以使用条件语句判断即可。
-
-在上述的例子中，假设 totalSalary 为空，我们可以判断是否为 null，并显示相关区域。
-
-就像这样： 
-
-![condition.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-excel/condition.png)
+除此之外， AntV 中有一个模块 x6 也可以实现类似 JointJS 的效果，可以作为另外一个选项。
 
 ## 参考资料
 
-- https://jxls.sourceforge.net/if.html
-- https://easyexcel.opensource.alibaba.com/docs/current/quickstart/write
-
-
+- 数据可视化：在线设计与网页实现的技巧与工具 https://cloud.baidu.com/article/1861248
+- https://threejs.org/
+- https://antv.antgroup.com/
+- https://d3js.org/
+- https://github.com/clientIO/joint
+- https://github.com/jgraph/mxgraph
