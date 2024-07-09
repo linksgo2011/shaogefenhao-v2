@@ -94,7 +94,7 @@ public class User {
 }
 ```
 
-EasyExcel 已经把 API 封装到非常简单的程度了，所以基本上没有啥你可以讲的。
+EasyExcel 已经把 API 封装到非常简单的程度了，所以基本上没有啥可以讲的。
 
 ```java
 List<User> users = Arrays.asList(
@@ -162,7 +162,7 @@ try (
 
 ![simple-template-result.png](./export-excel/simple-template-result.png)
 
-## 循环
+### 循环
 
 其实它也可以实现列表类的数据，只不过需要手动编写循环语句。
 
@@ -199,7 +199,7 @@ lastCell 参数是指影响循环的范围，指定了 lastCell，即使后面�
 
 ![complex-template-result.png](./export-excel/complex-template-result.png)
 
-## 条件
+### 条件
 
 在复杂的场景下，如果有一些字段不存在，那么我们希望整块区域都不显示，这也是非常常见的需求，这种情况可以使用条件语句判断即可。
 
