@@ -104,7 +104,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         text: "找到我",
         children:[
           {
-            text: "公众号：DDD和微服务",
+            text: "公众号：TechLead 少个分号",
             link: "",
           },
           {
