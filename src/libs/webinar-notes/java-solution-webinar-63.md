@@ -140,3 +140,11 @@ SSO 可以基于 OAuth 实现，但通常在应用内部来说通常 SSO 更常�
 
 - https://datatracker.ietf.org/doc/html/rfc7522
 - https://www.okta.com/sg/blog/2021/02/single-sign-on-sso/
+
+## 分享录屏 (antz-H 大佬分享)
+
+https://www.bilibili.com/video/BV1BEbueXE64/?vd_source=c7e3cdfa854db5e62b71fbb1a0bc251b
+
+## 分享 PPT 
+
+链接: https://pan.baidu.com/s/1l8wF1uNEpFmW_ZZzAbUA2w?pwd=3rid 提取码: 3rid 复制这段内容后打开百度网盘手机App，操作更方便哦
