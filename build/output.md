@@ -1,217 +1,84 @@
 ---
-title: 系统设计 | 如何生成 Excel（列表+详情）？
-date: 2024-06-27 22:22:32
+title: 系统设计 | 如何决定对遗留系统重构还是重写
+date: 2024-07-12 14:48:32
 sidebar: auto
-category: 
+category:
   - 软件架构
 head:
   - - meta
     - name: keyword
-      content: 如何生成 Excel？
-      description: 一些导出 Excel 文件的方案，有用可以收藏。
+      content: 决定对遗留系统重构还是重写的几个要素？
+      description: 决定对遗留系统重构还是重写的几个要素
 ---
 
-如果遇到需要导出 Excel 的场景应该如何实现？这个问题在大多数应用中都会出现，所以今天把用过的一些方案整理一下，如果有更好的方案欢迎留言补充。
+在最近几年里，几乎没有全新的系统开发工作了，不是在修修补补就是对遗留系统进行改造，让其重新适应业务发展的需要。我参与过类似于遗留系统的改造有：
 
-相对 PDF 导出来说，Excel 导出需要踩的坑就非常多了。
+- 一个长期演进的大单体，人员规模增长，业务需求变得愈加复杂，我们不得不对其服务化。
+- 一个已经运行了几十年的业务系统，无论是编程语言还是框架都不在能跟上现在的技术趋势，添加新的功能变得愈来愈复杂，相关的依赖包也没人在维护，甚至相关技术栈的开发人员都很难在市面上找到。
+- 一个庞大系统中的一个组件，已经运行了很多年，因为某些原因（性能、安全）需要开发新的并将其替换掉。
 
-在 Excel 导出方面常见的需求有两大类：
+在讨论后面的内容之前，我不知道这些是否从严格意义上来说是遗留系统，也不知道我的工作是重构或者重写。由于今天我们不得不面对一个问题，对于很难维护的系统，我们如何合理的决策，对其重构还是重写。
 
-- 列表数据导出
-- Excel 详情导出
+## 01 什么是遗留系统？
 
-列表数据导出比较简单，而 Excel 详情导出稍显麻烦。
+我找到了一些关于遗留系统的权威定义。
 
-## 01 Excel 列表
+> 国际标准化组织（ISO）: ISO/IEC/IEEE 24765:2010 将遗留系统定义为“旧的方法、技术、计算机系统或应用程序，尽管有更新的技术或更高效的方法可供使用，但由于仍能满足用户需求而继续使用。”
 
-如果是单纯的列表数据，可以使用的而方案比较多，可以使用 Apache POI 库，Apache POI 是一个非常强大的 Excel 库，但是提供的 API 比较基础，需要自己操作单元格级别的数据填充。
+> 根据IEEE，遗留系统是“依赖于过时或淘汰技术的系统，但仍对组织的运营至关重要。”
 
-下面看一个例子（这种例子完全可以使用 AI 生成，这里只贴关键代码了）：
+我识别到有两个关键要素：过时或者淘汰的技术，仍然需要继续使用和满足运营需要。
 
-```java
-Workbook workbook = new XSSFWorkbook();
-Sheet sheet = workbook.createSheet("Users");
+所以遗留系统的问题在于 “业务需求和技术过时直接的矛盾”。没有持续盈利的业务需要，也就没有改造遗留系统的意义了。所以非常有意思的是，虽然遗留系统被广大程序员避之不及，但遗留系统改造工作具有广大的市场空间。
 
-// Create header row
-Row headerRow = sheet.createRow(0);
-Cell headerCell1 = headerRow.createCell(0);
-headerCell1.setCellValue("Name");
-Cell headerCell2 = headerRow.createCell(1);
-headerCell2.setCellValue("Age");
-Cell headerCell3 = headerRow.createCell(2);
-headerCell3.setCellValue("Email");
+## 02 重构和重写的差异
 
-// Fill data
-int rowNum = 1;
-for (User user : users) {
-    Row row = sheet.createRow(rowNum++);
-    row.createCell(0).setCellValue(user.getName());
-    row.createCell(1).setCellValue(user.getAge());
-    row.createCell(2).setCellValue(user.getEmail());
-}
+在《重构》一书中, Martin 对“重构”的理解是: 重构的对象是代码，工作在系统的内部，并不改变系统或者组件的外部行为，另外重构是一个持续的过程。
 
-// Resize columns
-for (int i = 0; i < 3; i++) {
-    sheet.autoSizeColumn(i);
-}
+我们尝试给重写一个定义: 重写的对象往往是系统或者完整的组件，可能会导致相关接口升级或者修改，甚至在重写的过程中，会增加新的特性，或者废弃部分功能。
 
-// Write to file
-try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
-    workbook.write(fileOut);
-}
+下面我整理了一个清单，对比这两者的差异，用于后续决策的考量：
 
-// Closing the workbook
-workbook.close();
-```
+|      | 重构                 | 重写                   |
+|------|--------------------|----------------------|
+| 工作目标 | 改善代码结构、可读性、可维护性和性能 | 采用新技术或架构，解决旧系统中的根本问题 |
+| 时间   | 短期内见效，逐步改进         | 需要特别规划一个项目或者特定周期     |
+| 影响   | 对上下游系统影响较小，几乎对其透明  | 往往需要协同切换，甚至做停服割接业务   |
+| 工作对象 | 代码                 | 系统或者组件               |
+| 成本   | 低                  | 高                    |
+| 风险   | 小                  | 大                    |
+| 收益   | 持续提高代码可维护性         | 一次性解决系统设计的本质问题       |
 
-对于列表导出这种场景来说，有两个缺点：
+## 03 决策的考量？
 
-- 代码太繁琐了。当然也可以自己封装一个通用的导出工具，传一个 POJO 进来即可
-- 性能不好。POI 的强大能力，做的事情太多，导致性能相对比较差，不过可以通过优化成流式输出提高一部分性能。
+我们的客户经常会为重构还是重写做出选择而头疼，这里尝试整理了一个参考问题清单，根据问题的结论作为决策参考。
 
-所以在实际工作中，导出列表一般不用 POI，有点杀鸡用牛刀的感觉。 下面介绍另外一个库 EasyExcel 更简单的实现导入导出。
+1. 使用的编程语言是否为当前企业的主要选择？
+2. 使用的框架是否已经过时，并难以升级到新的框架中来？
+3. 使用的依赖库是否还在被更新，或者能找到替换选项，并很容易被替换？
+4. 投资是否能支持完成重写计划？
+5. 团队人员能否在持续维护现有系统的情况下，仍然有能力开发新的系统？
+6. 是否存在重大的安全威胁，且无法通过重构实现？
+7. 是否有政策合规的影响，且无法通过重构实现？例如国家信创战略等要求等。
 
-EasyExcel 抛弃了 POI 的一些做法，因为就导出来说，不需要构建完整的 Excel 对象，所以显得更加轻量化。
+补充问题，如何让领导对重写买单？
 
-假设我们有一个 User POJO 对象，这个对象有 name、age、email三个字段。
+1. 假设系统将被重写，是否会有新的功能被加入进来？
+2. 重写后能否估算出增加新的功能可以减少多少工作量？
 
-定义一个 POJO 对象。
+从上述的问题清单中，有两个启示：
 
-```java
-@Getter
-@Setter
-@ToString
-@AllArgsConstructor
-public class User {
-    @ExcelProperty("Name")
-    private String name;
+1. 技术决策背后往往会掺杂利益问题和价值判断。从业务方的角度来说，需要对比的是持续重构带来的成本和一次性投资重写的成本，这两者带来的成效哪一个更高？而对于技术人员来说，维护的便利性是优先考虑的要素，因为难以维护的项目可能会带来更多的而线上 Bug 和安全事件。
+2. 在众多考量点中，某些考量是决定性的。这些决定性的考量往往和公司业务有关，例如对于银行来说，安全和政策合规是第一要素，如果系统持续重构无法解决安全和政策合规问题，那么即使不得不加大投资，也能接受系统被重写；而对于互联网公司来说，除了安全和政策合规外，快速响应业务变更也很重要，因此对于重写更加积极。
 
-    @ExcelProperty("Age")
-    private int age;
+## 04 相关的教训
 
-    @ExcelProperty("Email")
-    private String email;
-}
-```
-
-EasyExcel 已经把 API 封装到非常简单的程度了，所以基本上没有啥可以讲的。
-
-```java
-List<User> users = Arrays.asList(
-        new User("Alice", 30, "alice@example.com"),
-        new User("Bob", 25, "bob@example.com"),
-        new User("Charlie", 35, "charlie@example.com")
-);
-EasyExcel.write("user.xlsx", User.class)
-        .sheet("默认")
-        .doWrite(() -> users);
-```
-
-默认情况下 EasyExcel 是往文件中写入内容，但是对往 HTTP 流中写数据，需要构建一个自定义的 Writer。
-
-```java
-// 设置HTTP头
-response.setContentType(CONTENT_TYPE);
-response.setHeader("Content-Disposition", "attachment; filename=\"" + URLEncoder.encode(fileName, StandardCharsets.UTF_8); + "\"");
-
-// 返回一个 Writer，可以继续调用 write 方法写入内容，并在最后调用 finish 完成写入。
-EasyExcel.write(response.getOutputStream(), User.class).build();
-
-```
-
-## 02 Excel 详情
-
-如果是 Excel 套打表单，可能需要组合非常多的数据，这些内容中间会有循环、条件（如果内容不存在的情况）等场景，这种场景就比列表写入复杂得多了。
-
-比如下面这个例子上前面的线性结构完全不同，如果要实现出来需要费很大的功夫。
-
-![img.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-excel/complex-tables.png)
-
-在实践中我们有两个选择：
-
-1. 用 POI 在单元格级别去拼装
-2. 使用 jxls 这类的库，通过 Excel 模版和脚本语言来完成。
-
-jxls 是一个 Excel 库，允许通过模版来渲染复杂的 Excel 表格布局，在模版中可以使用 Excel 的注释来作为脚本媒介。
-
-它其实也是通过 Apache POI 来实现 Excel 生成的，只不过提供了更高级的 API。
-
-比如我现在准备了一个模版，我们可以在单元格 A1 上插入一个注释，jx:area(lastCell="D2") 含义是从 A1 到 D2 的这些区域都可以生效表达式赋值。
-
-![simple-template.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-excel/simple-template.png)
-
-把这个 Excel文件保存为 template.xlsx, 准备一些数据生成我们想要的 Excel 文件。
-
-参考下面代码(这段代码需要在 Java 11 下工作，jxls 有点坑的地方在于版本升级马上用了 Java 的新特性，导致如果 JDK 还比较老，官网的代码没有参考价值)，利用 jxls 生成 Excel 文件：
-
-```java
-URL url = Resources.getResource("template.xlsx");
-try (
-        InputStream inputStream = Resources.asByteSource(url).openStream();
-        OutputStream outputStream = new FileOutputStream(new File("detail-report.xlsx"))
-) {
-    Context context = new Context();
-    context.putVar("helloDepartment", "hello department!");
-    JxlsHelper.getInstance().processTemplate(inputStream, outputStream, context);
-} catch (IOException e) {
-    e.printStackTrace();
-}
-```
-
-生成的效果如下：
-
-![simple-template-result.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-excel/simple-template-result.png)
-
-### 循环
-
-其实它也可以实现列表类的数据，只不过需要手动编写循环语句。
-
-这里准备复杂一点的数据，实现前面那一张复杂的例子。
-
-```java
-
-Context context = new Context();
-    context.putVar("totalSalary", new BigDecimal("300.000"));
-    context.putVar("departments",
-               Arrays.asList(
-                       Department.builder()
-                        .name("01 Main department")
-                        .employees(Arrays.asList(
-                                Employee.builder().name("Claudia").salary(new BigDecimal("30.000")).build(),
-                                Employee.builder().name("Sven").salary(new BigDecimal("140.000")).build()))
-                        .totalSalary(new BigDecimal("170.000")).build(),
-                        Department.builder()
-                        .name("03 Finance department")
-                        .employees(Arrays.asList(
-                                Employee.builder().name("Christiane").salary(new BigDecimal("40.000")).build(),
-                                Employee.builder().name("Nadine").salary(new BigDecimal("90.000")).build()))
-                        .totalSalary(new BigDecimal("130.000")).build())
-                );
-    JxlsHelper.getInstance().processTemplate(inputStream, outputStream, context);
-} catch (IOException e) {
-    e.printStackTrace();
-}
-```
-
-请注意下面这个模版中的脚本写法。这里两个循环，一个是 departments 的循环，另外一个是 department 下的 employees 的循环。在循环中，可以通过 var 变量暴露循环中的临时变量，作为嵌套的子循环。
-
-lastCell 参数是指影响循环的范围，指定了 lastCell，即使后面没有数据也会保留空行。
-
-![complex-template-result.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-excel/complex-template-result.png)
-
-### 条件
-
-在复杂的场景下，如果有一些字段不存在，那么我们希望整块区域都不显示，这也是非常常见的需求，这种情况可以使用条件语句判断即可。
-
-在上述的例子中，假设 totalSalary 为空，我们可以判断是否为 null，并显示相关区域。
-
-就像这样： 
-
-![condition.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/export-excel/condition.png)
+- 了解遗留系统中的隐藏规则是巨大的挑战之一。
+- 遗留系统比新系统有更多的熵，因此不应该照抄遗留系统的业务逻辑进行重写，而应该重新设计。
+- 遗留系统的工作量远远大于新建一个系统，因此在估算上需要特别考虑兼容和切换成本。
+- 团队在重写的过程中，需要仍然维护遗留系统并添加新的功能，这个阶段会导致团队压力非常大。
 
 ## 参考资料
 
-- https://jxls.sourceforge.net/if.html
-- https://easyexcel.opensource.alibaba.com/docs/current/quickstart/write
-
-
+- https://juejin.cn/post/6844903892828831757
+- https://www.infoq.com/news/2009/11/refactor-rewrite/
