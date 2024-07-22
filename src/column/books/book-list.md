@@ -223,6 +223,12 @@ description: 我个人的方向是专注于分布式系统架构设计和中间�
 
 《成事心法》
 
+《韭菜的自我修养》
+
+《卓有成效的管理者》
+
+《组织社会学十讲》周雪光
+
 ## 英文书单
 
 《Capital in the Twenty First Century》

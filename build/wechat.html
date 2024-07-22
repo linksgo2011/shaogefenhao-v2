@@ -85,116 +85,191 @@ a[href^="sms"] {
 <hr style="border-top: 0px; margin-top: 0.5em;">
 <div style>
     <!--文章添加到这里-->
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">在最近几年里，几乎没有全新的系统开发工作了，不是在修修补补就是对遗留系统进行改造，让其重新适应业务发展的需要。我参与过类似于遗留系统的改造有：</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">数据同步的需求在日常工作中非常频繁，几乎每个公司或多或少会考虑调研数据同步的方案。不过在不同的场景下，需要考虑的问题有所不同，根据这些问题，我们可以制定相应的同步策略。</p>
+    <h2 id="同步策略" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; padding-left: 10px; font-size: 120%; font-weight: bold; color: #de7456; text-align: center; line-height: 2; //居中width: 85%; width: 85%; border-bottom: 1px solid #de7456; display: flex; flex-direction: column; justify-content: center; margin: 1em auto;">01 同步策略</h2>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">下面是一些分析同步策略时需要考虑的问题：</p>
     <ul style="padding-left: 1em;">
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">一个长期演进的大单体，人员规模增长，业务需求变得愈加复杂，我们不得不对其服务化。</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">一个已经运行了几十年的业务系统，无论是编程语言还是框架都不在能跟上现在的技术趋势，添加新的功能变得愈来愈复杂，相关的依赖包也没人在维护，甚至相关技术栈的开发人员都很难在市面上找到。</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">一个庞大系统中的一个组件，已经运行了很多年，因为某些原因（性能、安全）需要开发新的并将其替换掉。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">同步过程是全量的还是增量的？</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">是同一类数据库还是异构的数据库？例如在 Mysql 之间同步，还是
+    Mysql 和 MongoDB 之间同步。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">使用 Select 查询同步还是 Binlog 同步？</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">同步过程中是否有表映射或者逻辑处理？</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">时效要求是什么？ “T+1”、小时级、分钟级、准实时？</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">同步的过程是否对业务透明？</li>
     </ul>
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">在讨论后面的内容之前，我不知道这些是否从严格意义上来说是遗留系统，也不知道我的工作是重构或者重写。由于今天我们不得不面对一个问题，对于很难维护的系统，我们如何合理的决策，对其重构还是重写。</p>
-    <h2 id="什么是遗留系统" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; padding-left: 10px; font-size: 120%; font-weight: bold; color: #de7456; text-align: center; line-height: 2; //居中width: 85%; width: 85%; border-bottom: 1px solid #de7456; display: flex; flex-direction: column; justify-content: center; margin: 1em auto;">01 什么是遗留系统？</h2>
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">我找到了一些关于遗留系统的权威定义。</p>
-    <blockquote style="background-color: #efefefbf; padding: 0.5em; margin-inline-start: 0em; margin-inline-end: 0em; border-radius: 2px;">
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 0;">国际标准化组织（ISO）: ISO/IEC/IEEE 24765:2010
-    将遗留系统定义为“旧的方法、技术、计算机系统或应用程序，尽管有更新的技术或更高效的方法可供使用，但由于仍能满足用户需求而继续使用。”</p>
-    </blockquote>
-    <blockquote style="background-color: #efefefbf; padding: 0.5em; margin-inline-start: 0em; margin-inline-end: 0em; border-radius: 2px;">
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 0;">根据IEEE，遗留系统是“依赖于过时或淘汰技术的系统，但仍对组织的运营至关重要。”</p>
-    </blockquote>
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">我识别到有两个关键要素：过时或者淘汰的技术，仍然需要继续使用和满足运营需要。</p>
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">所以遗留系统的问题在于
-    “业务需求和技术过时直接的矛盾”。没有持续盈利的业务需要，也就没有改造遗留系统的意义了。所以非常有意思的是，虽然遗留系统被广大程序员避之不及，但遗留系统改造工作具有广大的市场空间。</p>
-    <h2 id="重构和重写的差异" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; padding-left: 10px; font-size: 120%; font-weight: bold; color: #de7456; text-align: center; line-height: 2; //居中width: 85%; width: 85%; border-bottom: 1px solid #de7456; display: flex; flex-direction: column; justify-content: center; margin: 1em auto;">02 重构和重写的差异</h2>
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">在《重构》一书中, Martin 对“重构”的理解是:
-    重构的对象是代码，工作在系统的内部，并不改变系统或者组件的外部行为，另外重构是一个持续的过程。</p>
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">我们尝试给重写一个定义:
-    重写的对象往往是系统或者完整的组件，可能会导致相关接口升级或者修改，甚至在重写的过程中，会增加新的特性，或者废弃部分功能。</p>
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">下面我整理了一个清单，对比这两者的差异，用于后续决策的考量：</p>
-    <table style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
-    <colgroup>
-    <col style="width: 12%">
-    <col style="width: 41%">
-    <col style="width: 45%">
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th style="line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em; font-weight: bolder; color: #3f3f3f; text-align: center;" align="center"></th>
-    <th style="line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em; font-weight: bolder; color: #3f3f3f; text-align: center;" align="center">重构</th>
-    <th style="line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em; font-weight: bolder; color: #3f3f3f; text-align: center;" align="center">重写</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">工作目标</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">改善代码结构、可读性、可维护性和性能</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">采用新技术或架构，解决旧系统中的根本问题</td>
-    </tr>
-    <tr class="even">
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">时间</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">短期内见效，逐步改进</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">需要特别规划一个项目或者特定周期</td>
-    </tr>
-    <tr class="odd">
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">影响</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">对上下游系统影响较小，几乎对其透明</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">往往需要协同切换，甚至做停服割接业务</td>
-    </tr>
-    <tr class="even">
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">工作对象</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">代码</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">系统或者组件</td>
-    </tr>
-    <tr class="odd">
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">成本</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">低</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">高</td>
-    </tr>
-    <tr class="even">
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">风险</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">小</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">大</td>
-    </tr>
-    <tr class="odd">
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">收益</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">持续提高代码可维护性</td>
-    <td style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px; border-collapse: collapse; border: 1px solid #ececec; padding: 0.4em;" align="left">一次性解决系统设计的本质问题</td>
-    </tr>
-    </tbody>
-    </table>
-    <h2 id="决策的考量" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; padding-left: 10px; font-size: 120%; font-weight: bold; color: #de7456; text-align: center; line-height: 2; //居中width: 85%; width: 85%; border-bottom: 1px solid #de7456; display: flex; flex-direction: column; justify-content: center; margin: 1em auto;">03 决策的考量？</h2>
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">我们的客户经常会为重构还是重写做出选择而头疼，这里尝试整理了一个参考问题清单，根据问题的结论作为决策参考。</p>
+    <h3 id="全量同步和增量同步对比" style="color: rgb(0, 122, 170); text-align: left; line-height: 1.5; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; margin: 40px 10px 40px 0px; font-weight: normal; padding-left: 10px; font-size: 110%; border-left: 2px solid rgb(0, 122, 170);">全量同步和增量同步对比</h3>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">全量同步，顾名思义，就是每天晚上夜间作业，将数据以数据库或者表为单位全量同步一次。适合数据量不大，每天既有新数据插入，又有修改和删除的场景。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">增量同步相对全量同步来说，每个同步周期只对修改的内容进行同步。增量同步又有基于Select
+    批处理同步和 CDC 两种实现。</p>
+    <h3 id="select-批处理同步和-cdc-的对比" style="color: rgb(0, 122, 170); text-align: left; line-height: 1.5; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; margin: 40px 10px 40px 0px; font-weight: normal; padding-left: 10px; font-size: 110%; border-left: 2px solid rgb(0, 122, 170);">Select 批处理同步和 CDC
+    的对比</h3>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">为了实现增量同步，需要把源数据中的数据变化识别出来。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">一种方式是通过 select 条件来实现，例如通过 update_time
+    来识别变化后的数据，也可以通过自增 ID 来实现。通过 update_time
+    需要记录上一次同步后的时间，作为 select 查询的条件，类似的自增ID
+    通过记录上一次的 ID。通过 select
+    实现的好处是对数据库技术细节不敏感，例如不会因为数据库版本变化导致同步失效。缺点是，通过
+    ID 作为筛选条件只适用于只增不更新的场景，而通过 update_time
+    则删除场景无法满足，需要应用代码支持软删除。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">Change Data Capture (CDC)
+    是一种用于捕捉和处理数据变化的技术，类似数据库原生主从复制，通过解析
+    binlog 来实现同步。</p>
+    <figure>
+    <img src="https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/data-synchronization/cdc-vs-batch.png" alt="cdc-vs-batch.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption aria-hidden="true" style="display: none;">cdc-vs-batch.png</figcaption>
+    </figure>
+    <h3 id="双向同步处理策略" style="color: rgb(0, 122, 170); text-align: left; line-height: 1.5; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; margin: 40px 10px 40px 0px; font-weight: normal; padding-left: 10px; font-size: 110%; border-left: 2px solid rgb(0, 122, 170);">双向同步处理策略</h3>
+    <h2 id="同步方案" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; padding-left: 10px; font-size: 120%; font-weight: bold; color: #de7456; text-align: center; line-height: 2; //居中width: 85%; width: 85%; border-bottom: 1px solid #de7456; display: flex; flex-direction: column; justify-content: center; margin: 1em auto;">02 同步方案</h2>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">基于上述的问题和策略，可以讨论业界通常的同步方案。</p>
+    <h3 id="数据库原生主从复制" style="color: rgb(0, 122, 170); text-align: left; line-height: 1.5; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; margin: 40px 10px 40px 0px; font-weight: normal; padding-left: 10px; font-size: 110%; border-left: 2px solid rgb(0, 122, 170);">数据库原生主从复制</h3>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">原生主从复制是一种用于在多个数据库服务器之间复制数据的机制。它通过将主服务器上的数据变更传播到一个或多个从服务器上，实现数据的分发和冗余，一般关系型数据库都支持此类主从复制。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">以 Mysql 为例，主从复制的原理为：</p>
     <ol type="1" style="padding-left: 1em;">
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">使用的编程语言是否为当前企业的主要选择？</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">使用的框架是否已经过时，并难以升级到新的框架中来？</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">使用的依赖库是否还在被更新，或者能找到替换选项，并很容易被替换？</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">投资是否能支持完成重写计划？</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">团队人员能否在持续维护现有系统的情况下，仍然有能力开发新的系统？</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">是否存在重大的安全威胁，且无法通过重构实现？</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">是否有政策合规的影响，且无法通过重构实现？例如国家信创战略等要求等。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">主服务器（Master）记录所有数据更改操作（如INSERT、UPDATE、DELETE）到
+    binlog。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">从服务器（Slave）通过读取主服务器上的
+    binlog，获取数据更改的详细信息。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">从服务器将这些日志内容写入自己的中继日志（relay
+    log），然后重放这些日志，从而使自身的数据与主服务器保持一致。</li>
     </ol>
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">补充问题，如何让领导对重写买单？</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">Mysql 的主从复制有多种模式：</p>
     <ol type="1" style="padding-left: 1em;">
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">假设系统将被重写，是否会有新的功能被加入进来？</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">重写后能否估算出增加新的功能可以减少多少工作量？</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">异步复制：在异步复制模式下，主服务器在提交事务后立即返回给客户端，而不等待从服务器的确认。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">半同步复制：在半同步复制模式下，主服务器在提交事务后，等待至少一个从服务器确认收到事务日志后，才返回给客户端。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">全同步复制：在全同步复制模式下，主服务器在提交事务后，等待所有从服务器确认收到事务日志后，才返回给客户端。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">延迟复制：
+    在延迟复制模式下，从服务器以预设的延迟时间重放从主服务器收到的事件。</li>
     </ol>
-    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">从上述的问题清单中，有两个启示：</p>
-    <ol type="1" style="padding-left: 1em;">
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">技术决策背后往往会掺杂利益问题和价值判断。从业务方的角度来说，需要对比的是持续重构带来的成本和一次性投资重写的成本，这两者带来的成效哪一个更高？而对于技术人员来说，维护的便利性是优先考虑的要素，因为难以维护的项目可能会带来更多的而线上
-    Bug 和安全事件。</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">在众多考量点中，某些考量是决定性的。这些决定性的考量往往和公司业务有关，例如对于银行来说，安全和政策合规是第一要素，如果系统持续重构无法解决安全和政策合规问题，那么即使不得不加大投资，也能接受系统被重写；而对于互联网公司来说，除了安全和政策合规外，快速响应业务变更也很重要，因此对于重写更加积极。</li>
-    </ol>
-    <h2 id="相关的教训" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; padding-left: 10px; font-size: 120%; font-weight: bold; color: #de7456; text-align: center; line-height: 2; //居中width: 85%; width: 85%; border-bottom: 1px solid #de7456; display: flex; flex-direction: column; justify-content: center; margin: 1em auto;">04 相关的教训</h2>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">在实际生产环境中，最常见的配置是异步复制和半同步复制：</p>
     <ul style="padding-left: 1em;">
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">了解遗留系统中的隐藏规则是巨大的挑战之一。</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">遗留系统比新系统有更多的熵，因此不应该照抄遗留系统的业务逻辑进行重写，而应该重新设计。</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">遗留系统的工作量远远大于新建一个系统，因此在估算上需要特别考虑兼容和切换成本。</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">团队在重写的过程中，需要仍然维护遗留系统并添加新的功能，这个阶段会导致团队压力非常大。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">异步复制是默认和最常用的模式，适用于大多数读写分离的应用场景。这种模式下的主服务器性能最佳，适合对数据一致性要求不高的场景。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">半同步复制用于对数据一致性要求较高的场景，比如金融交易系统等。这种模式提供了数据一致性和性能之间的平衡。</li>
     </ul>
-    <h2 id="参考资料" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; padding-left: 10px; font-size: 120%; font-weight: bold; color: #de7456; text-align: center; line-height: 2; //居中width: 85%; width: 85%; border-bottom: 1px solid #de7456; display: flex; flex-direction: column; justify-content: center; margin: 1em auto;">参考资料</h2>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">Mysql
+    默认同步模式是异步复制，所以从库我们一般用来查询展示，而不用于读回内存进行更新。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">主从复制的优点：主从复制的应用场景是读写分离、多区域容错、数据备份等场景、实时性高。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">主从复制的局限性：<strong style="font-weight: normal; color: rgb(0, 122, 170);">同一个数据库系统内的不同实例之间传递数据的。</strong>
+    如果作为不同数据库之间数据迁移来说，主从同步就不适合了。</p>
+    <h3 id="sql-dump" style="color: rgb(0, 122, 170); text-align: left; line-height: 1.5; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; margin: 40px 10px 40px 0px; font-weight: normal; padding-left: 10px; font-size: 110%; border-left: 2px solid rgb(0, 122, 170);">SQL Dump</h3>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">通过 SQL Dump
+    实现跨库的数据同步可以是一种简单粗暴的方法，适合数据全量同步、且无法做到异构同步，灵活性比较差。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">SQL Dump 实现起来非常简单，通过一个 Python 或 Shell
+    脚本即可完成（代码参考 AI 工具生成）。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">在某些场景下，SQL Dump
+    算是一种简单有效的方案，不过适用面太小。</p>
+    <h3 id="基于-select-批量同步" style="color: rgb(0, 122, 170); text-align: left; line-height: 1.5; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; margin: 40px 10px 40px 0px; font-weight: normal; padding-left: 10px; font-size: 110%; border-left: 2px solid rgb(0, 122, 170);">基于 Select 批量同步</h3>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">工作流程如下：</p>
+    <ol type="1" style="padding-left: 1em;">
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">从目标数据源获取最新的一条数据记录，获取其更新时间或自增
+    ID，作为增量数据查询游标。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">根据查询游标在源数据获取增量数据，并发送到目标数据库。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">目标数据库写入数据。</li>
+    </ol>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">如下图所示：</p>
+    <figure>
+    <img src="https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/data-synchronization/select.png" alt="select.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption aria-hidden="true" style="display: none;">select.png</figcaption>
+    </figure>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">基于 Select 批量同步需要注意几个问题：</p>
     <ul style="padding-left: 1em;">
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">https://juejin.cn/post/6844903892828831757</li>
-    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">https://www.infoq.com/news/2009/11/refactor-rewrite/</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">需要注意一次任务处理的数据量。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">需要注意一次任务处理的时间，避免一次任务还未完成就发起了第二次任务。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">注意设置查询字段的索引，提高查询效率，避免为源数据库带来过高负载。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">如果查询字段为 updated_time
+    时，删除操作需要使用标记删除（软删除），否则已删除的数据无法被同步。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">如果通过自增 ID
+    实现增量数据查询时，只能用于只插入不修改的场景。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">这种方案只能实现单一数据源同步，如果目标数据库也有额外的数据插入，可以把游标存在某个地方，实现多数据源同步。</li>
     </ul>
+    <h3 id="基于-cdc-的流式同步" style="color: rgb(0, 122, 170); text-align: left; line-height: 1.5; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; margin: 40px 10px 40px 0px; font-weight: normal; padding-left: 10px; font-size: 110%; border-left: 2px solid rgb(0, 122, 170);">基于 CDC 的流式同步</h3>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">CDC
+    是通过捕捉数据库的操作日志来实现实时数据同步的，从原理上来说和原生的主从复制往往差不多，和原生的主从复制一般不同的是，会通过一个
+    MQ
+    中间件来实现事件的分发，这样的好处是，可以做到数据源和数据目标。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">工作模式如下：</p>
+    <figure>
+    <img src="https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/data-synchronization/cdc.png" alt="cdc.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption aria-hidden="true" style="display: none;">cdc.png</figcaption>
+    </figure>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">对于 Mysql 来说，Mysql 的 Binlog 有 statement-based、row-based 和
+    mixed-based 三种格式。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">Statement-based 记录执行的 SQL
+    语句，一般我们不会用它来做数据同步。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">Row-based 记录每行被修改的数据，例如：</p>
+    <pre class="text" style="background: #efefefbf; padding: 1em; max-width: 100%; font-size: 0.9em; white-space: pre; overflow: scroll; overflow-x: scroll;"><code style="white-space: pre; overflow: scroll;">### INSERT INTO table_name
+### WHERE
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=&#39;data&#39; /* VARSTRING(255) meta=255 nullable=1 is_null=0 */
+### SET
+###   @1=2
+###   @2=&#39;new_data&#39;
+</code></pre>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">Mixed-based 的工作机制是根据具体的 SQL
+    语句类型和复杂度，自动选择合适的日志格式，所以得到的内容是混合的，对解析并不方便。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">PostgreSQL 的日志叫做 WAL（Write-Ahead Logging），
+    虽然只提供了一种数据格式，但是内容比较复杂。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">MongoDB 的日志为 Oplog，记录了对数据库的所有写操作，为 JSON
+    格式，便于阅读和处理。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">由于解析 Binlog
+    比较麻烦，所以通常来说我们会考虑采用某些中间件来实现。例如，Debezium
+    就是典型的基于 CDC 进行数据同步的中间件。</p>
+    <h2 id="同步中间件对比" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; padding-left: 10px; font-size: 120%; font-weight: bold; color: #de7456; text-align: center; line-height: 2; //居中width: 85%; width: 85%; border-bottom: 1px solid #de7456; display: flex; flex-direction: column; justify-content: center; margin: 1em auto;">02 同步中间件对比</h2>
+    <figure>
+    <img src="https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/data-synchronization/tool-comparison.png" alt="tool-comparison.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption aria-hidden="true" style="display: none;">tool-comparison.png</figcaption>
+    </figure>
+    <h2 id="复杂的数据同步案例" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; padding-left: 10px; font-size: 120%; font-weight: bold; color: #de7456; text-align: center; line-height: 2; //居中width: 85%; width: 85%; border-bottom: 1px solid #de7456; display: flex; flex-direction: column; justify-content: center; margin: 1em auto;">03 复杂的数据同步案例</h2>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">这是一个从数据库主从同步改造为其它同步方式的例子，作为一个数据同步案例。</p>
+    <h3 id="问题" style="color: rgb(0, 122, 170); text-align: left; line-height: 1.5; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; margin: 40px 10px 40px 0px; font-weight: normal; padding-left: 10px; font-size: 110%; border-left: 2px solid rgb(0, 122, 170);">问题</h3>
+    <figure>
+    <img src="https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/data-synchronization/case.png" alt="case.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption aria-hidden="true" style="display: none;">case.png</figcaption>
+    </figure>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">背景：</p>
+    <ol type="1" style="padding-left: 1em;">
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">一家做全球航运管理的公司，有很多服务在远洋运行的船上，通过卫星网络连接，用于船上货物的仓储管理
+    APP。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">使用了一种叫做 Couch DB
+    的数据库来实现双向同步，且支持离线同步。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">在船上通过 WIFI
+    网络支持用户通过平板操作，这些平板也可能离线，所以使用了 puchdb 来和
+    Couch DB 同步。</li>
+    </ol>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">痛点：</p>
+    <ol type="1" style="padding-left: 1em;">
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">CouchDB/Pouchdb 双向同步，经常发生冲突。</li>
+    <li style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 20px 20px;">CouchDB/Pouchdb
+    表结构发生变化时，如果客户端没有及时更新就开始同步，产生严重错误。</li>
+    </ol>
+    <h3 id="多数据来源同步" style="color: rgb(0, 122, 170); text-align: left; line-height: 1.5; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; margin: 40px 10px 40px 0px; font-weight: normal; padding-left: 10px; font-size: 110%; border-left: 2px solid rgb(0, 122, 170);">多数据来源同步</h3>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">上面案例中出现了多数来源同步的问题，CouchDB/Pouchdb
+    支持多数据来源和双向同步，在同步中会出现冲突的问题。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">CouchDB 使用多版本并发控制 (MVCC)
+    和一种称为“懒惰冲突检测”的机制来处理数据冲突。虽然 MVCC
+    通过多种策略处理冲突，例如基于时间戳、基于优先级或其它自定义规则合并冲突数据。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">但由于 CouchDB
+    的冲突过程发生在数据库层面，当冲突非常复杂时，无法通过简单的规则处理这个冲突。对于这类场景，建议优先使用应用能控制的数据同步方案，这样可以让应用来完成业务决策，避免数据冲突。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">另外一个原因是，如果数据库层面的同步发生在客户端，会有一个表结构的问题。当客户端没有升级时，表结构不同，强行同步会出现严重错误。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">如果服务器之间进行数据同步，使用对业务无感知的同步尚可，因为数据库都在被管理的范围内。</p>
+    <h3 id="双向同步拆解为单向的技巧" style="color: rgb(0, 122, 170); text-align: left; line-height: 1.5; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; margin: 40px 10px 40px 0px; font-weight: normal; padding-left: 10px; font-size: 110%; border-left: 2px solid rgb(0, 122, 170);">双向同步拆解为单向的技巧</h3>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">在很多场景中，我们实际上都需要双向同步，这种场景在 IoT
+    领域非常常见，那么是怎么做的呢？</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;"><strong style="font-weight: normal; color: rgb(0, 122, 170);">在逻辑上拆解</strong>。寻找业务决策点，一路数据同步，一路事件下发。将双向同步拆解为同步+数据两个通道，数据同步通道直接接受数据变化，而接受事件下发的一方需要根据当前数据状态，处理如何应用事件。</p>
+    <figure>
+    <img src="https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/data-synchronization/unidirectional-data-flow.png" alt="unidirectional-data-flow.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption aria-hidden="true" style="display: none;">unidirectional-data-flow.png</figcaption>
+    </figure>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">在这个例子中，根据分析大量数据都是从船上产生的，并需要同步到云上。而只有一些非常基础的元数据需要从云上下发到船上，所以这里的规则可以设计为：以船主要数据源同步给云，并将云的修改记录为事件下发到船上（用户操作页面可见是否下发成功）。</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;"><strong style="font-weight: normal; color: rgb(0, 122, 170);">在时空上拆解</strong>。同一时刻，同一单位的数据单向传输。这个例子常常发生在遗留系统迁移的过程中，老系统向新系统同步数据，且两个系统都可以使用。这样就会产生冲突，如何做到两个系统都可以使用呢？</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">有几种策略：</p>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">1.【同一单位】 其中一方系统产生的数据在另外一方只读，不能操作。
+    1.【同一时刻】其中一方系统开启某些功能时，另外一方关闭这些功能，在时间长避开冲突。</p>
+    <h2 id="总结" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; padding-left: 10px; font-size: 120%; font-weight: bold; color: #de7456; text-align: center; line-height: 2; //居中width: 85%; width: 85%; border-bottom: 1px solid #de7456; display: flex; flex-direction: column; justify-content: center; margin: 1em auto;">04 总结</h2>
+    <p style="text-align: left; color: #3f3f3f; line-height: 1.75em; font-family: system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,Arial,sans-serif; font-size: 15px; margin: 1.3em 0;">这里有个思维导图作为总结。</p>
+    <figure>
+    <img src="https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/data-synchronization/mindmap.jpg" alt="mindmap.jpg" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption aria-hidden="true" style="display: none;">mindmap.jpg</figcaption>
+    </figure>
     <!--这里结束-->
     <!--
         <hr> 分享到朋友圈? <a href="#">点击这里</a>
