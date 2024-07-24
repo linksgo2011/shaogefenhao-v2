@@ -46,7 +46,7 @@ head:
 
 但是抱怨开始产生内部矛盾，并让大家有离开的心理时就不正常了。我识别了一些这些抱怨中的关键字，尝试分析抱怨背后的问题和归因：
 
-![cause-and-effect.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/team/team-discipline-and-organizational-power/cause-and-effect.png)
+![cause-and-effect.png](./team-discipline-and-organizational-power/cause-and-effect.png)
 
 - 产品人员无法准时交付合格的需求分析产物，即使延期也好像没有引起管理者重视。
 - 开发人员无法提前开始方案设计，导致迭代启动后无法并行工作，并及时集成。
@@ -100,7 +100,7 @@ PS：以前某团队以此为荣，但后续造成失控影响。
 
 因为地震没有 PUSH 也算违反纪律的话，我也不知道该说什么。
 
-![git-comics.png](https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/team/team-discipline-and-organizational-power/git-comics.png)
+![git-comics.png](./team-discipline-and-organizational-power/git-comics.png)
 
 ## 把团队训练成特种兵
 
