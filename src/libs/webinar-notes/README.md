@@ -199,6 +199,7 @@ B 站回放观看地址： https://www.bilibili.com/list/2066241928
 61. [技术方案 Webinar - 分支策略](./java-solution-webinar-61.html)
 62. [技术方案 Webinar - 跨境交易](./java-solution-webinar-62.html)
 63. [技术方案 Webinar - 单点登录（SSO）](./java-solution-webinar-63.html)
+64. [技术方案 Webinar - 数据同步](./java-solution-webinar-64.html)
 
 ## Agenda 和准备材料
 
