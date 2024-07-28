@@ -1,5 +1,5 @@
 folder=posts/team
-fileName=team-discipline-and-organizational-power
+fileName=teams-vision
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
