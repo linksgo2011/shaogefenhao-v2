@@ -229,6 +229,8 @@ description: 我个人的方向是专注于分布式系统架构设计和中间�
 
 《组织社会学十讲》周雪光
 
+《金融炼金术》乔治·索罗斯
+
 ## 英文书单
 
 《Capital in the Twenty First Century》
