@@ -27,3 +27,4 @@ urls.txt
 **/*.bkp
 
 **/tmp
+/venv/

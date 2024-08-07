@@ -72,6 +72,7 @@ sidebar: false
 - 敏捷的谎言
 - 高效的软件开发团队：特种兵式团队
 - 通过问题来收敛决策
+- Book Smart 和 Street Smart
 
 ## 技术管理 （敏捷工作方式）
 
