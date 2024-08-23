@@ -1,5 +1,5 @@
 ---
-title: 系统管理 | 服务器性能需求估算
+title: 系统设计 | 服务器性能需求估算
 date: 2024-08-22 22:04:32
 sidebar: auto
 category: 
@@ -132,5 +132,5 @@ RPS = \frac{\text{ Q(当前交易量) } \times \text{f1(增长系数)} \times 0.
 
 ## 05 参考资料
 
-- 
+- 第 65 次研讨内容 https://shaogefenhao.com/libs/webinar-notes/java-solution-webinar-65.html
 
