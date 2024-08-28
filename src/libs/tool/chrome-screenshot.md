@@ -15,4 +15,4 @@ permalink: /tool/chrome-screenshot/
 
 输入 `Screen` Chrome 会出现截图相关的命令：
 
-![image-20200315160324484](chrome-screenshot/image-20200315160324484.png)
+![image-20200315160324484](./chrome-screenshot/image-20200315160324484.png)
