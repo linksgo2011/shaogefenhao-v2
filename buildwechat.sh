@@ -1,5 +1,5 @@
-folder=posts/team
-fileName=efficiency-not-importtant
+folder=libs/ad
+fileName=10-questions-about-life
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
