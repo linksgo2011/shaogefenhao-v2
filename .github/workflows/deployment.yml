@@ -31,9 +31,9 @@ jobs:
       - name: Deploy to Staging server
         uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_KEY_2 }}
           ARGS: "-rltgoDzvO"
           SOURCE: "src/.vuepress/dist"
-          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
-          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          REMOTE_HOST: ${{ secrets.SERVER_HOST_2 }}
+          REMOTE_USER: ${{ secrets.SERVER_USER_2 }}
           TARGET: "/var/www/shaogefenhao"
