@@ -1,5 +1,5 @@
 ---
-title: 技术管理 | 成为管理者的性格转变
+title: 技术管理 | 管理者的内在修炼
 date: 2024-09-11 18:04:32
 sidebar: auto
 category: 
@@ -8,7 +8,7 @@ head:
   - - meta
     - name: keyword
       content: 技术管理
-      description: 管理者的内在性格修炼 
+      description: 管理者的内在修炼 
 ---
 
 技术人员转变为管理者最大的障碍其实不是机会、工作岗位等外在因素，反而是性格、认知等内在因素。

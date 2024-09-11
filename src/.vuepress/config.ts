@@ -108,6 +108,10 @@ export default defineUserConfig<DefaultThemeOptions>({
             link: "",
           },
           {
+            text: "X（推特）",
+            link: "https://x.com/shaogefenhao",
+          },
+          {
             text: "知乎",
             link: "https://www.zhihu.com/people/printf.cn/posts",
           },

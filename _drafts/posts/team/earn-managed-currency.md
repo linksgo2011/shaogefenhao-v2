@@ -1,5 +1,5 @@
 ---
-title: 技术管理 | 管理货币
+title: 技术管理 | 领导力货币
 date: 2023-04-18 22:04:32
 sidebar: auto
 category: 

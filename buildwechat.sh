@@ -1,5 +1,5 @@
-folder=posts/architecture
-fileName=common-configuration-2
+folder=posts/team
+fileName=inner-discipline-of-managers
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
