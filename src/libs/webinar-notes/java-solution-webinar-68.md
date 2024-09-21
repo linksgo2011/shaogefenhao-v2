@@ -27,6 +27,12 @@ head:
 - 同义千问
 - voideditor 的开源代替品 Cursor
 
+## 适合 AI 干的事情
+
+1. 明确而重复的工作
+2. 上下文不大的工作
+2. 技术复杂度高，但业务复杂度不高的工作
+
 ## 录屏
 
 https://www.bilibili.com/video/BV164tCeHEqF/
