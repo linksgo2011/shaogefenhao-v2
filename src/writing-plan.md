@@ -11,7 +11,7 @@ sidebar: false
 ~~- MarTech~~
 - 搜索引擎
 - 事件驱动架构
-- 状态机
+~~- 状态机~~
 - CMS选型
 - monorepo
 - 容量估算
@@ -22,7 +22,7 @@ sidebar: false
 - 账号绑定设计
 - 服务器推设计
 - Kafka 和 MQ 选型
-- 搞定中间件配置：Mysql
+- 搞定中间件配置：Mysql DONE
 - 报表系统设计
 - 如何优化复杂搜索
 - 几种高可用 Mysql 架构选型
@@ -34,6 +34,10 @@ sidebar: false
 - 如无必要勿增服务
 - 需求服务红线
 - 优雅停机
+- AFK 立方体
+- 12 条架构军规
+- 复用之殇
+- Mysql的几种高可用架构选型
 
 ## IT评论
 
