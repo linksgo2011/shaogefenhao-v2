@@ -9,7 +9,7 @@ sidebar: auto
 permalink: /security/rsa/
 ---
 
-如何实现非对称加密？
+如何通俗理解 RSA 的数学意义。
 
 ## 非对称算法抽象本质
 
@@ -60,11 +60,11 @@ C = M^d mod n = 31^7 mod 33 = 4
 - n 是模数
 - d 是私钥指数
 
-也就是我不关心 p,q 能穷举找到 e,d,n 也能实现这个可逆过程。 为什么能做到上面这个可逆运算呢？ e,d,n 的关系是什么？
+为什么能做到上面这个可逆运算呢？ e,d,n 的关系是什么？
 
 ### 寻找一个模反值
 
-但实现这个过程 e 和 d 需要满足下面性质:
+实现这个过程 e 和 d 需要满足下面性质:
 
 > e*d = 1 mod ϕ(n) 
 
@@ -77,9 +77,9 @@ C = M^d mod n = 31^7 mod 33 = 4
 
 证明和推导过程比较复杂，是数论中的概念，可以参考欧拉定理、中国剩余定理、扩展欧几里得算法。
 
-理解欧拉定理、中国剩余定理等 RSA 背后原理。TODO: 缺乏相关数学知识储备。。
+理解欧拉定理、中国剩余定理等 RSA 背后原理。
 
-### 为什么它安全？
+## 03 为什么它安全？
 
 到目前为止，这套东西还不能拿来作为加密算法，如果我通过 e,n 很容易就能推出 d，那就没有加密意义了。
 
@@ -89,12 +89,13 @@ C = M^d mod n = 31^7 mod 33 = 4
 
 特殊场景下，如果需要恢复私钥就需要保存 p,q。其实保留 ϕ(n) 也很很快根据 n 一起求出 p,q，所以为了安全密钥生成完成后，需要销毁 p,q, ϕ(n)，私密保留 d，公开保存 e,n。
 
-#### 通过 p,q 求 d 的过程 (生成密钥过程)
+### 通过 p,q 求 d 的过程 (生成密钥过程)
 
 我们选择: p = 3, q = 11
 
-计算 n = p×q = 3*11 = 33
-计算 ϕ(n) = (p−1)×(q−1) = 2*10 = 20
+计算 `n = p×q = 3*11 = 33`
+
+计算 `ϕ(n) = (p−1)×(q−1) = 2*10 = 20`
 
 选择一个 e, e 需要 满足 1 < e < ϕ(n)，同时需要和 ϕ(n) 互质。假设这里选择 e = 3，3 和 20 互质。
 
@@ -116,7 +117,7 @@ C = M^d mod n = 31^7 mod 33 = 4
 
 得到 d = 7。
 
-#### 不通过 p,q 穷举 d 的过程 (尝试破解过程)
+### 不通过 p,q 穷举 d 的过程 (尝试破解过程)
 
 根据同余方程 e×d≡1modϕ(n)，只能在知道 ϕ(n) 通过 e 找出 d，如果不知道 ϕ(n)，只知道 n，只能通过枚举。
 
@@ -132,7 +133,44 @@ C = M^d mod n = 31^7 mod 33 = 4
 
 ![complexity.png](./rsa/complexity.png)
 
-### 其它数学模型
+绘图工具： https://www.tutorialspoint.com/execute_matplotlib_online.php
+
+绘图代码：
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 定义 k 的范围，从 1 到 2048
+k_values = np.linspace(1, 2048, 100)  # 1 到 2048 的线性空间
+n_values = 2 ** k_values  # n = 2^k
+
+# 模拟不同算法的复杂性（对数尺度）
+trial_division_complexity = n_values  # O(n) 复杂性
+pollards_rho_complexity = np.sqrt(n_values)  # O(sqrt(n)) 复杂性
+quadratic_sieve_complexity = (np.log(n_values)) ** 2  # O(log(n)^2) 复杂性
+number_field_sieve_complexity = np.exp((np.log(n_values) ** (1/3)) * (np.log(np.log(n_values)) ** (2/3)))  # NFS 复杂性
+
+# 绘图
+plt.figure(figsize=(12, 8))
+plt.yscale('log')
+plt.plot(n_values, trial_division_complexity, label='Trial Division O(n)', color='blue')
+plt.plot(n_values, pollards_rho_complexity, label="Pollard's Rho O(sqrt(n))", color='orange')
+plt.plot(n_values, quadratic_sieve_complexity, label='Quadratic Sieve O(log(n)^2)', color='green')
+plt.plot(n_values, number_field_sieve_complexity, label='Number Field Sieve O(e^((log(n)^(1/3)*(log(log(n))^(2/3))))', color='red')
+
+# 添加标题和标签
+plt.title('Complexity of Factorization Algorithms for Large Integers (up to 2^2048)')
+plt.xlabel('n (up to 2^2048)')
+plt.ylabel('Complexity (log scale)')
+plt.legend()
+plt.grid(True)
+
+# 显示图形
+plt.show()
+```
+
+## 其它数学模型
 
 - 椭圆曲线离散对数问题 （ECC 算法，国密采用）
 - 离散对数

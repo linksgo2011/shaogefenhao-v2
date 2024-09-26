@@ -23,6 +23,7 @@ sidebar: false
 - [爱码叔-iCodeBook](http://www.icodebook.com/)
 - [Bright LGM's Blog](http://brightliao.com/)
 - [马大伟](https://www.bmpi.dev/)
+- [Naico](https://naico.wang/)
 
 ## QA 伙伴们
 
@@ -34,4 +35,5 @@ sidebar: false
 
 - [聂子云](http://www.niezitalk.com)
 - [张凯峰](http://www.kaifengzhang.com/)
+
 
