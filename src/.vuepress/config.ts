@@ -119,6 +119,10 @@ export default defineUserConfig<DefaultThemeOptions>({
             text: "知识星球",
             link: "https://wx.zsxq.com/dweb2/index/group/15522848288852",
           },
+          {
+            text: "哔哩哔哩",
+            link: "https://space.bilibili.com/2066241928/channel/series",
+          },
         ]
       },
       {
