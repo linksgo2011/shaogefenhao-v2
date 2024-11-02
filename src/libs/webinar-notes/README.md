@@ -207,6 +207,8 @@ B 站回放观看地址： https://www.bilibili.com/list/2066241928
 66. [技术方案 Webinar - 程序员的职业发展](./java-solution-webinar-66.html)
 67. [技术方案 Webinar - 数据仓库和 BI 实践](./java-solution-webinar-67.html)
 68. [技术方案 Webinar - AI辅助编程](./java-solution-webinar-68.html)
+69. [技术方案 Webinar - Paxos 分布式共识算法](./java-solution-webinar-69.html)
+70. [技术方案 Webinar - Paxos 分布式共识算法](./java-solution-webinar-70.html)
 
 ## Agenda 和准备材料
 
