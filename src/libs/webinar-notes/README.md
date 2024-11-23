@@ -211,6 +211,7 @@ B 站回放观看地址： https://www.bilibili.com/list/2066241928
 70. [技术方案 Webinar - 开源依赖 License 合规和扫描](./java-solution-webinar-70.html)
 71. [技术方案 Webinar - 务实的敏捷开发像什么样子？](./java-solution-webinar-71.html)
 72. [技术方案 Webinar - 如何应对双11流量（上）](./java-solution-webinar-72.html)
+73. [技术方案 Webinar - 如何应对双11流量（中）](./java-solution-webinar-73.html)
 
 ## Agenda 和准备材料
 
