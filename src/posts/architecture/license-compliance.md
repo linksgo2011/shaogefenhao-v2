@@ -1,5 +1,5 @@
 ---
-title: 系统设计 | 何同学翻车，那么开源 License 怎么管理？ 
+title: 系统设计 | 何同学翻车，开源 License 该怎么管理？
 date: 2024-11-21 22:04:32
 sidebar: auto
 category: 
@@ -8,7 +8,7 @@ head:
   - - meta
     - name: keyword
       content: 何同学, License
-      description: 何同学翻车，那么开源 License 怎么管理？ 
+      description: 何同学翻车，开源 License 该怎么管理？
 ---
 
 何同学在视频中把从 Github 下载的代码改成自己的，并删除掉 License，然后说是自己写的。
