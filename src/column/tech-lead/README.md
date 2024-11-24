@@ -1,12 +1,11 @@
 # 技术经理 （领导力专题）
 
 - [从人性和组织的角度看管理](./management-from-human-nature.html)
-- [寻找你的 Role Model](./find-your-role-model.html) 
-- [从开发者转型到管理的第一堂课：不要暴露虚弱](./first-lesson-dont-show-weakness.html)
+- [时刻记住：不要暴露虚弱](./dont-show-weakness.html)
 - [看到技术问题的背后，发现问题背后的问题](./find-root-cause.html)
-- [对待事情的软和硬：内软外硬，内硬外软，内硬外硬](./soft-and-hard-approaches.html)
-- [领导力是结果，不能学，要攒 (领导力像一种货币)](./leadership-currency.html)
 - [谁痛谁改变，谁得利谁推动](./pain-and-gain.html)
+- [大领导都和气，但他们内硬外软](./soft-and-hard-approaches.html)
+- [领导力是结果，不能学，要攒 (领导力像一种货币)](./leadership-currency.html)
 - [得到领导信任，是一切的基础](./gain-trust.html)
 - [情绪是一种工具](./emotion-as-tool.html)
 - [为什么仪式感这么重要？](./importance-of-ceremony.html)
@@ -22,3 +21,6 @@
 - [如果团队成员能力比你更强怎么办？](./manage-stronger-members.html)
 - [如何处理进度压力，延期了怎么办？](./handle-delays.html)
 - [如何建立淡然的心态（面对失败、背锅、投诉）？](./maintain-composure.html)
+- [寻找你的 Role Model](./find-your-role-model.html) 
+- [管理者需要强大的自我觉察能力](./self-awareness.html)
+- [你不太能让所有人都一直满意](./not-everyone-can-be-satisfied.html)
