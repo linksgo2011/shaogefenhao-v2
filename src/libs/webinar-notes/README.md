@@ -212,6 +212,8 @@ B 站回放观看地址： https://www.bilibili.com/list/2066241928
 71. [技术方案 Webinar - 务实的敏捷开发像什么样子？](./java-solution-webinar-71.html)
 72. [技术方案 Webinar - 如何应对双11流量（上）](./java-solution-webinar-72.html)
 73. [技术方案 Webinar - 如何应对双11流量（中）](./java-solution-webinar-73.html)
+74. [技术方案 Webinar - 如何应对双11流量（下）](./java-solution-webinar-74.html)
+75. [技术方案 Webinar - SpringBatch 设计分析和NOP实现](./java-solution-webinar-75.html)
 
 ## Agenda 和准备材料
 
