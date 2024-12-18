@@ -14,6 +14,8 @@
 - [识别 PUA，避免无形之间被操控](./identify-manipulation.html)
 - [如果团队成员不听指挥怎么办？](./handle-disobedience.html)
 - [如果领导给出一个无法完成的任务怎么办？](./handle-impossible-tasks.html)
+- [我们很难改变一个人的信念，但可以影响他](./how-to-influence-people.html)
+
 
 <!-- - [公司其它部门同事不配合怎么办？](./handle-cross-team-issues.html)
 - [如果团队成员能力比你更强怎么办？](./manage-stronger-members.html)
