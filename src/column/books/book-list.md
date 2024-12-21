@@ -241,6 +241,10 @@ description: 我个人的方向是专注于分布式系统架构设计和中间�
 
 《系统论》
 
+《商业模式新生代》
+
+《真需求》
+
 ## 英文书单
 
 《Capital in the Twenty First Century》
