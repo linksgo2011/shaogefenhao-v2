@@ -1,5 +1,5 @@
 folder=column/tech-lead
-fileName=how-to-influence-people
+fileName=identify-manipulation
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build

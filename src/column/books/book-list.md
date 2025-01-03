@@ -245,6 +245,8 @@ description: 我个人的方向是专注于分布式系统架构设计和中间�
 
 《真需求》
 
+《历史决定论的贫困》
+
 ## 英文书单
 
 《Capital in the Twenty First Century》
