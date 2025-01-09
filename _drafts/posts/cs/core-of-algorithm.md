@@ -29,7 +29,9 @@ description: 通过讨论算法的解决的问题、用途、策略来系统的�
 
 先从问题出发然后分析解决问题的策略，寻找合适的数据结构，这样更能真正的掌握算法。
 
-## 元素查找
+## 基于策略的算法梳理
+
+### 迭代和分支定界 - 元素查找
 
 我们先从最简单问题开始（其实也会在面试中被问到）。 比如在一个列表中（或者数组），从元素中找到需要的元素。 
 
@@ -96,21 +98,85 @@ description: 通过讨论算法的解决的问题、用途、策略来系统的�
 
 实际上，基于二分查找可以得到一些变种算法。比如我们能根据列表的数据分布情况，选择合适的位置开始搜索会比取中值更快，这是另外一种定界策略，又叫做插值搜索。
 
+排序和查找是数据库非常基本的操作。
+
+### 递归 
+
+常用来处理具有自相似性的问题，即问题可以分解为规模较小的同类问题，通俗来说就是自己调用自己。
+
+自相似性是递归的本质，比如斐波那契数列，就是典型的自相似性问题。
+
+树型结构是一个典型使用递归的场景，在应用开发中，构建组织树就可以使用递归。
+
+下面是一个使用递归构建组织树的示例代码：
+
+```java
+public class TreeNode {
+    private String id;
+    private String name; 
+    private List<TreeNode> children;
+
+    public TreeNode(String id, String name) {
+        this.id = id;
+        this.name = name;
+        this.children = new ArrayList<>();
+    }
+}
+
+public class OrganizationTree {
+    // 从扁平的组织数据构建树
+    public TreeNode buildTree(List<Organization> orgList) {
+        // 找到根节点
+        Organization root = orgList.stream()
+            .filter(org -> org.getParentId() == null)
+            .findFirst()
+            .orElseThrow(() -> new RuntimeException("找不到根节点"));
+            
+        return buildNode(root.getId(), orgList);
+    }
+    
+    // 递归构建节点
+    private TreeNode buildNode(String parentId, List<Organization> orgList) {
+        // 找到当前要处理的组织
+        Organization current = orgList.stream()
+            .filter(org -> org.getId().equals(parentId))
+            .findFirst()
+            .orElseThrow(() -> new RuntimeException("找不到对应组织"));
+            
+        // 创建当前节点    
+        TreeNode node = new TreeNode(current.getId(), current.getName());
+        
+        // 递归构建子节点
+        orgList.stream()
+            .filter(org -> parentId.equals(org.getParentId()))
+            .forEach(org -> {
+                TreeNode child = buildNode(org.getId(), orgList);
+                node.getChildren().add(child);
+            });
+            
+        return node;
+    }
+}
+
+// 组织实体类
+class Organization {
+    private String id;
+    private String parentId;
+    private String name;
+    
+    // getter/setter 略
+}
+
+```
+
+## 动态规划
+
+把递归进行记忆化避免重复计算，这就是动态规划。
 
 
+## 回溯
 
 
-### 如何对列表排序？
-
-1. 排序的用处
-2. 
-
-
-## 其他内容
-
-### 如何实现字符串？
-
-字符串很多时候不是原生语法层面的内容，一般作为语言的标准库发布。字符串往往也不是基本类型，而是根据数组、字符等基本类型实现的。比如，在 C++ 中 char[] 表达字符串。如果想要更方便的使用 string 则需要使用 STL 容器中的 string 类。
 
 ## 参考资料
 
