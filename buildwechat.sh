@@ -1,5 +1,5 @@
-folder=libs/ad
-fileName=2024webinar
+folder=column/tech-lead
+fileName=game-theory-skills
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
