@@ -13,7 +13,7 @@ head:
 description: 通过讨论算法的解决的问题、用途、策略来系统的整理算法的精髓部分。
 ---
 
-在几次求职找工的时候看过很多次算法方面的内容，但是都没有整理成系统性的材料。为了更加深度的理解计算机科学中的算法部分，我把常用或者面试常见的算法整理出来，贯穿这些算法解决的问题、策略、以及用途。
+在几次求职找工作的时候看过很多次算法方面的内容，但是都没有整理成系统性的材料。为了更加深度的理解计算机科学中的算法部分，我把常用或者面试常见的算法整理出来，贯穿这些算法解决的问题、策略、以及用途。
 
 这样一来，可以用较低的认知负担理解核心的算法逻辑。（其实是看了很多类似的书，总要自己整理一遍才是自己的。）
 
@@ -38,13 +38,24 @@ description: 通过讨论算法的解决的问题、用途、策略来系统的�
 根据经验，我们会想到两种查找方式：
 
 1. 顺序查找。逐个遍历整个过程，直到找到符合要求的元素（这几乎不能叫算法，没有人不知道这种过程）。
-2. 折半查找（Binary search algorithm）。对于有序的列表来说，很容易通过元素的总数获取中间值，然后前后定位。
+2. 二分查找（Binary search algorithm）。对于有序的列表来说，很容易通过元素的总数获取中间值，然后前后定位。
 
-顺序查找就是一种迭代的策略，一次找不到就找下一个，直到找出来为止。而折半查找就是一种分支定界的策略，通过分析现有数据特征进行减少迭代的次数。
+顺序查找就是一种迭代的策略，一次找不到就找下一个，直到找出来为止。而二分查找就是一种**分支定界**的策略，通过分析现有数据特征进行减少迭代的次数。
 
 下面是顺序查找的 Java 示例：
 
 ```java
+    public static void main(String[] args) {
+        int[] sourceList = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int targetValue = 5;
+        try {
+            int index = sequentialSearch(sourceList, targetValue);
+            System.out.println("Element found at index: " + index);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     private static int sequentialSearch(int[] sourceList, int targetValue) {
         for (int i = 0; i < sourceList.length; i++) {
             if (sourceList[i] == targetValue) {
@@ -71,6 +82,17 @@ description: 通过讨论算法的解决的问题、用途、策略来系统的�
 所以算法实现如下：
 
 ```java
+    public static void main(String[] args) {
+        int[] sourceList = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int targetValue = 5;
+        try {
+            int index = binarySearch(sourceList, targetValue);
+            System.out.println("Element found at index: " + index);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     private static int binarySearch(int[] sourceList, int targetValue) {
         int left = 0;
         int right = sourceList.length - 1;
