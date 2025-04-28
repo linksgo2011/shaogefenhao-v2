@@ -1,5 +1,5 @@
 folder=column/tech-lead
-fileName=avoid-taking-on-too-much-responsibility
+fileName=likes-and-dislikes-and-interests
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
