@@ -1,5 +1,5 @@
-folder=column/tech-lead
-fileName=career-goal-sales
+folder=posts/modeling
+fileName=oop-is-metaphor
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
