@@ -1,5 +1,5 @@
-folder=posts/modeling
-fileName=oop-is-metaphor
+folder=column/tech-lead
+fileName=avoiding-the-pedantic-style
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build

@@ -55,14 +55,14 @@
             <div class="features">
                 <div class="feature">
                   <ul>
-                      <li><a href="http://todo.printf.cn/">极简任务管理工具</a></li>
+                      <li><a href="https://enladder.com/">英语生词提示(word wise)工具 Enladder</a></li>
                       <li><a href="http://domain-driven-design.org/">开源网站：DDD 参考指南</a></li>
                   </ul>
                 </div>
                 <div class="feature">
                     <ul>
                         <li><a href="https://edu.51cto.com/topic/5211.html">51CTO DDD 系列课程</a></li>
-                        <li><a href="https://u.jd.com/R8ZlYBw">《Java 研发自测: 入门到与进阶》</a></li>
+                        <li><a href="https://u.jd.com/R8ZlYBw">出版《Java 研发自测: 入门到与进阶》</a></li>
                     </ul>
                 </div>
                 <div class="feature">
