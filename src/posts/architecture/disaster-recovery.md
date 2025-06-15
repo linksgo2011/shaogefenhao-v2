@@ -143,6 +143,6 @@ RTO/RPO 在秒级别一般要做双活或者多活才能实现；如果在小时
 
 ## 06 参考资料
 
-1. [AWS Disaster Recovery](https://aws.amazon.com/chttps://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/posts/architecture/disaster-recovery/)
+1. [AWS Disaster Recovery](https://aws.amazon.com/cn/disaster-recovery/)
 2. [Azure Business Continuity and Disaster Recovery](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/backup-and-recovery)
 3. [Google Cloud Disaster Recovery Planning Guide](https://cloud.google.com/architecture/dr-scenarios-planning-guide)

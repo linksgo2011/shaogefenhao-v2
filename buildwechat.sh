@@ -1,5 +1,5 @@
-folder=column/tech-lead
-fileName=avoiding-the-pedantic-style
+folder=posts/architecture
+fileName=disaster-recovery
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
