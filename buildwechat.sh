@@ -1,5 +1,5 @@
-folder=posts/architecture
-fileName=disaster-recovery
+folder=column/tech-lead
+fileName=definition-of-done
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
