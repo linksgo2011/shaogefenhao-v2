@@ -220,6 +220,8 @@ B 站回放观看地址： https://www.bilibili.com/list/2066241928
 78. [技术方案 Webinar - 实用主义观点下的函数式编程思想](./java-solution-webinar-78.html)
 79. [技术方案 Webinar - 现代广告系统的逻辑（竞价、oCPX、归因）](./java-solution-webinar-79.html)
 80. [技术方案 Webinar - 程序员的认知心得这本书](./java-solution-webinar-80.html)
+81. [技术方案 Webinar - 基于 AI 的快速软件开发流程](./java-solution-webinar-81.html)
+82. [技术方案 Webinar - SEO 的逻辑](./java-solution-webinar-82.html)
 
 ## Agenda 和准备材料
 
