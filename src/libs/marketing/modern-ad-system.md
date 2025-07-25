@@ -382,8 +382,6 @@ OCPX 系统面临的核心挑战之一是在"精准转化"和"广泛获客"之�
 
 ### 7.2 归因分析（Attribution Modeling）
 
-![](./modern-ad-system/attribute-model.png)
-
 归因的目的是，回答一些运营过程中的疑问，来优化未来的运营策略：
 
 - 哪个渠道效果更好？
