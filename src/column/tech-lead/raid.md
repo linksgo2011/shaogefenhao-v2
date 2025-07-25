@@ -157,4 +157,4 @@ RAID log 是一个极好的跨部门协同工具，你可以拿着它和运营�
 
 ## RAID Log 模版
 
-![](raid/raid-log-template.png)
+![](./raid/raid-log-template.png)
