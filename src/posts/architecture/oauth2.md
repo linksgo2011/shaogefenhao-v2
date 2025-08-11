@@ -16,8 +16,8 @@ OAuth2 不是一个很难的话题，但是我发现在很多场景下被反复�
 - OAuth2 被设计出来到底是解决什么问题？
 - 常见的几种模式到底怎么选择？
 - 为什么需要 access_token 和 refresh_token？
-- 用了 OAuth2 之后，还需要 JTW token 吗？
-- 如何用户退出后，access_token 撤回？   
+- 用了 OAuth2 之后，还需要 JWT token 吗？
+- 用户退出后，如何撤回access_token？   
 - OAuth2 和 SSO 有什么关系？
 
 ## 01 OAuth2 解决的问题
@@ -56,7 +56,7 @@ OAuth2 有几种模式：
 
 ### 授权码模式（Authorization Code）
 
-![](./oauth2/flow.png)
+![](./oauth2/authenrize_code.png)
 
 （这是我在网上找的一张图）
 
@@ -123,13 +123,13 @@ A 公司的员工需要去一个第三方仓库提货，但他没有仓库的密
 
 其实这里是一个系统设计上的矛盾：**分布式授权下，access_token 需要时间短和避免用户频繁登出的问题。**
 
-access_token 是资源服务的临时凭证，access_token 一般是 JWT 每次业务请求，不会再询问鉴权中心，否则鉴权中心的访问量极大。
+access_token 是资源服务的临时凭证，access_token 一般是 JWT，每次业务请求不会再询问鉴权中心，否则鉴权中心的访问量极大。
 
 access_token 时间过长系统存在风险，尤其是用户退出后，access_token 还有短期时间可以访问资源服务。
 
 但是 access_token 时间过短，会导致用户每次都要重新登陆，用户体验不好。
 
-解决这个矛盾的权衡就是 refresh_token。让 access_token 过期时间非常短，通过 refresh_token 定期更换 access_token，既保证了鉴权的去中性化，又可以一定程度上保证安全。
+解决这个矛盾的权衡就是 refresh_token。让 access_token 过期时间非常短，通过 refresh_token 定期更换 access_token，既保证了鉴权的去中心化，又可以一定程度上保证安全。
 
 总之来说：
 
@@ -142,9 +142,9 @@ access_token 时间过长系统存在风险，尤其是用户退出后，access_
 
 ## JWT 和 Opaque Token
 
-用了 OAuth2 之后，一定要用 JTW token 吗？ 
+用了 OAuth2 之后，一定要用 JWT token 吗？ 
 
-OAuth2 是一个快递流程协议，定义谁能寄、谁能收、怎么查。JWT 是一种快递盒子格式，可以透明（JWT），也可以密封 opaque。
+OAuth2 是一个快递流程协议，定义谁能寄、谁能收、怎么查。JWT 是一种快递盒子格式，可以透明（JWT），也可以密封（opaque）。
 
 OAuth2 可以完全不使用 JWT Token，但这就丧失了两个能力：
 
