@@ -89,9 +89,10 @@ sidebar: false
 ### 05 值对象，其实就是“字段包”
 
 - 理解值对象
-    - 通俗来说值对象就是属性包
+    - 实体有 ID 值对象没有 ID
     - 值对象的属性是不可变的，一旦创建就不能改变
     - 值对象的相等性是基于属性值的，而不是引用
+    - 通俗来说值对象就是属性包
 - 为什么需要用值对象：减少重复字段的定义
 - 项目中真实的例子
     - 订单中的地址信息，包括国家、省份、城市、区县、街道、详细地址、邮政编码等
@@ -142,17 +143,37 @@ sidebar: false
 
 ### 08 DDD 的建模过程
 
-- 协作建模：事件风暴
+- 系统词汇法（OOA）
+    - 寻找系统中的客体，表达状态的被操作者
 - 个人 SOLO：用例分析方法
+    - 通过原型图整理，用例（UseCase）是对一个活动者使用系统的一项功能时所进行的交互过程的一个文字描述。
+    - 在用户故事中寻找名词（这块现在可以通过 AI 实现）
+    - 分析参与者、用例关系、名词（模型）之间的关系，辨析模型是否正确
+- 彩色建模
+    - 四色建模法其实是以数据驱动，通过挑选一些关键数据（类似于办事过程中的存根），来还原整个业务流程。然后基于这个线索，找出时标性对象（moment-interval）、实体（party/place/thing）、角色（Role）、描述对象（description）。
+    - 用四种颜色标注这些对象，参考：：
+        - 红色：时标性对象（moment-interval）
+        - 绿色：实体（party/place/thing）
+        - 蓝色：角色（Role）
+        - 黄色：描述对象（description）
+    - “任何业务事件都会以某种数据的形式留下足迹”。
+- 协作建模：事件风暴
+    - 参考: https://domain-driven-design.org/zh/ddd-design-workshop-guide.html
+    - 工作坊本质上是拉长人们思考的时间，更加深度的思考问题
+    - “事件是系统状态变化的关键帧”。
+- 总结
+    - 本质上是通过不同的线索，寻找对象。参考：建模方法元模型 https://mp.weixin.qq.com/s/B3tJhSh_Az5g8sOaMVZtUA
 
 ### 09 DDD在敏捷团队中如何应用
 
 - 项目规划阶段：战略设计
+    - https://mp.weixin.qq.com/s/_o9dM8_lVyC9nwtSrM37KQ
 - 日常迭代阶段：战术设计
+    - https://mp.weixin.qq.com/s/m_sRyJedAydk0b-0VVa3tw
 
 ### 10 DDD 概念全景回顾【阶段性完结】
 
-https://domain-driven-design.org/zh/ddd-concept-reference.html
+- 参考: https://domain-driven-design.org/zh/ddd-concept-reference.html
 
 ### 11 为什么我要求团队不使用多对多关系？
 
@@ -171,6 +192,9 @@ https://domain-driven-design.org/zh/ddd-concept-reference.html
 ### 18 对象转换工具
 
 ### 19 建议大家把分析和设计分开
+
+### 20 场景和复用分离：应用系统终极模式
+
 
 ## 待解决的问题
 
