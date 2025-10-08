@@ -7,9 +7,9 @@
       "id": "-SMSJNzgzFeYETPB5K-St",
       "type": "text",
       "x": 1675.5753545918308,
-      "y": -576.9474949983686,
+      "y": -576.8360244967714,
       "width": 1090.4510592529143,
-      "height": 814.279453116842,
+      "height": 843.3608621567291,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -23,8 +23,8 @@
       "index": "ak",
       "roundness": null,
       "seed": 867780638,
-      "version": 1558,
-      "versionNonce": 39636754,
+      "version": 1561,
+      "versionNonce": 137305550,
       "isDeleted": false,
       "boundElements": [
         {
@@ -44,16 +44,16 @@
           "type": "arrow"
         }
       ],
-      "updated": 1759723334170,
+      "updated": 1759756247560,
       "link": null,
       "locked": false,
-      "text": "- 系统词汇法（OOA）\n    - 寻找系统中的客体，表达状态的被操作者\n\n- 用例分析方法\n    - 通过原型图整理，用例（UseCase）是对一个活动者使用系统的一项功能时所进行的交互过程的一个\n文字描述。\n    - 在用户故事中寻找名词（这块现在可以通过 AI 实现）\n    - 分析参与者、用例关系、名词（模型）之间的关系，辨析模型是否正确\n\n- 彩色建模\n    - 四色建模法其实是以数据驱动，通过挑选一些关键数据（类似于办事过程中的存根），来还原整个业\n务流程。然后基于这个线索，找出时标性对象（moment-interval）、实体（party/place/thing）、角色\n（Role）、描述对象（description）。\n    - 用四种颜色标注这些对象，参考：：\n        - 红色：时标性对象（moment-interval）\n        - 绿色：实体（party/place/thing）\n        - 蓝色：角色（Role）\n        - 黄色：描述对象（description）\n    - “任何业务事件都会以某种数据的形式留下足迹”。\n\n- 协作建模：事件风暴\n    - 参考: https://domain-driven-design.org/zh/ddd-design-workshop-guide.html\n    - 工作坊本质上是拉长人们思考的时间，更加深度的思考问题\n    - “事件是系统状态变化的关键帧”。\n\n- 总结\n    - 本质上是通过不同的线索，寻找对象。参考：建模方法元模型\nhttps://mp.weixin.qq.com/s/B3tJhSh_Az5g8sOaMVZtUA",
+      "text": "- 系统词汇法（OOA）\n    - 寻找系统中的客体，表达状态的被操作者\n\n- 用例分析方法\n    - 通过原型图整理，用例（UseCase）是对一个活动者使用系统的一项功能时所进行的交互过程的一个\n文字描述。\n    - 在用户故事中寻找名词（这块现在可以通过 AI 实现）\n    - 分析参与者、用例关系、名词（模型）之间的关系，辨析模型是否正确\n\n- 彩色建模\n    - 四色建模法其实是以数据驱动，通过挑选一些关键数据（类似于办事过程中的存根），来还原整个业\n务流程。然后基于这个线索，找出时标性对象（moment-interval）、实体（party/place/thing）、角色\n（Role）、描述对象（description）。\n    - 用四种颜色标注这些对象，参考：：\n        - 红色：时标性对象（moment-interval）\n        - 绿色：实体（party/place/thing）\n        - 蓝色：角色（Role）\n        - 黄色：描述对象（description）\n    - “任何业务事件都会以某种数据的形式留下足迹”。\n\n- 协作建模：事件风暴\n    - 参考: https://domain-driven-design.org/zh/ddd-design-workshop-guide.html\n    - 工作坊本质上是拉长人们思考的时间，更加深度的思考问题\n    - “事件是系统状态变化的关键帧”。\n\n- 总结\n    - 本质上是通过不同的线索，寻找对象。参考：建模方法元模型\nhttps://mp.weixin.qq.com/s/B3tJhSh_Az5g8sOaMVZtUA\n    - 没有一种严格推理输出上下文的方法，更多的还是经验和取舍权衡",
       "fontSize": 23.26512723190977,
       "fontFamily": 5,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "- 系统词汇法（OOA）\n    - 寻找系统中的客体，表达状态的被操作者\n\n- 用例分析方法\n    - 通过原型图整理，用例（UseCase）是对一个活动者使用系统的一项功能时所进行的交互过程的一个文字描述。\n    - 在用户故事中寻找名词（这块现在可以通过 AI 实现）\n    - 分析参与者、用例关系、名词（模型）之间的关系，辨析模型是否正确\n\n- 彩色建模\n    - 四色建模法其实是以数据驱动，通过挑选一些关键数据（类似于办事过程中的存根），来还原整个业务流程。然后基于这个线索，找出时标性对象（moment-interval）、实体（party/place/thing）、角色（Role）、描述对象（description）。\n    - 用四种颜色标注这些对象，参考：：\n        - 红色：时标性对象（moment-interval）\n        - 绿色：实体（party/place/thing）\n        - 蓝色：角色（Role）\n        - 黄色：描述对象（description）\n    - “任何业务事件都会以某种数据的形式留下足迹”。\n\n- 协作建模：事件风暴\n    - 参考: https://domain-driven-design.org/zh/ddd-design-workshop-guide.html\n    - 工作坊本质上是拉长人们思考的时间，更加深度的思考问题\n    - “事件是系统状态变化的关键帧”。\n\n- 总结\n    - 本质上是通过不同的线索，寻找对象。参考：建模方法元模型 https://mp.weixin.qq.com/s/B3tJhSh_Az5g8sOaMVZtUA",
+      "originalText": "- 系统词汇法（OOA）\n    - 寻找系统中的客体，表达状态的被操作者\n\n- 用例分析方法\n    - 通过原型图整理，用例（UseCase）是对一个活动者使用系统的一项功能时所进行的交互过程的一个文字描述。\n    - 在用户故事中寻找名词（这块现在可以通过 AI 实现）\n    - 分析参与者、用例关系、名词（模型）之间的关系，辨析模型是否正确\n\n- 彩色建模\n    - 四色建模法其实是以数据驱动，通过挑选一些关键数据（类似于办事过程中的存根），来还原整个业务流程。然后基于这个线索，找出时标性对象（moment-interval）、实体（party/place/thing）、角色（Role）、描述对象（description）。\n    - 用四种颜色标注这些对象，参考：：\n        - 红色：时标性对象（moment-interval）\n        - 绿色：实体（party/place/thing）\n        - 蓝色：角色（Role）\n        - 黄色：描述对象（description）\n    - “任何业务事件都会以某种数据的形式留下足迹”。\n\n- 协作建模：事件风暴\n    - 参考: https://domain-driven-design.org/zh/ddd-design-workshop-guide.html\n    - 工作坊本质上是拉长人们思考的时间，更加深度的思考问题\n    - “事件是系统状态变化的关键帧”。\n\n- 总结\n    - 本质上是通过不同的线索，寻找对象。参考：建模方法元模型 https://mp.weixin.qq.com/s/B3tJhSh_Az5g8sOaMVZtUA\n    - 没有一种严格推理输出上下文的方法，更多的还是经验和取舍权衡",
       "autoResize": false,
       "lineHeight": 1.25
     },
@@ -97,8 +97,8 @@
     {
       "id": "ftDo70U6azFOr7NafveQc",
       "type": "rectangle",
-      "x": 3622.883555754387,
-      "y": -251.2144379474886,
+      "x": 3622.7392604783645,
+      "y": -251.2097832611653,
       "width": 295.88479962785914,
       "height": 84.88536377762603,
       "angle": 0,
@@ -116,8 +116,8 @@
         "type": 3
       },
       "seed": 1306972931,
-      "version": 149,
-      "versionNonce": 1951959378,
+      "version": 150,
+      "versionNonce": 1292289550,
       "isDeleted": false,
       "boundElements": [
         {
@@ -133,15 +133,15 @@
           "type": "arrow"
         }
       ],
-      "updated": 1759723249591,
+      "updated": 1759756731273,
       "link": null,
       "locked": false
     },
     {
       "id": "rb1tFnON3FOJNXAlTS1a0",
       "type": "text",
-      "x": 3700.8259555683167,
-      "y": -233.77175605867558,
+      "x": 3700.681660292294,
+      "y": -233.7671013723523,
       "width": 140,
       "height": 50,
       "angle": 0,
@@ -157,11 +157,11 @@
       "index": "b27",
       "roundness": null,
       "seed": 1622874851,
-      "version": 208,
-      "versionNonce": 1189056274,
+      "version": 209,
+      "versionNonce": 1688130638,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249591,
+      "updated": 1759756731273,
       "link": null,
       "locked": false,
       "text": "电梯演讲\n对系统进行定位",
@@ -258,7 +258,7 @@
       "id": "ghorjZYHH2j9pnGVkjMqV",
       "type": "rectangle",
       "x": 3630.323968485688,
-      "y": -93.21250392173556,
+      "y": -93.0635539593901,
       "width": 295.88479962785914,
       "height": 85,
       "angle": 0,
@@ -276,8 +276,8 @@
         "type": 3
       },
       "seed": 2044659267,
-      "version": 414,
-      "versionNonce": 152868690,
+      "version": 415,
+      "versionNonce": 118303886,
       "isDeleted": false,
       "boundElements": [
         {
@@ -293,7 +293,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1759723249591,
+      "updated": 1759756759666,
       "link": null,
       "locked": false
     },
@@ -301,7 +301,7 @@
       "id": "9LQYtDHzsB_88h3Cf8-pY",
       "type": "text",
       "x": 3638.2663682996176,
-      "y": -88.21250392173556,
+      "y": -88.0635539593901,
       "width": 280,
       "height": 75,
       "angle": 0,
@@ -317,11 +317,11 @@
       "index": "b2B",
       "roundness": null,
       "seed": 223036899,
-      "version": 564,
-      "versionNonce": 66182418,
+      "version": 565,
+      "versionNonce": 236219086,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249591,
+      "updated": 1759756759666,
       "link": null,
       "locked": false,
       "text": "事件风暴\n通过梳理事件的变化，分析系统\n状态的变化",
@@ -338,7 +338,7 @@
       "id": "J6sB1HJAtRelcNHNociv8",
       "type": "rectangle",
       "x": 4023.1220203545013,
-      "y": -99.03913173105684,
+      "y": -98.7598505516591,
       "width": 295.88479962785914,
       "height": 85,
       "angle": 0,
@@ -356,8 +356,8 @@
         "type": 3
       },
       "seed": 1010874445,
-      "version": 483,
-      "versionNonce": 1490378322,
+      "version": 485,
+      "versionNonce": 539763346,
       "isDeleted": false,
       "boundElements": [
         {
@@ -373,7 +373,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1759723249591,
+      "updated": 1759756779531,
       "link": null,
       "locked": false
     },
@@ -381,7 +381,7 @@
       "id": "Y5Da3mUKTa_WFyaXOQNKP",
       "type": "text",
       "x": 4131.064420168431,
-      "y": -81.53913173105684,
+      "y": -81.2598505516591,
       "width": 80,
       "height": 50,
       "angle": 0,
@@ -397,11 +397,11 @@
       "index": "b2D",
       "roundness": null,
       "seed": 696133293,
-      "version": 650,
-      "versionNonce": 251249682,
+      "version": 652,
+      "versionNonce": 2137915474,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249591,
+      "updated": 1759756779531,
       "link": null,
       "locked": false,
       "text": "命令风暴\n完善用例",
@@ -417,10 +417,10 @@
     {
       "id": "0yK0Br8wTk-f0AgA_6Ua0",
       "type": "arrow",
-      "x": 3927.9237495203224,
-      "y": -207.78914967625929,
-      "width": 96.05169653944677,
-      "height": 1.0094176422875307,
+      "x": 3927.322299784452,
+      "y": -207.7815880749935,
+      "width": 96.59678891943304,
+      "height": 1.0163869780197956,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -436,11 +436,11 @@
         "type": 2
       },
       "seed": 1003480131,
-      "version": 419,
-      "versionNonce": 948979854,
+      "version": 420,
+      "versionNonce": 1654332046,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249824,
+      "updated": 1759756731273,
       "link": null,
       "locked": false,
       "points": [
@@ -449,8 +449,8 @@
           0
         ],
         [
-          96.05169653944677,
-          -1.0094176422875307
+          96.59678891943304,
+          -1.0163869780197956
         ]
       ],
       "lastCommittedPoint": null,
@@ -471,10 +471,10 @@
     {
       "id": "UeheKlUmEQblb_NtQqZL1",
       "type": "arrow",
-      "x": 4212.1263649798175,
-      "y": -167.32115039007738,
-      "width": 490.78534483137355,
-      "height": 72.73025823718073,
+      "x": 4219.306643114496,
+      "y": -168.57210536254996,
+      "width": 506.1919002682839,
+      "height": 75.1199385800025,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -490,11 +490,11 @@
         "type": 2
       },
       "seed": 863047181,
-      "version": 505,
-      "versionNonce": 780533006,
+      "version": 506,
+      "versionNonce": 639230222,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249824,
+      "updated": 1759756759667,
       "link": null,
       "locked": false,
       "points": [
@@ -503,12 +503,12 @@
           0
         ],
         [
-          -238.1843867227658,
-          41.49671326756396
+          -245.3646648574445,
+          42.747668240036546
         ],
         [
-          -490.78534483137355,
-          72.73025823718073
+          -506.1919002682839,
+          75.1199385800025
         ]
       ],
       "lastCommittedPoint": null,
@@ -544,10 +544,10 @@
     {
       "id": "-X_7I_mjmi1qUWRfpQzD4",
       "type": "arrow",
-      "x": 3930.585599811285,
-      "y": -42.444027248868906,
-      "width": 87.26040675669219,
-      "height": 0.05253205668356031,
+      "x": 3930.3919795918946,
+      "y": -42.33319248474592,
+      "width": 87.6932119495018,
+      "height": 0.09629150261110908,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -563,11 +563,11 @@
         "type": 2
       },
       "seed": 494197219,
-      "version": 411,
-      "versionNonce": 2029556110,
+      "version": 414,
+      "versionNonce": 1580082706,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249825,
+      "updated": 1759756779531,
       "link": null,
       "locked": false,
       "points": [
@@ -576,8 +576,8 @@
           0
         ],
         [
-          87.26040675669219,
-          0.05253205668356031
+          87.6932119495018,
+          0.09629150261110908
         ]
       ],
       "lastCommittedPoint": null,
@@ -598,8 +598,8 @@
     {
       "id": "3OPZhpCe7KxUgD35L0qeD",
       "type": "rectangle",
-      "x": 3637.546912503835,
-      "y": 76.1761658362916,
+      "x": 3637.5655312491285,
+      "y": 76.49733919259899,
       "width": 295.88479962785914,
       "height": 85,
       "angle": 0,
@@ -617,8 +617,8 @@
         "type": 3
       },
       "seed": 136605997,
-      "version": 470,
-      "versionNonce": 399511186,
+      "version": 472,
+      "versionNonce": 1066492050,
       "isDeleted": false,
       "boundElements": [
         {
@@ -634,15 +634,15 @@
           "type": "arrow"
         }
       ],
-      "updated": 1759723249591,
+      "updated": 1759756795963,
       "link": null,
       "locked": false
     },
     {
       "id": "bzeCpgs5pgef-QMVH3EQL",
       "type": "text",
-      "x": 3659.8793193368074,
-      "y": 93.6761658362916,
+      "x": 3659.897938082101,
+      "y": 93.99733919259899,
       "width": 251.21998596191406,
       "height": 50,
       "angle": 0,
@@ -658,11 +658,11 @@
       "index": "b2I",
       "roundness": null,
       "seed": 909624205,
-      "version": 672,
-      "versionNonce": 867462226,
+      "version": 674,
+      "versionNonce": 997949010,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249591,
+      "updated": 1759756795963,
       "link": null,
       "locked": false,
       "text": "寻找模型\n梳理和分析出业务对象/凭证",
@@ -758,8 +758,8 @@
     {
       "id": "pv2fhsvCaQ74hoScu4xI2",
       "type": "rectangle",
-      "x": 3649.8225526092083,
-      "y": 224.71475340529088,
+      "x": 3649.501379252901,
+      "y": 224.55183938397562,
       "width": 295.88479962785914,
       "height": 85,
       "angle": 0,
@@ -777,8 +777,8 @@
         "type": 3
       },
       "seed": 1361037475,
-      "version": 530,
-      "versionNonce": 80403602,
+      "version": 531,
+      "versionNonce": 1862735182,
       "isDeleted": false,
       "boundElements": [
         {
@@ -794,15 +794,15 @@
           "type": "arrow"
         }
       ],
-      "updated": 1759723249592,
+      "updated": 1759756830746,
       "link": null,
       "locked": false
     },
     {
       "id": "m03gpDDfQddmeeofjF5DP",
       "type": "text",
-      "x": 3707.764952423138,
-      "y": 242.21475340529088,
+      "x": 3707.4437790668308,
+      "y": 242.05183938397562,
       "width": 180,
       "height": 50,
       "angle": 0,
@@ -818,11 +818,11 @@
       "index": "b2M",
       "roundness": null,
       "seed": 402963523,
-      "version": 775,
-      "versionNonce": 338000466,
+      "version": 776,
+      "versionNonce": 1481849742,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249592,
+      "updated": 1759756830746,
       "link": null,
       "locked": false,
       "text": "限界上下文划分\n规划系统的逻辑边界",
@@ -838,8 +838,8 @@
     {
       "id": "ZijOuXN2vFwZmc-KQBjEU",
       "type": "rectangle",
-      "x": 4038.0277542056147,
-      "y": 223.97451380094668,
+      "x": 4038.032408891938,
+      "y": 224.11880907696883,
       "width": 295.88479962785914,
       "height": 85,
       "angle": 0,
@@ -857,8 +857,8 @@
         "type": 3
       },
       "seed": 1075731011,
-      "version": 593,
-      "versionNonce": 1368851346,
+      "version": 594,
+      "versionNonce": 433343886,
       "isDeleted": false,
       "boundElements": [
         {
@@ -870,15 +870,15 @@
           "type": "arrow"
         }
       ],
-      "updated": 1759723249592,
+      "updated": 1759756839195,
       "link": null,
       "locked": false
     },
     {
       "id": "IlKj0U_yL0ppFYRle2j9r",
       "type": "text",
-      "x": 4115.970154019544,
-      "y": 253.97451380094668,
+      "x": 4115.974808705867,
+      "y": 254.11880907696883,
       "width": 140,
       "height": 25,
       "angle": 0,
@@ -894,11 +894,11 @@
       "index": "b2O",
       "roundness": null,
       "seed": 2021661155,
-      "version": 866,
-      "versionNonce": 1658110290,
+      "version": 867,
+      "versionNonce": 1565486030,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249592,
+      "updated": 1759756839195,
       "link": null,
       "locked": false,
       "text": "整理规范化输出",
@@ -914,10 +914,10 @@
     {
       "id": "qylOkyiv9jch-evcYcJt0",
       "type": "arrow",
-      "x": 3941.0910418763838,
-      "y": 120.8884504041352,
-      "width": 92.68136318936513,
-      "height": 2.932919038424302,
+      "x": 3940.740256889975,
+      "y": 121.02691931366918,
+      "width": 87.04782182934468,
+      "height": 2.8832069964583127,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -933,11 +933,11 @@
         "type": 2
       },
       "seed": 1777330019,
-      "version": 419,
-      "versionNonce": 103810574,
+      "version": 421,
+      "versionNonce": 2010899474,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249825,
+      "updated": 1759756795963,
       "link": null,
       "locked": false,
       "points": [
@@ -946,8 +946,8 @@
           0
         ],
         [
-          92.68136318936513,
-          -2.932919038424302
+          87.04782182934468,
+          -2.8832069964583127
         ]
       ],
       "lastCommittedPoint": null,
@@ -968,10 +968,10 @@
     {
       "id": "F4_OrAmQyRRTsG83FyaVN",
       "type": "arrow",
-      "x": 3952.261930451032,
-      "y": 264.113598093152,
-      "width": 84.53872754157919,
-      "height": 0.35329617480067554,
+      "x": 3951.6334140883496,
+      "y": 264.0501964280993,
+      "width": 85.22144891105881,
+      "height": 0.42925179509370537,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -987,11 +987,11 @@
         "type": 2
       },
       "seed": 365982147,
-      "version": 408,
-      "versionNonce": 1383357070,
+      "version": 410,
+      "versionNonce": 944554510,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249825,
+      "updated": 1759756839195,
       "link": null,
       "locked": false,
       "points": [
@@ -1000,8 +1000,8 @@
           0
         ],
         [
-          84.53872754157919,
-          0.35329617480067554
+          85.22144891105881,
+          0.42925179509370537
         ]
       ],
       "lastCommittedPoint": null,
@@ -1022,10 +1022,10 @@
     {
       "id": "qbw6GSLZpa2KE7GKt5Rsz",
       "type": "arrow",
-      "x": 4186.4019604554105,
-      "y": -4.862556321726743,
-      "width": 378.68302850415967,
-      "height": 68.08521997229263,
+      "x": 4221.310681871161,
+      "y": -10.892760119281885,
+      "width": 462.2098356837273,
+      "height": 83.16927240395133,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -1041,11 +1041,11 @@
         "type": 2
       },
       "seed": 426597709,
-      "version": 435,
-      "versionNonce": 1745719054,
+      "version": 439,
+      "versionNonce": 514429394,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249826,
+      "updated": 1759756795963,
       "link": null,
       "locked": false,
       "points": [
@@ -1054,8 +1054,8 @@
           0
         ],
         [
-          -378.68302850415967,
-          68.08521997229263
+          -462.2098356837273,
+          83.16927240395133
         ]
       ],
       "lastCommittedPoint": null,
@@ -1076,10 +1076,10 @@
     {
       "id": "bj-p5s_2fTHLtcYg5ClpU",
       "type": "arrow",
-      "x": 4191.460264418429,
-      "y": 167.40017221042746,
-      "width": 414.56782568748076,
-      "height": 47.95294588444733,
+      "x": 4259.891898183383,
+      "y": 159.4847040351696,
+      "width": 538.7222034992019,
+      "height": 62.13589206403918,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -1095,11 +1095,11 @@
         "type": 2
       },
       "seed": 826723309,
-      "version": 423,
-      "versionNonce": 1598268302,
+      "version": 424,
+      "versionNonce": 1516777486,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723249827,
+      "updated": 1759756830747,
       "link": null,
       "locked": false,
       "points": [
@@ -1108,8 +1108,8 @@
           0
         ],
         [
-          -414.56782568748076,
-          47.95294588444733
+          -538.7222034992019,
+          62.13589206403918
         ]
       ],
       "lastCommittedPoint": null,
@@ -1130,10 +1130,10 @@
     {
       "id": "O7ThuYm6DP4k-G3FLY44Q",
       "type": "arrow",
-      "x": 2785.808634697949,
-      "y": 51.33809943064597,
-      "width": 834.8646477510647,
-      "height": 252.86970992501108,
+      "x": 2785.8086346979485,
+      "y": 71.71296072347087,
+      "width": 834.8120484588267,
+      "height": 271.37672722460854,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -1149,11 +1149,11 @@
         "type": 2
       },
       "seed": 2013806990,
-      "version": 166,
-      "versionNonce": 2128927442,
+      "version": 170,
+      "versionNonce": 1572116686,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1759723253374,
+      "updated": 1759756731273,
       "link": null,
       "locked": false,
       "points": [
@@ -1162,8 +1162,8 @@
           0
         ],
         [
-          834.8646477510647,
-          -252.86970992501108
+          834.8120484588267,
+          -271.37672722460854
         ]
       ],
       "lastCommittedPoint": null,
@@ -1259,10 +1259,10 @@
     {
       "id": "qd0K9R9VUxxXNv4whN9xF",
       "type": "arrow",
-      "x": 1638.1706440447358,
-      "y": -233.05470007818602,
-      "width": 351.0860607063396,
-      "height": 165.27399595528604,
+      "x": 1661.575354591831,
+      "y": -238.999029751953,
+      "width": 374.490771253435,
+      "height": 173.38971519447858,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -1278,11 +1278,11 @@
         "type": 2
       },
       "seed": 1978771598,
-      "version": 353,
-      "versionNonce": 2117052430,
+      "version": 356,
+      "versionNonce": 635470414,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723313468,
+      "updated": 1759756247561,
       "link": null,
       "locked": false,
       "points": [
@@ -1291,8 +1291,8 @@
           0
         ],
         [
-          -351.0860607063396,
-          165.27399595528604
+          -374.490771253435,
+          173.38971519447858
         ]
       ],
       "lastCommittedPoint": null,
@@ -1349,9 +1349,9 @@
       "id": "a33sa8Eb9aBW-72ryh_hS",
       "type": "arrow",
       "x": 2191.2103418235242,
-      "y": 261.5098080596746,
+      "y": 290.7026876011589,
       "width": 0,
-      "height": 331.7548764060656,
+      "height": 302.56199686458126,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -1367,11 +1367,11 @@
         "type": 2
       },
       "seed": 1230827342,
-      "version": 309,
-      "versionNonce": 760394574,
+      "version": 312,
+      "versionNonce": 729221262,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723301029,
+      "updated": 1759756247561,
       "link": null,
       "locked": false,
       "points": [
@@ -1381,7 +1381,7 @@
         ],
         [
           0,
-          331.7548764060656
+          302.56199686458126
         ]
       ],
       "lastCommittedPoint": null,
@@ -1438,10 +1438,10 @@
     {
       "id": "MZQ5k28-vhS6dKsTid0cO",
       "type": "arrow",
-      "x": 1637.4977812402774,
-      "y": -466.4388463395387,
-      "width": 332.53055433654686,
-      "height": 380.03509222580067,
+      "x": 1661.5753545918308,
+      "y": -427.9342587956723,
+      "width": 383.0044738913207,
+      "height": 447.03008716216,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -1457,11 +1457,11 @@
         "type": 2
       },
       "seed": 156137742,
-      "version": 460,
-      "versionNonce": 2053055442,
+      "version": 463,
+      "versionNonce": 1088603854,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759723334458,
+      "updated": 1759756247561,
       "link": null,
       "locked": false,
       "points": [
@@ -1470,8 +1470,8 @@
           0
         ],
         [
-          -332.53055433654686,
-          -380.03509222580067
+          -383.0044738913207,
+          -447.03008716216
         ]
       ],
       "lastCommittedPoint": null,
