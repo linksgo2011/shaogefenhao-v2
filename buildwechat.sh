@@ -1,5 +1,5 @@
-folder=posts/ai
-fileName=better-prompt-for-ai-coding
+folder=column/tech-lead
+fileName=waiting-for-the-conflict
 imageHost=https://raw.githubusercontent.com/linksgo2011/shaogefenhao-v2/master/src/$folder
 rm -rf build
 mkdir build
