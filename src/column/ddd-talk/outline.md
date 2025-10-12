@@ -222,6 +222,11 @@ sidebar: false
 - 复用的本质是上下文无关，一旦上下文有关就不好复用
 - https://mp.weixin.qq.com/s/iBNJinKCnm7SxsRHM4FGZg
 
+
+### 聚合实体与物理数据库表的对应关系
+
+TODO
+
 ### ArchUnit 为 DDD 架构自动化检查
 
 ### DDD 项目单元测试和API测试
