@@ -4,4 +4,4 @@ date: 2025-11-15 20:54:03
 sidebar: true
 ---
 
-![](./java-solution-webinar-92/diagram.png)
+![](./java-solution-webinar-92/diagram.excalidraw.png)
